@@ -7,15 +7,25 @@ import com.online.medicine.application.service.domain.valueobject.RemedyId;
 
 public class OrderItem extends BaseEntity<OrderItemId>{
     private OrderId orderId;
-    private final RemedyId remedyId;
+    private final Remedy remedy;
     private final int quantity;
     private final Money price;
     private final Money subTotal;
+    void initializeOrderItem(OrderId orderId, OrderItemId orderItemId){
+            this.orderId = orderId;
+            super.setId(orderItemId);
+
+        }
+        boolean isPriceValid() {
+        return price.isGreaterThanZero() &&
+                price.equals(remedy.getPrice()) &&
+                price.multiply(quantity).equals(subTotal);
+    }
 
     private OrderItem(Builder builder) {
         super.setId(builder.orderItemId);
 
-        remedyId = builder.remedyId;
+        remedy = builder.remedy;
         quantity = builder.quantity;
         price = builder.price;
         subTotal = builder.subTotal;
@@ -26,8 +36,8 @@ public class OrderItem extends BaseEntity<OrderItemId>{
         return orderId;
     }
 
-    public RemedyId getRemedyId() {
-        return remedyId;
+    public Remedy getRemedy() {
+        return remedy;
     }
 
     public int getQuantity() {
@@ -46,7 +56,7 @@ public class OrderItem extends BaseEntity<OrderItemId>{
     public static final class Builder {
         private OrderItemId orderItemId;
 
-        private RemedyId remedyId;
+        private Remedy remedy;
         private int quantity;
         private Money price;
         private Money subTotal;
@@ -65,8 +75,8 @@ public class OrderItem extends BaseEntity<OrderItemId>{
 
 
 
-        public Builder remedyId(RemedyId val) {
-            remedyId = val;
+        public Builder remedy(Remedy val) {
+            remedy = val;
             return this;
         }
 
@@ -90,4 +100,4 @@ public class OrderItem extends BaseEntity<OrderItemId>{
         }
     }
 }
-}
+
