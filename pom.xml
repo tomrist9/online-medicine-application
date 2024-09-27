@@ -50,6 +50,17 @@
         <artifactId>common-domain</artifactId>
         <version>${project.version}</version>
     </dependency>
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-logging</artifactId>
+        <scope>provided</scope>
+    </dependency>
+
 </dependencies>
 
     </dependencyManagement>

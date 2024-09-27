@@ -23,6 +23,12 @@ public class Order extends AggregateRoot<OrderId> {
         validateTotalPrice();
         validateItemsPrice();
     }
+    public void initializeOrder() {
+        setId(new OrderId(UUID.randomUUID()));
+        trackingId = new TrackingId(UUID.randomUUID());
+        orderStatus = OrderStatus.PENDING;
+        initializeOrderItems();
+    }
 
     private void validateItemsPrice() {
     Money orderItemsTotal=   items.stream().map(orderItem -> {
