@@ -8,11 +8,14 @@ import com.online.medicine.application.service.domain.event.OrderCreatedEvent;
 import com.online.medicine.application.service.domain.event.OrderPaidEvent;
 import com.online.medicine.application.service.domain.exception.OrderDomainException;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.OffsetDateTime;
 import java.util.List;
 @Slf4j
 public class OrderDomainServiceImpl implements OrderDomainService {
+
     @Override
     public OrderCreatedEvent validateAndInitiateOrder(Order order, Pharmacy pharmacy) {
         validatePharmacy(pharmacy);
@@ -21,12 +24,12 @@ public class OrderDomainServiceImpl implements OrderDomainService {
         order.initializeOrder();
         log.info("Order with id: {} is initiated", order.getId().getValue());
         return new OrderCreatedEvent(order, OffsetDateTime.now());
-        return null;
+
     }
 
     private void setOrderMedicineInformation(Order order, Pharmacy pharmacy) {
         order.getItems().forEach(orderItem -> pharmacy.getRemedies().forEach(pharmacyRemedy->{
-            Remedy currentRemedy.orderItem.getRemedy();
+            Remedy currentRemedy=orderItem.getRemedy();
             if (currentRemedy.equals(pharmacyRemedy)) {
                 currentRemedy.updateWithConfirmedNameAndPrice(pharmacyRemedy.getName(),
                         pharmacyRemedy.getPrice());

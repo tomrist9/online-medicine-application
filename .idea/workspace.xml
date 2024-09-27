@@ -75,7 +75,7 @@
       <workItem from="1727165682989" duration="597000" />
       <workItem from="1727195219309" duration="952000" />
       <workItem from="1727336874534" duration="648000" />
-      <workItem from="1727439190852" duration="1524000" />
+      <workItem from="1727439190852" duration="2142000" />
     </task>
     <task id="LOCAL-00001" summary="added entities and value objects">
       <option name="closed" value="true" />
@@ -101,7 +101,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727336892896</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added logging and service methods">
+      <option name="closed" value="true" />
+      <created>1727440920739</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727440920739</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added logging and service methods">
+      <option name="closed" value="true" />
+      <created>1727440997305</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727440997305</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,7 +127,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added entities and value objects" />
     <MESSAGE value="added DomainService" />
-    <option name="LAST_COMMIT_MESSAGE" value="added DomainService" />
+    <MESSAGE value="added logging and service methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logging and service methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
