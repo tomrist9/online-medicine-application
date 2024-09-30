@@ -13,12 +13,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -51,6 +57,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;e1b1d87ae398ae5c8267f230ad2ecb46&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -76,6 +83,8 @@
       <workItem from="1727195219309" duration="952000" />
       <workItem from="1727336874534" duration="648000" />
       <workItem from="1727439190852" duration="2142000" />
+      <workItem from="1727513377488" duration="1191000" />
+      <workItem from="1727683108323" duration="5485000" />
     </task>
     <task id="LOCAL-00001" summary="added entities and value objects">
       <option name="closed" value="true" />
@@ -117,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727440997305</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added dto package and its subpackages">
+      <option name="closed" value="true" />
+      <created>1727690011863</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727690011863</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added message.listener and publisher packages">
+      <option name="closed" value="true" />
+      <created>1727692221830</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727692221830</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +153,9 @@
     <MESSAGE value="added entities and value objects" />
     <MESSAGE value="added DomainService" />
     <MESSAGE value="added logging and service methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="added logging and service methods" />
+    <MESSAGE value="added dto package and its subpackages" />
+    <MESSAGE value="added message.listener and publisher packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="added message.listener and publisher packages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
