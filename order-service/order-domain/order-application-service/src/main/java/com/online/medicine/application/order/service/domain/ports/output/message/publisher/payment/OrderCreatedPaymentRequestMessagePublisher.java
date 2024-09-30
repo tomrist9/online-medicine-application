@@ -1,0 +1,8 @@
+package com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment;
+
+import com.online.medicine.application.service.domain.event.OrderCreatedEvent;
+import com.online.medicine.application.service.domain.events.publisher.DomainEventPublisher;
+
+public interface OrderCreatedPaymentRequestMessagePublisher extends DomainEventPublisher<OrderCreatedEvent> {
+
+}
