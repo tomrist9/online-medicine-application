@@ -46,13 +46,15 @@ public class OrderCreateCommandHandler {
         Order order=orderDataMapper.createOrderCommandToOrder(createOrderCommand);
        OrderCreatedEvent orderCreatedEvent= orderDomainService.validateAndInitiateOrder(order, pharmacy);
        Order orderResult=saveOrder(order);
+       log.info("Order is created with id{}", orderResult.getId().getValue());
+       return orderDataMapper.orderToCreateOrderResponse(orderResult);
     }
 
     private Pharmacy checkPharmacy(CreateOrderCommand createOrderCommand) {
         Pharmacy pharmacy=orderDataMapper.createOrderCommandToPharmacy(createOrderCommand);
         Optional<Pharmacy> optionalPharmacy=pharmacyRepository.findPharmacyInformation(pharmacy);
         if(optionalPharmacy.isEmpty()){
-            log.warn("Could not find restaurant with pharmacy id:{}", createOrderCommand.getPharmacyId());
+            log.warn("Could not find pharmacy with pharmacy id:{}", createOrderCommand.getPharmacyId());
             throw new OrderDomainException("Could not find pharmacy with pharmacy id: " + createOrderCommand.getPharmacyId());
         }
         return optionalPharmacy.get();

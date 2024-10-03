@@ -1,6 +1,7 @@
 package com.online.medicine.application.order.service.domain.mapper;
 
 import com.online.medicine.application.order.service.domain.dto.create.CreateOrderCommand;
+import com.online.medicine.application.order.service.domain.dto.create.CreateOrderResponse;
 import com.online.medicine.application.service.domain.entity.Order;
 import com.online.medicine.application.service.domain.entity.OrderItem;
 import com.online.medicine.application.service.domain.entity.Pharmacy;
@@ -43,5 +44,8 @@ public class OrderDataMapper {
                 orderAddress.getPostalCode(),
                 orderAddress.getCity()
         )
+    }
+
+    public CreateOrderResponse orderToCreateOrderResponse(Order orderResult) {
     }
 }
