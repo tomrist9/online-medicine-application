@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class PharmacyId extends BaseId<UUID> {
 
-    protected PharmacyId(UUID value) {
+    public PharmacyId(UUID value) {
         super(value);
     }
 }

@@ -16,7 +16,9 @@ public class Remedy extends BaseEntity<RemedyId> {
         this.name = name;
         this.price = price;
     }
-
+  public Remedy(RemedyId remedyId){
+        super.setId(remedyId);
+  }
 
     public String getName() {
         return name;
