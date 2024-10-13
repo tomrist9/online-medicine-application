@@ -1,7 +1,7 @@
 package com.online.medicine.application.order.service.domain.ports.output.repository;
 
-import com.online.medicine.application.service.domain.entity.Order;
-import com.online.medicine.application.service.domain.valueobject.TrackingId;
+import com.online.medicine.domain.order.service.domain.entity.Order;
+import com.online.medicine.domain.order.service.domain.valueobject.TrackingId;
 
 import java.util.Optional;
 

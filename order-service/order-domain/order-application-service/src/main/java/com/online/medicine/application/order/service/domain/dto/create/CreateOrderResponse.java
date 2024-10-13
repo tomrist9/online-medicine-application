@@ -1,5 +1,6 @@
 package com.online.medicine.application.order.service.domain.dto.create;
 
+import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,9 +15,9 @@ import java.util.UUID;
 
 public class CreateOrderResponse {
     @NotNull
-    private final UUID trackingId;
+    private final UUID orderTrackingId;
     @NotNull
-    private final String orderStatus;
+    private final OrderStatus orderStatus;
     @NotNull
     private final String message;
 }

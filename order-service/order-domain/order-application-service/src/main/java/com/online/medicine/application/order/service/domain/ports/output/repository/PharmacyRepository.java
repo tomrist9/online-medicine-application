@@ -1,6 +1,6 @@
 package com.online.medicine.application.order.service.domain.ports.output.repository;
 
-import com.online.medicine.application.service.domain.entity.Pharmacy;
+import com.online.medicine.domain.order.service.domain.entity.Pharmacy;
 
 import java.util.Optional;
 

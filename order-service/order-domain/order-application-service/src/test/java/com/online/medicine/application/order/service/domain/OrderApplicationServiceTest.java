@@ -1,6 +1,6 @@
-package com.online.medicine.application.order.serviice.domain;
+package com.online.medicine.application.order.service.domain;
 
-import com.online.medicine.application.order.service.domain.OrderApplicationService;
+
 import com.online.medicine.application.order.service.domain.dto.create.CreateOrderCommand;
 import com.online.medicine.application.order.service.domain.dto.create.CreateOrderResponse;
 import com.online.medicine.application.order.service.domain.dto.create.OrderAddress;
@@ -14,12 +14,14 @@ import com.online.medicine.domain.order.service.domain.entity.Customer;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.entity.Pharmacy;
 import com.online.medicine.domain.order.service.domain.entity.Remedy;
+import com.online.medicine.domain.order.service.domain.exception.OrderDomainException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -136,6 +138,8 @@ public class OrderApplicationServiceTest {
                 .build();
         Order order=orderDataMapper.createOrderCommandToOrder(createOrderCommand);
         order.setId(new OrderId(ORDER_ID));
+
+        order.initializeOrder();
         when(customerRepository.findCustomer(CUSTOMER_ID)).thenReturn(Optional.of(customer));
         when(pharmacyRepository.findPharmacyInformation(orderDataMapper.createOrderCommandToPharmacy(createOrderCommand)))
                 .thenReturn(Optional.of(pharmacyResponse));
@@ -145,11 +149,40 @@ public class OrderApplicationServiceTest {
 
     }
     @Test
-    public void testCreateOrder(){
-        CreateOrderResponse createOrderResponse =orderApplicationService.createOrder(createOrderCommand);
-        assertEquals(createOrderResponse.getOrderStatus(), OrderStatus.PENDING);
-        assertEquals(createOrderResponse.getMessage(),"Order created successfully");
+    public void testCreateOrder() {
+        CreateOrderResponse createOrderResponse = orderApplicationService.createOrder(createOrderCommand);
+        assertEquals(OrderStatus.PENDING, createOrderResponse.getOrderStatus());
+        assertEquals("Order created successfully", createOrderResponse.getMessage());
         assertNotNull(createOrderResponse.getOrderTrackingId());
+    }
+    @Test
+    public void testCreateOrderWithWrongTotalPrice() {
+     OrderDomainException orderDomainException= assertThrows(OrderDomainException.class,
+              ()->orderApplicationService.createOrder(createOrderCommandWrongPrice));
+     assertEquals("Invalid order price",orderDomainException.getMessage());
+    }
+     @Test
+     public void testCreateOrderWithWrongRemedyPrice() {
+        OrderDomainException orderDomainException1= assertThrows(OrderDomainException.class,
+                 ()->orderApplicationService.createOrder(createOrderCommandWrongRemedyPrice));
+         assertEquals("Order item price is not valid",orderDomainException1.getMessage() );
+        }
+    @Test
+    public void testCreateOrderWithPassivePharmacy() {
+        Pharmacy pharmacyResponse=Pharmacy.builder()
+                .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
+                .remedies(List.of(new Remedy(new RemedyId(REMEDY_ID), "remedy-1",
+                                new Money(new BigDecimal("50.00"))),
+                        new Remedy(new RemedyId(REMEDY_ID), "product-2", new Money(new BigDecimal("50.00")))))
+                .active(false)
+
+                .build();
+        when(pharmacyRepository.findPharmacyInformation(orderDataMapper.createOrderCommandToPharmacy(createOrderCommand)))
+                .thenReturn(Optional.of(pharmacyResponse));
+        OrderDomainException orderDomainException=assertThrows(OrderDomainException.class,
+                ()->orderApplicationService.createOrder(createOrderCommand));
+        assertEquals("Pharmacy is not active!",orderDomainException.getMessage());
+    }
 
     }
-}
+

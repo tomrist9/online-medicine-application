@@ -1,4 +1,4 @@
-package com.online.medicine.application.service.domain.exception;
+package com.online.medicine.application.order.service.domain.exception;
 
 public class DomainException extends RuntimeException{
     public DomainException(String message) {

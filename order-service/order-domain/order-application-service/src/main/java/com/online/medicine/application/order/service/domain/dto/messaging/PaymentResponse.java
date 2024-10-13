@@ -1,12 +1,11 @@
 package com.online.medicine.application.order.service.domain.dto.messaging;
 
-import com.online.medicine.application.service.domain.valueobject.PaymentStatus;
+import com.online.medicine.application.order.service.domain.valueobject.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.List;
 

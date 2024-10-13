@@ -1,4 +1,4 @@
-package com.online.medicine.application.order.serviice.domain;
+package com.online.medicine.application.order.service.domain;
 
 import com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment.OrderCancelledPaymentRequestMessagePublisher;
 import com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment.OrderCreatedPaymentRequestMessagePublisher;

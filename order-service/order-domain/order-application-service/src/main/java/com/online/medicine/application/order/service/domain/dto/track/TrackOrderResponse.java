@@ -1,6 +1,6 @@
 package com.online.medicine.application.order.service.domain.dto.track;
 
-import com.online.medicine.application.service.domain.valueobject.OrderStatus;
+import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

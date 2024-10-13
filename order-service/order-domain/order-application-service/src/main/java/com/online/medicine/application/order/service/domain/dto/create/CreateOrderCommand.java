@@ -1,6 +1,6 @@
 package com.online.medicine.application.order.service.domain.dto.create;
+import com.online.medicine.application.order.service.domain.dto.create.OrderItem;
 
-import com.online.medicine.application.service.domain.entity.OrderItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,6 +23,7 @@ public class CreateOrderCommand {
     @NotNull
     private final List<OrderItem> items;
     @NotNull
-    private final OrderAddress orderAddress;
+    private final OrderAddress address;
+
 
 }

@@ -30,6 +30,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -55,12 +58,12 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/hp/Downloads/dev-spring-tool/04-spring-boot-rest-crud/online-medicine-application/common/common-domain/src/main/java/com/online/medicine/application/Main.java&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/hp/online-medicine-application/infrastruucture/src/main/java/com/online/medicine/application/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d648a3c02aa3886b363c5989c97c3ef4&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;8c1e3dc05ecb1bcb94bcbaeeb485787b&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -71,23 +74,84 @@
     ]
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.online.medicine.application.service.domain.Main" />
-      <module name="order-container" />
+  <component name="RunManager" selected="JUnit.OrderApplicationServiceTest.testCreateOrderWithWrongRemedyPrice">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="order-application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-application-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.online.medicine.application.service.domain.*" />
+          <option name="PATTERN" value="com.online.medicine.application.order.serviice.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.online.medicine.application.order.serviice.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.online.medicine.application.order.serviice.domain.OrderApplicationServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplicationServiceTest.testCreateOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-application-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.online.medicine.application.order.service.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.online.medicine.application.order.service.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.online.medicine.application.order.service.domain.OrderApplicationServiceTest" />
+      <option name="METHOD_NAME" value="testCreateOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplicationServiceTest.testCreateOrderWithPassivePharmacy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-application-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.online.medicine.application.order.service.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.online.medicine.application.order.service.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.online.medicine.application.order.service.domain.OrderApplicationServiceTest" />
+      <option name="METHOD_NAME" value="testCreateOrderWithPassivePharmacy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplicationServiceTest.testCreateOrderWithWrongRemedyPrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-application-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.online.medicine.application.order.service.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.online.medicine.application.order.service.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.online.medicine.application.order.service.domain.OrderApplicationServiceTest" />
+      <option name="METHOD_NAME" value="testCreateOrderWithWrongRemedyPrice" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.OrderApplicationServiceTest.testCreateOrderWithWrongRemedyPrice" />
+        <item itemvalue="JUnit.OrderApplicationServiceTest.testCreateOrderWithPassivePharmacy" />
+        <item itemvalue="JUnit.OrderApplicationServiceTest.testCreateOrder" />
+        <item itemvalue="JUnit.OrderApplicationServiceTest" />
+        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -109,9 +173,13 @@
       <workItem from="1727513377488" duration="1191000" />
       <workItem from="1727683108323" duration="5485000" />
       <workItem from="1727693651619" duration="1780000" />
-      <workItem from="1727936990451" duration="1218000" />
-      <workItem from="1727939408648" duration="6268000" />
-      <workItem from="1727966793332" duration="1998000" />
+      <workItem from="1728399016096" duration="172000" />
+      <workItem from="1728399210198" duration="851000" />
+      <workItem from="1728503931953" duration="6487000" />
+      <workItem from="1728568429789" duration="2337000" />
+      <workItem from="1728629940961" duration="3527000" />
+      <workItem from="1728645923942" duration="212000" />
+      <workItem from="1728720395324" duration="12091000" />
     </task>
     <task id="LOCAL-00001" summary="added entities and value objects">
       <option name="closed" value="true" />
@@ -185,27 +253,62 @@
       <option name="project" value="LOCAL" />
       <updated>1727699098881</updated>
     </task>
-    <task id="LOCAL-00010" summary="added handlers">
+    <task id="LOCAL-00010" summary="fixed problems">
       <option name="closed" value="true" />
-      <created>1727942891139</created>
+      <created>1728504018634</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1727942891142</updated>
+      <updated>1728504018634</updated>
     </task>
-    <task id="LOCAL-00011" summary="added mappers">
+    <task id="LOCAL-00011" summary="added test configuration">
       <option name="closed" value="true" />
-      <created>1727966864526</created>
+      <created>1728548488727</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1727966864526</updated>
+      <updated>1728548488727</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="made changes in test configuration">
+      <option name="closed" value="true" />
+      <created>1728640266251</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1728640266252</updated>
+    </task>
+    <task id="LOCAL-00013" summary="made changes in test configuration">
+      <option name="closed" value="true" />
+      <created>1728731539299</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1728731539299</updated>
+    </task>
+    <task id="LOCAL-00014" summary="passed test successfully">
+      <option name="closed" value="true" />
+      <created>1728734821921</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1728734821921</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -215,9 +318,10 @@
     <MESSAGE value="added dto package and its subpackages" />
     <MESSAGE value="added message.listener and publisher packages" />
     <MESSAGE value="fixed problems" />
-    <MESSAGE value="added handlers" />
-    <MESSAGE value="added mappers" />
-    <option name="LAST_COMMIT_MESSAGE" value="added mappers" />
+    <MESSAGE value="added test configuration" />
+    <MESSAGE value="made changes in test configuration" />
+    <MESSAGE value="passed test successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="passed test successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -276,6 +380,29 @@
           <url>file://$PROJECT_DIR$/common/common-domain/src/main/java/com/online/medicine/application/service/domain/Main.java</url>
           <line>15</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/infrastruucture/src/main/java/com/online/medicine/application/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/order-service/order-domain/order-application-service/src/test/java/com/online/medicine/application/order/service/domain/OrderApplicationServiceTest.java</url>
+          <line>164</line>
+          <properties class="com.online.medicine.application.order.service.domain.OrderApplicationServiceTest" method="testCreateOrderWithWrongRemedyPrice">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/order-service/order-domain/order-application-service/src/test/java/com/online/medicine/application/order/service/domain/OrderApplicationServiceTest.java</url>
+          <line>170</line>
+          <properties class="com.online.medicine.application.order.service.domain.OrderApplicationServiceTest" method="testCreateOrderWithPassivePharmacy">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
