@@ -63,7 +63,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "spring.configuration.checksum": "8c1e3dc05ecb1bcb94bcbaeeb485787b",
+    "spring.configuration.checksum": "ad071c83ff31f80d058f5cfa4aa82dcf",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -186,6 +186,8 @@
       <workItem from="1728645923942" duration="212000" />
       <workItem from="1728720395324" duration="12231000" />
       <workItem from="1728891135239" duration="13096000" />
+      <workItem from="1729021323463" duration="476000" />
+      <workItem from="1729169462783" duration="776000" />
     </task>
     <task id="LOCAL-00001" summary="added entities and value objects">
       <option name="closed" value="true" />
@@ -355,7 +357,31 @@
       <option name="project" value="LOCAL" />
       <updated>1728911759763</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added kafka producer">
+      <option name="closed" value="true" />
+      <created>1729021521701</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1729021521702</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added kafka producer">
+      <option name="closed" value="true" />
+      <created>1729021608249</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1729021608249</updated>
+    </task>
+    <task id="LOCAL-00024" summary="added kafka consumer">
+      <option name="closed" value="true" />
+      <created>1729170958359</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1729170958359</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +418,8 @@
     <MESSAGE value="implemented kafka via running docker" />
     <MESSAGE value="added kafka brokers" />
     <MESSAGE value="added kafka producer" />
-    <option name="LAST_COMMIT_MESSAGE" value="added kafka producer" />
+    <MESSAGE value="added kafka consumer" />
+    <option name="LAST_COMMIT_MESSAGE" value="added kafka consumer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -468,7 +495,7 @@
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/src/main/java/com/online/medicine/application/Main.java</url>
+          <url>file://$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/src/main/java/com/online/medicine/kafka/consumer/Main.java</url>
           <line>15</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
