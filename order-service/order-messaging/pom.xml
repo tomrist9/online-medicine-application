@@ -19,6 +19,14 @@
             <groupId>com.online.medicine.application</groupId>
             <artifactId>order-application-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-producer</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

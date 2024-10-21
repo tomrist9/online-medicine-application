@@ -3,7 +3,6 @@ package com.online.medicine.application.order.service.dataaccess.order.mapper;
 import com.online.medicine.application.order.service.dataaccess.order.entity.OrderAddressEntity;
 import com.online.medicine.application.order.service.dataaccess.order.entity.OrderEntity;
 import com.online.medicine.application.order.service.dataaccess.order.entity.OrderItemEntity;
-import com.online.medicine.application.order.service.dataaccess.order.entity.OrderItemEntityId;
 import com.online.medicine.application.order.service.domain.valueobject.*;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.entity.OrderItem;
@@ -13,7 +12,6 @@ import com.online.medicine.domain.order.service.domain.valueobject.StreetAddress
 import com.online.medicine.domain.order.service.domain.valueobject.TrackingId;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +20,7 @@ import java.util.stream.Collectors;
 import static com.online.medicine.domain.order.service.domain.entity.Order.FAILURE_MESSAGE_DELIMITER;
 
 @Component
-public class OrderDataAccess {
+public class OrderDataAccessMapper {
     public OrderEntity orderToOrderEntity(Order order){
         OrderEntity orderEntity=OrderEntity.builder()
                 .id(order.getId().getValue())

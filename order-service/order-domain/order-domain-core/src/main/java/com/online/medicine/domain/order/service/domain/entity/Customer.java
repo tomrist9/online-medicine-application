@@ -4,4 +4,10 @@ import com.online.medicine.application.order.service.domain.entity.AggregateRoot
 import com.online.medicine.application.order.service.domain.valueobject.CustomerId;
 
 public class Customer extends AggregateRoot<CustomerId> {
+    public Customer(CustomerId customerId) {
+        super.setId(customerId);
+    }
+
+    public Customer() {
+    }
 }

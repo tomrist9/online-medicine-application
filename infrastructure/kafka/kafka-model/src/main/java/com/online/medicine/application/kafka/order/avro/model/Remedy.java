@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.food.ordering.system.kafka.order.avro.model;
+package com.online.medicine.application.kafka.order.avro.model;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;

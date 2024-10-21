@@ -1,4 +1,4 @@
-package com.online.medicine.application.order.service.application.exception.handler;
+package com.online.medicine.application.handler;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

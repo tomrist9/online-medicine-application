@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -53,17 +54,18 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/hp/online-medicine-application/order-service/order-dataaccess/src/main/java/com/online/medicine/application/order/service/dataaccess/pharmacy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/hp/online-medicine-application/infrastruucture/kafka/kafka-config-data/src/main/java/com/online/medicine/application/Main.java",
+    "onboarding.tips.debug.path": "C:/Users/hp/online-medicine-application/common/common-application/src/main/java/com/online/medicine/application/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "spring.configuration.checksum": "ad071c83ff31f80d058f5cfa4aa82dcf",
+    "spring.configuration.checksum": "f4ca2d0325a104acb35c188c196a9ea9",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -75,6 +77,13 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.online.medicine.application.order.service.dataaccess.order.entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\online-medicine-application\order-service\order-dataaccess\src\main\java\com\online\medicine\application\order\service\dataaccess\pharmacy" />
+      <recent name="C:\Users\hp\online-medicine-application\order-service\order-dataaccess\src\main\java\com\online\medicine\application\order\service\dataaccess\customer" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hp\online-medicine-application\infrastructure\docker-compose" />
     </key>
@@ -187,7 +196,10 @@
       <workItem from="1728720395324" duration="12231000" />
       <workItem from="1728891135239" duration="13096000" />
       <workItem from="1729021323463" duration="476000" />
-      <workItem from="1729169462783" duration="776000" />
+      <workItem from="1729169462783" duration="3199000" />
+      <workItem from="1729322684055" duration="16758000" />
+      <workItem from="1729417481663" duration="3163000" />
+      <workItem from="1729494840252" duration="11364000" />
     </task>
     <task id="LOCAL-00001" summary="added entities and value objects">
       <option name="closed" value="true" />
@@ -381,7 +393,79 @@
       <option name="project" value="LOCAL" />
       <updated>1729170958359</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added kafka consumer">
+      <option name="closed" value="true" />
+      <created>1729171564566</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1729171564566</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added global exception handler">
+      <option name="closed" value="true" />
+      <created>1729326917974</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1729326917974</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added entity classes">
+      <option name="closed" value="true" />
+      <created>1729331288835</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1729331288835</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added adapters">
+      <option name="closed" value="true" />
+      <created>1729363131110</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1729363131110</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added mappers and adapters">
+      <option name="closed" value="true" />
+      <created>1729367760330</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1729367760331</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added mappers and adapters">
+      <option name="closed" value="true" />
+      <created>1729368591769</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1729368591769</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added messaging.publisher and listeners">
+      <option name="closed" value="true" />
+      <created>1729420798950</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1729420798950</updated>
+    </task>
+    <task id="LOCAL-00032" summary="added messaging.publisher and listeners">
+      <option name="closed" value="true" />
+      <created>1729504982095</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1729504982095</updated>
+    </task>
+    <task id="LOCAL-00033" summary="added messaging.publisher and listeners">
+      <option name="closed" value="true" />
+      <created>1729507813400</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1729507813400</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +503,12 @@
     <MESSAGE value="added kafka brokers" />
     <MESSAGE value="added kafka producer" />
     <MESSAGE value="added kafka consumer" />
-    <option name="LAST_COMMIT_MESSAGE" value="added kafka consumer" />
+    <MESSAGE value="added global exception handler" />
+    <MESSAGE value="added entity classes" />
+    <MESSAGE value="added adapters" />
+    <MESSAGE value="added mappers and adapters" />
+    <MESSAGE value="added messaging.publisher and listeners" />
+    <option name="LAST_COMMIT_MESSAGE" value="added messaging.publisher and listeners" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -504,6 +593,16 @@
           <line>15</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/common/common-application/src/main/java/com/online/medicine/application/handler/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/order-service/order-messaging/src/main/java/com/online/medicine/application/order/service/messaging/publisher/kafka/PayOrderKafkaMessagePublisher.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/order-service/order-domain/order-application-service/src/test/java/com/online/medicine/application/order/service/domain/OrderApplicationServiceTest.java</url>
           <line>164</line>
@@ -521,6 +620,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/online/medicine/application/order/service/dataaccess/order/adapter/OrderRepositoryImpl.java</url>
+          <line>15</line>
+          <properties class="com.online.medicine.application.order.service.dataaccess.order.adapter.OrderRepositoryImpl" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -22,6 +22,7 @@ public class Order extends AggregateRoot<OrderId> {
     private OrderStatus orderStatus;
     private List<String> failureMessages;
 
+
     public static final String FAILURE_MESSAGE_DELIMITER = ",";
 
     public void initializeOrder() {
@@ -134,7 +135,7 @@ public class Order extends AggregateRoot<OrderId> {
         return customerId;
     }
 
-    public PharmacyId getPhsrmacyId() {
+    public PharmacyId getPharmacyId() {
         return pharmacyId;
     }
 
