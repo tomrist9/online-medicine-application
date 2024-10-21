@@ -5,15 +5,13 @@
  */
 package com.food.ordering.system.kafka.order.avro.model;
 
-import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
-import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class Product extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+public class Remedy extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -6511580554663840009L;
 
 
@@ -22,17 +20,17 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
 
   private static final SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<Product> ENCODER =
-      new BinaryMessageEncoder<Product>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<Remedy> ENCODER =
+      new BinaryMessageEncoder<Remedy>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<Product> DECODER =
-      new BinaryMessageDecoder<Product>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<Remedy> DECODER =
+      new BinaryMessageDecoder<Remedy>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<Product> getEncoder() {
+  public static BinaryMessageEncoder<Remedy> getEncoder() {
     return ENCODER;
   }
 
@@ -40,7 +38,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<Product> getDecoder() {
+  public static BinaryMessageDecoder<Remedy> getDecoder() {
     return DECODER;
   }
 
@@ -49,8 +47,8 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<Product> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<Product>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<Remedy> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<Remedy>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
@@ -68,7 +66,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @return a Product instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static Product fromByteBuffer(
+  public static Remedy fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -81,14 +79,14 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public Product() {}
+  public Remedy() {}
 
   /**
    * All-args constructor.
    * @param id The new value for id
    * @param quantity The new value for quantity
    */
-  public Product(java.lang.String id, java.lang.Integer quantity) {
+  public Remedy(java.lang.String id, java.lang.Integer quantity) {
     this.id = id;
     this.quantity = quantity;
   }
@@ -152,8 +150,8 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * Creates a new Product RecordBuilder.
    * @return A new Product RecordBuilder
    */
-  public static com.food.ordering.system.kafka.order.avro.model.Product.Builder newBuilder() {
-    return new com.food.ordering.system.kafka.order.avro.model.Product.Builder();
+  public static Remedy.Builder newBuilder() {
+    return new Remedy.Builder();
   }
 
   /**
@@ -161,11 +159,11 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing builder to copy.
    * @return A new Product RecordBuilder
    */
-  public static com.food.ordering.system.kafka.order.avro.model.Product.Builder newBuilder(com.food.ordering.system.kafka.order.avro.model.Product.Builder other) {
+  public static Remedy.Builder newBuilder(Remedy.Builder other) {
     if (other == null) {
-      return new com.food.ordering.system.kafka.order.avro.model.Product.Builder();
+      return new Remedy.Builder();
     } else {
-      return new com.food.ordering.system.kafka.order.avro.model.Product.Builder(other);
+      return new Remedy.Builder(other);
     }
   }
 
@@ -174,11 +172,11 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param other The existing instance to copy.
    * @return A new Product RecordBuilder
    */
-  public static com.food.ordering.system.kafka.order.avro.model.Product.Builder newBuilder(com.food.ordering.system.kafka.order.avro.model.Product other) {
+  public static Remedy.Builder newBuilder(Remedy other) {
     if (other == null) {
-      return new com.food.ordering.system.kafka.order.avro.model.Product.Builder();
+      return new Remedy.Builder();
     } else {
-      return new com.food.ordering.system.kafka.order.avro.model.Product.Builder(other);
+      return new Remedy.Builder(other);
     }
   }
 
@@ -186,8 +184,8 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
    * RecordBuilder for Product instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Product>
-    implements org.apache.avro.data.RecordBuilder<Product> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Remedy>
+    implements org.apache.avro.data.RecordBuilder<Remedy> {
 
     private java.lang.String id;
     private int quantity;
@@ -201,7 +199,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.food.ordering.system.kafka.order.avro.model.Product.Builder other) {
+    private Builder(Remedy.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -217,7 +215,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
      * Creates a Builder by copying an existing Product instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.food.ordering.system.kafka.order.avro.model.Product other) {
+    private Builder(Remedy other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -243,7 +241,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public com.food.ordering.system.kafka.order.avro.model.Product.Builder setId(java.lang.String value) {
+    public Remedy.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -263,7 +261,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public com.food.ordering.system.kafka.order.avro.model.Product.Builder clearId() {
+    public Remedy.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -283,7 +281,7 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'quantity'.
       * @return This builder.
       */
-    public com.food.ordering.system.kafka.order.avro.model.Product.Builder setQuantity(int value) {
+    public Remedy.Builder setQuantity(int value) {
       validate(fields()[1], value);
       this.quantity = value;
       fieldSetFlags()[1] = true;
@@ -303,16 +301,16 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
       * Clears the value of the 'quantity' field.
       * @return This builder.
       */
-    public com.food.ordering.system.kafka.order.avro.model.Product.Builder clearQuantity() {
+    public Remedy.Builder clearQuantity() {
       fieldSetFlags()[1] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Product build() {
+    public Remedy build() {
       try {
-        Product record = new Product();
+        Remedy record = new Remedy();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
         record.quantity = fieldSetFlags()[1] ? this.quantity : (java.lang.Integer) defaultValue(fields()[1]);
         return record;
@@ -325,8 +323,8 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<Product>
-    WRITER$ = (org.apache.avro.io.DatumWriter<Product>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<Remedy>
+    WRITER$ = (org.apache.avro.io.DatumWriter<Remedy>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -334,8 +332,8 @@ public class Product extends org.apache.avro.specific.SpecificRecordBase impleme
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<Product>
-    READER$ = (org.apache.avro.io.DatumReader<Product>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<Remedy>
+    READER$ = (org.apache.avro.io.DatumReader<Remedy>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
