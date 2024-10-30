@@ -201,7 +201,11 @@
       <workItem from="1729417481663" duration="3163000" />
       <workItem from="1729494840252" duration="11398000" />
       <workItem from="1729578589252" duration="1176000" />
-      <workItem from="1729676418677" duration="683000" />
+      <workItem from="1729676418677" duration="827000" />
+      <workItem from="1729750967363" duration="1146000" />
+      <workItem from="1729760600036" duration="304000" />
+      <workItem from="1729859788461" duration="727000" />
+      <workItem from="1730186560811" duration="2535000" />
     </task>
     <task id="LOCAL-00001" summary="added entities and value objects">
       <option name="closed" value="true" />
@@ -475,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729537121139</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="added messaging.publisher and listeners">
+      <option name="closed" value="true" />
+      <created>1729712717054</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1729712717054</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
