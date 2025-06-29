@@ -27,6 +27,14 @@
             <groupId>com.online.medicine.application</groupId>
             <artifactId>kafka-producer</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-consumer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-consumer</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

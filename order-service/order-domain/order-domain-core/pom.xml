@@ -35,7 +35,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-<!--        <dependency>-->
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>common-domain</artifactId>
+        </dependency>
+        <!--        <dependency>-->
 <!--            <groupId>com.online.medicine.application</groupId>-->
 <!--            <artifactId>order-application-service</artifactId>-->
 <!--        </dependency>-->

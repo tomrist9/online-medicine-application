@@ -19,8 +19,8 @@ public class OrderItemEntity {
     @Id
     private Long id;
     @Id
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ORDER_ID")
+    @ManyToOne
+    @JoinColumn(name = "order_id")  // ensure correct foreign key column name
     private OrderEntity order;
 
     private UUID remedyId;

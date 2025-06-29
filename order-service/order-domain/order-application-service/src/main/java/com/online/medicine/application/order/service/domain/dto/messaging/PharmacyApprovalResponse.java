@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class PharmacyApprovalResponse {
     private String sagaId;
     private String orderId;
     private String pharmacyId;
-    private OffsetDateTime createdAt;
+    private Instant createdAt;
     private OrderApprovalStatus orderApprovalStatus;
     private List<String> failureMessages;
 }

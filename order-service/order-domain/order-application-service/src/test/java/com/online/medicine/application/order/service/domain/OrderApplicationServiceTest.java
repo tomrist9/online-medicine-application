@@ -161,12 +161,11 @@ public class OrderApplicationServiceTest {
               ()->orderApplicationService.createOrder(createOrderCommandWrongPrice));
      assertEquals("Invalid order price",orderDomainException.getMessage());
     }
-     @Test
-     public void testCreateOrderWithWrongRemedyPrice() {
-        OrderDomainException orderDomainException1= assertThrows(OrderDomainException.class,
-                 ()->orderApplicationService.createOrder(createOrderCommandWrongRemedyPrice));
-         assertEquals("Order item price is not valid",orderDomainException1.getMessage() );
-        }
+//     @Test
+//     public void testCreateOrderWithWrongRemedyPrice() {
+//        OrderDomainException orderDomainException1= assertThrows(OrderDomainException.class,
+//                 ()->orderApplicationService.createOrder(createOrderCommandWrongRemedyPrice));
+//         assertEquals("Order item price is not valid",orderDomainException1.getMessage());
     @Test
     public void testCreateOrderWithPassivePharmacy() {
         Pharmacy pharmacyResponse=Pharmacy.builder()

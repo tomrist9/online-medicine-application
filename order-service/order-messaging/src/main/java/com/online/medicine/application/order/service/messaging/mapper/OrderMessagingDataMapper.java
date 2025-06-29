@@ -1,9 +1,8 @@
 package com.online.medicine.application.order.service.messaging.mapper;
 
-import com.online.medicine.application.kafka.order.avro.model.PaymentRequestAvroModel;
-import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalRequestAvroModel;
-import com.online.medicine.application.kafka.order.avro.model.PharmacyOrderStatus;
-import com.online.medicine.application.kafka.order.avro.model.Remedy;
+import com.online.medicine.application.kafka.order.avro.model.*;
+import com.online.medicine.application.order.service.domain.dto.messaging.PaymentResponse;
+import com.online.medicine.application.order.service.domain.dto.messaging.PharmacyApprovalResponse;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.event.OrderCancelledEvent;
 import com.online.medicine.domain.order.service.domain.event.OrderCreatedEvent;
@@ -63,5 +62,30 @@ public class OrderMessagingDataMapper {
                 .setPharmacyOrderStatus(PharmacyOrderStatus.PAID)
                .build();
     }
+    public PaymentResponse paymentResponseAvroModelToPaymentResponse(PaymentResponseAvroModel paymentResponseAvroModel){
+        return PaymentResponse.builder()
+               .paymentId(paymentResponseAvroModel.getPaymentId())
+               .orderId(paymentResponseAvroModel.getOrderId())
+               .customerId(paymentResponseAvroModel.getCustomerId())
+               .price(paymentResponseAvroModel.getPrice())
+               .paymentStatus(com.online.medicine.application.order.service.domain.valueobject.PaymentStatus.valueOf(paymentResponseAvroModel.getPaymentStatus().name()))
+               .failureMessages(paymentResponseAvroModel.getFailureMessages())
+               .build();
+    }
+    public PharmacyApprovalResponse
+    approvalResponseAvroModelToApprovalResponse(PharmacyApprovalResponseAvroModel
+                                                        pharmacyApprovalResponseAvroModel) {
+        return PharmacyApprovalResponse.builder()
+                .id(pharmacyApprovalResponseAvroModel.getId())
+                .sagaId(pharmacyApprovalResponseAvroModel.getSagaId())
+                .pharmacyId(pharmacyApprovalResponseAvroModel.getRestaurantId())
+                .orderId(pharmacyApprovalResponseAvroModel.getOrderId())
+                .createdAt(pharmacyApprovalResponseAvroModel.getCreatedAt())
+                .orderApprovalStatus(com.online.medicine.application.order.service.domain.valueobject.OrderApprovalStatus.valueOf(
+                        pharmacyApprovalResponseAvroModel.getOrderApprovalStatus().name()))
+                .failureMessages(pharmacyApprovalResponseAvroModel.getFailureMessages())
+                .build();
+    }
+
 
 }
