@@ -56,7 +56,7 @@ public class PharmacyApprovalRequestAvroModel extends org.apache.avro.specific.S
   }
 
   /**
-   * Serializes this RestaurantApprovalRequestAvroModel to a ByteBuffer.
+   * Serializes this PharmacyApprovalRequestAvroModel to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -65,9 +65,9 @@ public class PharmacyApprovalRequestAvroModel extends org.apache.avro.specific.S
   }
 
   /**
-   * Deserializes a RestaurantApprovalRequestAvroModel from a ByteBuffer.
+   * Deserializes a PharmacyApprovalRequestAvroModel from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a RestaurantApprovalRequestAvroModel instance decoded from the given buffer
+   * @return a PharmacyApprovalRequestAvroModel instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
   public static PharmacyApprovalRequestAvroModel fromByteBuffer(
@@ -233,19 +233,19 @@ public class PharmacyApprovalRequestAvroModel extends org.apache.avro.specific.S
   }
 
   /**
-   * Gets the value of the 'restaurantOrderStatus' field.
-   * @return The value of the 'restaurantOrderStatus' field.
+   * Gets the value of the 'pharmacyOrderStatus' field.
+   * @return The value of the 'pharmacyOrderStatus' field.
    */
-  public PharmacyOrderStatus getRestaurantOrderStatus() {
+  public PharmacyOrderStatus getPharmacyOrderStatus() {
     return pharmacyOrderStatus;
   }
 
 
   /**
-   * Sets the value of the 'restaurantOrderStatus' field.
+   * Sets the value of the 'pharmacyOrderStatus' field.
    * @param value the value to set.
    */
-  public void setRestaurantOrderStatus(PharmacyOrderStatus value) {
+  public void setPharmacyOrderStatus(PharmacyOrderStatus value) {
     this.pharmacyOrderStatus = value;
   }
 
@@ -309,9 +309,9 @@ public class PharmacyApprovalRequestAvroModel extends org.apache.avro.specific.S
   }
 
   /**
-   * Creates a new RestaurantApprovalRequestAvroModel RecordBuilder by copying an existing Builder.
+   * Creates a new PharmacyApprovalRequestAvroModel RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new RestaurantApprovalRequestAvroModel RecordBuilder
+   * @return A new PharmacyApprovalRequestAvroModel RecordBuilder
    */
   public static PharmacyApprovalRequestAvroModel.Builder newBuilder(PharmacyApprovalRequestAvroModel.Builder other) {
     if (other == null) {
@@ -322,9 +322,9 @@ public class PharmacyApprovalRequestAvroModel extends org.apache.avro.specific.S
   }
 
   /**
-   * Creates a new RestaurantApprovalRequestAvroModel RecordBuilder by copying an existing RestaurantApprovalRequestAvroModel instance.
+   * Creates a new PharmacyApprovalRequestAvroModel RecordBuilder by copying an existing PharmacyApprovalRequestAvroModel instance.
    * @param other The existing instance to copy.
-   * @return A new RestaurantApprovalRequestAvroModel RecordBuilder
+   * @return A new PharmacyApprovalRequestAvroModel RecordBuilder
    */
   public static PharmacyApprovalRequestAvroModel.Builder newBuilder(PharmacyApprovalRequestAvroModel other) {
     if (other == null) {
@@ -335,7 +335,7 @@ public class PharmacyApprovalRequestAvroModel extends org.apache.avro.specific.S
   }
 
   /**
-   * RecordBuilder for RestaurantApprovalRequestAvroModel instances.
+   * RecordBuilder for PharmacyApprovalRequestAvroModel instances.
    */
   @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<PharmacyApprovalRequestAvroModel>
@@ -537,8 +537,8 @@ public class PharmacyApprovalRequestAvroModel extends org.apache.avro.specific.S
     }
 
     /**
-      * Checks whether the 'restaurantId' field has been set.
-      * @return True if the 'restaurantId' field has been set, false otherwise.
+      * Checks whether the 'PharmacyId' field has been set.
+      * @return True if the 'PharmacyId' field has been set, false otherwise.
       */
     public boolean hasPharmacyId() {
       return fieldSetFlags()[2];
