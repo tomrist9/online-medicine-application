@@ -59,4 +59,3 @@ public class PharmacyApprovalResponseKafkaListener implements KafkaConsumer<Phar
     }
 
     }
-

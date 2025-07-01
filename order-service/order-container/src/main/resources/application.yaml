@@ -8,18 +8,28 @@ logging:
 order-service:
   payment-request-topic-name: payment-request
   payment-response-topic-name: payment-response
-  restaurant-approval-request-topic-name: restaurant-approval-request
-  restaurant-approval-response-topic-name: restaurant-approval-response
+  pharmacy-approval-request-topic-name: pharmacy-approval-request
+  pharmacy-approval-response-topic-name: pharmacy-approval-response
   customer-topic-name: customer
   outbox-scheduler-fixed-rate: 10000
   outbox-scheduler-initial-delay: 10000
 
 spring:
+  jpa:
+    open-in-view: false
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=order&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
     username: postgres
     password: 5554
     driver-class-name: org.postgresql.Driver
+    platform: postgres
+    schema: classpath:init-schema.sql
+    initialization-mode: always
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
@@ -43,7 +53,7 @@ kafka-consumer-config:
   key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
   payment-consumer-group-id: payment-topic-consumer
-  restaurant-approval-consumer-group-id: restaurant-approval-topic-consumer
+  pharmacy-approval-consumer-group-id: pharmacy-approval-topic-consumer
   customer-group-id: customer-topic-consumer
   auto-offset-reset: earliest
   specific-avro-reader-key: specific.avro.reader

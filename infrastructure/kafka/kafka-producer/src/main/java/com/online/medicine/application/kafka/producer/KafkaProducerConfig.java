@@ -1,7 +1,6 @@
 package com.online.medicine.application.kafka.producer;
 
 import com.online.medicine.kafka.config.data.KafkaConfigData;
-import com.online.medicine.kafka.config.data.KafkaConsumerConfigData;
 import com.online.medicine.kafka.config.data.KafkaProducerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.producer.ProducerConfig;
