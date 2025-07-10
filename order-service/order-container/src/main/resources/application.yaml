@@ -3,7 +3,7 @@ server:
 
 logging:
   level:
-    com.food.ordering.system: DEBUG
+    com.online.com.online.medicine.application: DEBUG
 
 order-service:
   payment-request-topic-name: payment-request

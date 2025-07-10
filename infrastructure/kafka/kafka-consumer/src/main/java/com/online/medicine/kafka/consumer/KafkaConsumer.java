@@ -1,9 +1,5 @@
 package com.online.medicine.kafka.consumer;
 
-
-
-
-
 import org.apache.avro.specific.SpecificRecordBase;
 
 import java.util.List;

@@ -1,6 +1,5 @@
 package com.online.medicine.kafka.consumer.config;
 
-
 import com.online.medicine.kafka.config.data.KafkaConfigData;
 import com.online.medicine.kafka.config.data.KafkaConsumerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
@@ -18,7 +17,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-
 public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecordBase> {
 
     private final KafkaConfigData kafkaConfigData;
@@ -29,7 +27,6 @@ public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecor
         this.kafkaConfigData = kafkaConfigData;
         this.kafkaConsumerConfigData = kafkaConsumerConfigData;
     }
-
 
     @Bean
     public Map<String, Object> consumerConfigs() {
@@ -56,9 +53,10 @@ public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecor
     }
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<K, V>> kafkaListenerContainerFactory() {
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<K, V>> kafkaListenerContainerFactory(
+            ConsumerFactory<K, V> consumerFactory) { // ✅ Injected properly
         ConcurrentKafkaListenerContainerFactory<K, V> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
+        factory.setConsumerFactory(consumerFactory); // ✅ No manual method call
         factory.setBatchListener(kafkaConsumerConfigData.getBatchListener());
         factory.setConcurrency(kafkaConsumerConfigData.getConcurrencyLevel());
         factory.setAutoStartup(kafkaConsumerConfigData.getAutoStartup());

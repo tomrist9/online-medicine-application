@@ -13,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="AnnotationType" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -32,7 +32,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -40,42 +40,52 @@
   <component name="ProjectId" id="2mQiqPO3OCAgn2nTDgpl6hhnutO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hp/online-medicine-application/order-service/order-dataaccess/src/main/java/com/online/medicine/application/order/service/dataaccess/pharmacy&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/hp/online-medicine-application/common/common-application/src/main/java/com/online/medicine/application/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;f4ca2d0325a104acb35c188c196a9ea9&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/hp/online-medicine-application/order-service/order-dataaccess/src/main/java/com/online/medicine/application/order/service/dataaccess/pharmacy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/hp/online-medicine-application/common/common-application/src/main/java/com/online/medicine/application/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "spring.configuration.checksum": "f4ca2d0325a104acb35c188c196a9ea9",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "redshift",
+      "postgresql"
+    ],
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.online.medicine.application.order.service.dataaccess.order.entity" />
@@ -88,14 +98,7 @@
       <recent name="C:\Users\hp\online-medicine-application\infrastructure\docker-compose" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.OrderApplicationServiceTest.testCreateOrderWithWrongRemedyPrice">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="order-application" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.OrderServiceApplication">
     <configuration name="OrderApplicationServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="order-application-service" />
       <extension name="coverage">
@@ -159,13 +162,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="order-container" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.online.medicine.application.order.service.domain.OrderServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.online.medicine.application.order.service.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.OrderServiceApplication" />
         <item itemvalue="JUnit.OrderApplicationServiceTest.testCreateOrderWithWrongRemedyPrice" />
         <item itemvalue="JUnit.OrderApplicationServiceTest.testCreateOrderWithPassivePharmacy" />
         <item itemvalue="JUnit.OrderApplicationServiceTest.testCreateOrder" />
         <item itemvalue="JUnit.OrderApplicationServiceTest" />
-        <item itemvalue="Application.Main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -206,6 +222,35 @@
       <workItem from="1729760600036" duration="304000" />
       <workItem from="1729859788461" duration="727000" />
       <workItem from="1730186560811" duration="2535000" />
+      <workItem from="1730318699232" duration="231000" />
+      <workItem from="1730355447539" duration="640000" />
+      <workItem from="1730620024715" duration="1381000" />
+      <workItem from="1730744351798" duration="586000" />
+      <workItem from="1731323244010" duration="9194000" />
+      <workItem from="1731408916297" duration="896000" />
+      <workItem from="1731411047707" duration="669000" />
+      <workItem from="1731496956330" duration="1288000" />
+      <workItem from="1750165523769" duration="1326000" />
+      <workItem from="1750227999903" duration="3600000" />
+      <workItem from="1750326458762" duration="1547000" />
+      <workItem from="1750941714799" duration="1221000" />
+      <workItem from="1751007017948" duration="3141000" />
+      <workItem from="1751052006622" duration="484000" />
+      <workItem from="1751094517609" duration="4244000" />
+      <workItem from="1751181051023" duration="3129000" />
+      <workItem from="1751190143456" duration="2212000" />
+      <workItem from="1751195955298" duration="1659000" />
+      <workItem from="1751264631545" duration="4491000" />
+      <workItem from="1751441100793" duration="594000" />
+      <workItem from="1751444231816" duration="642000" />
+      <workItem from="1751526123463" duration="1369000" />
+      <workItem from="1751540322649" duration="698000" />
+      <workItem from="1751616908240" duration="2049000" />
+      <workItem from="1751790843318" duration="3087000" />
+      <workItem from="1751877172762" duration="596000" />
+      <workItem from="1751962993329" duration="1113000" />
+      <workItem from="1752046945083" duration="1832000" />
+      <workItem from="1752133475178" duration="5494000" />
     </task>
     <task id="LOCAL-00001" summary="added entities and value objects">
       <option name="closed" value="true" />
@@ -487,7 +532,63 @@
       <option name="project" value="LOCAL" />
       <updated>1729712717054</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="added messaging.publisher and listeners">
+      <option name="closed" value="true" />
+      <created>1730318864531</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1730318864531</updated>
+    </task>
+    <task id="LOCAL-00037" summary="added kafka messaging.publisher and listeners">
+      <option name="closed" value="true" />
+      <created>1731333784704</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1731333784704</updated>
+    </task>
+    <task id="LOCAL-00038" summary="feat: add PaymentResponseMessageListenerImpl to handle payment response messages">
+      <option name="closed" value="true" />
+      <created>1750942441706</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1750942441706</updated>
+    </task>
+    <task id="LOCAL-00039" summary="chore: add/update Kafka configuration YAML files for broker and topic setup">
+      <option name="closed" value="true" />
+      <created>1751182161679</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1751182161680</updated>
+    </task>
+    <task id="LOCAL-00040" summary="chore(order-service): update application, domain, dataaccess, and messaging modules&#10;&#10;- Modified and synced logic across order-application-service, domain-core, dataaccess, and messaging&#10;- Improved modular organization and internal service communication&#10;- Prepared for integration with external systems (Kafka, customer-service, etc.)">
+      <option name="closed" value="true" />
+      <created>1751182722732</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1751182722732</updated>
+    </task>
+    <task id="LOCAL-00041" summary="chore(order-service): update application, domain, dataaccess, and messaging modules">
+      <option name="closed" value="true" />
+      <created>1751363538419</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1751363538419</updated>
+    </task>
+    <task id="LOCAL-00042" summary="chore(order-service): update application, domain, dataaccess, and messaging modules">
+      <option name="closed" value="true" />
+      <created>1752003776989</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1752003776989</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +631,12 @@
     <MESSAGE value="added adapters" />
     <MESSAGE value="added mappers and adapters" />
     <MESSAGE value="added messaging.publisher and listeners" />
-    <option name="LAST_COMMIT_MESSAGE" value="added messaging.publisher and listeners" />
+    <MESSAGE value="added kafka messaging.publisher and listeners" />
+    <MESSAGE value="feat: add PaymentResponseMessageListenerImpl to handle payment response messages" />
+    <MESSAGE value="chore: add/update Kafka configuration YAML files for broker and topic setup" />
+    <MESSAGE value="chore(order-service): update application, domain, dataaccess, and messaging modules&#10;&#10;- Modified and synced logic across order-application-service, domain-core, dataaccess, and messaging&#10;- Improved modular organization and internal service communication&#10;- Prepared for integration with external systems (Kafka, customer-service, etc.)" />
+    <MESSAGE value="chore(order-service): update application, domain, dataaccess, and messaging modules" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore(order-service): update application, domain, dataaccess, and messaging modules" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -625,32 +731,10 @@
           <line>42</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/order-service/order-domain/order-application-service/src/test/java/com/online/medicine/application/order/service/domain/OrderApplicationServiceTest.java</url>
-          <line>164</line>
-          <properties class="com.online.medicine.application.order.service.domain.OrderApplicationServiceTest" method="testCreateOrderWithWrongRemedyPrice">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/order-service/order-domain/order-application-service/src/test/java/com/online/medicine/application/order/service/domain/OrderApplicationServiceTest.java</url>
-          <line>170</line>
-          <properties class="com.online.medicine.application.order.service.domain.OrderApplicationServiceTest" method="testCreateOrderWithPassivePharmacy">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/order-service/order-dataaccess/src/main/java/com/online/medicine/application/order/service/dataaccess/order/adapter/OrderRepositoryImpl.java</url>
-          <line>15</line>
-          <properties class="com.online.medicine.application.order.service.dataaccess.order.adapter.OrderRepositoryImpl" method="&lt;init&gt;">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="20" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/infrastructure/kafka/kafka-model/src/main/java/com/online/medicine/application/kafka/order/avro/model/PharmacyApprovalResponseAvroModel.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

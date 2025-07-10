@@ -12,23 +12,33 @@ import static com.online.medicine.domain.order.service.domain.entity.Order.FAILU
 @Validated
 @Service
 public class PharmacyApprovalResponseMessageListenerImpl implements PharmacyApprovalResponseMessageListener {
-    private final OrderApprovalSaga orderApprovalSaga;
+//    private final OrderApprovalSaga orderApprovalSaga;
+//
+//    public PharmacyApprovalResponseMessageListenerImpl(OrderApprovalSaga orderApprovalSaga) {
+//        this.orderApprovalSaga = orderApprovalSaga;
+//    }
 
-    public PharmacyApprovalResponseMessageListenerImpl(OrderApprovalSaga orderApprovalSaga) {
-        this.orderApprovalSaga = orderApprovalSaga;
-    }
+//    @Override
+//    public void orderApproved(PharmacyApprovalResponse pharmacyApprovalResponse) {
+//        orderApprovalSaga.process(pharmacyApprovalResponse);
+//        log.info("Order is approved for order id: {}", pharmacyApprovalResponse.getOrderId());
+//    }
 
     @Override
-    public void orderApproved(PharmacyApprovalResponse pharmacyApprovalResponse) {
-        orderApprovalSaga.process(pharmacyApprovalResponse);
-        log.info("Order is approved for order id: {}", pharmacyApprovalResponse.getOrderId());
+    public void orderApproved(PharmacyApprovalResponse restaurantApprovalResponse) {
+
     }
 
     @Override
     public void orderRejected(PharmacyApprovalResponse restaurantApprovalResponse) {
-        orderApprovalSaga.rollback(restaurantApprovalResponse);
-        log.info("Order Approval Saga rollback operation is completed for order id: {} with failure messages: {}",
-                restaurantApprovalResponse.getOrderId(),
-                String.join(FAILURE_MESSAGE_DELIMITER, restaurantApprovalResponse.getFailureMessages()));
+
     }
+
+//    @Override
+//    public void orderRejected(PharmacyApprovalResponse restaurantApprovalResponse) {
+//        orderApprovalSaga.rollback(restaurantApprovalResponse);
+//        log.info("Order Approval Saga rollback operation is completed for order id: {} with failure messages: {}",
+//                restaurantApprovalResponse.getOrderId(),
+//                String.join(FAILURE_MESSAGE_DELIMITER, restaurantApprovalResponse.getFailureMessages()));
+//    }
 }
