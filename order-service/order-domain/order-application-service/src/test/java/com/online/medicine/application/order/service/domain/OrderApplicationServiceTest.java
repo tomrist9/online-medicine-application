@@ -130,7 +130,7 @@ public class OrderApplicationServiceTest {
         customer.setId(new CustomerId(CUSTOMER_ID));
         Pharmacy pharmacyResponse=Pharmacy.builder()
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
-                        .remedies(List.of(new Medicine(new MedicineId(REMEDY_ID), "remedy-1",
+                        .medicines(List.of(new Medicine(new MedicineId(REMEDY_ID), "remedy-1",
                                 new Money(new BigDecimal("50.00"))),
                                 new Medicine(new MedicineId(REMEDY_ID), "product-2", new Money(new BigDecimal("50.00")))))
                 .active(true)
@@ -170,7 +170,7 @@ public class OrderApplicationServiceTest {
     public void testCreateOrderWithPassivePharmacy() {
         Pharmacy pharmacyResponse=Pharmacy.builder()
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
-                .remedies(List.of(new Medicine(new MedicineId(REMEDY_ID), "remedy-1",
+                .medicines(List.of(new Medicine(new MedicineId(REMEDY_ID), "remedy-1",
                                 new Money(new BigDecimal("50.00"))),
                         new Medicine(new MedicineId(REMEDY_ID), "product-2", new Money(new BigDecimal("50.00")))))
                 .active(false)

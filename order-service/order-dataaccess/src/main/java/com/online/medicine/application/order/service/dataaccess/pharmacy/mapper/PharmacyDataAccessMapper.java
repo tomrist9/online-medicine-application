@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Component
 public class PharmacyDataAccessMapper {
     public List<UUID> pharmacyToPharmacyRemedies(Pharmacy pharmacy) {
-        return pharmacy.getRemedies().stream()
+        return pharmacy.getMedicines().stream()
                 .map(remedy -> remedy.getId().getValue())
                 .collect(Collectors.toList());
     }
@@ -32,7 +32,7 @@ public class PharmacyDataAccessMapper {
 
         return Pharmacy.builder()
                 .pharmacyId(new PharmacyId(pharmacyEntity.getPharmacyId()))
-                .remedies(pharmacyRemedies)
+                .medicines(pharmacyRemedies)
                 .active(pharmacyEntity.getPharmacyActive())
                 .build();
     }

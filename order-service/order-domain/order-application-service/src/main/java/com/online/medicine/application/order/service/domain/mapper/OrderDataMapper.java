@@ -21,7 +21,7 @@ public class OrderDataMapper {
     public Pharmacy createOrderCommandToPharmacy(CreateOrderCommand createOrderCommand) {
         return Pharmacy.builder()
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
-                .remedies(createOrderCommand.getItems().stream().map(orderItem ->
+                .medicines(createOrderCommand.getItems().stream().map(orderItem ->
                                 new Medicine(new MedicineId(orderItem.getRemedyId())))
                         .collect(Collectors.toList()))
                 .build();

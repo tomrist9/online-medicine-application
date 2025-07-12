@@ -26,7 +26,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
     }
 
     private void setOrderMedicineInformation(Order order, Pharmacy pharmacy) {
-        order.getItems().forEach(orderItem -> pharmacy.getRemedies().forEach(pharmacyRemedy->{
+        order.getItems().forEach(orderItem -> pharmacy.getMedicines().forEach(pharmacyRemedy->{
             Medicine currentMedicine =orderItem.getRemedy();
             if (currentMedicine.equals(pharmacyRemedy)) {
                 currentMedicine.updateWithConfirmedNameAndPrice(pharmacyRemedy.getName(),

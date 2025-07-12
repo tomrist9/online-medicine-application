@@ -6,12 +6,12 @@ import com.online.medicine.application.order.service.domain.valueobject.Pharmacy
 import java.util.List;
 
 public class Pharmacy extends AggregateRoot<PharmacyId> {
-    private final List<Medicine> remedies;
+    private final List<Medicine> medicines;
     private boolean active;
 
     private Pharmacy(Builder builder) {
         super.setId(builder.pharmacyId);
-        remedies = builder.remedies;
+        medicines = builder.medicines;
         active = builder.active;
     }
 
@@ -19,8 +19,8 @@ public class Pharmacy extends AggregateRoot<PharmacyId> {
         return new Builder();
     }
 
-    public List<Medicine> getRemedies() {
-        return remedies;
+    public List<Medicine> getMedicines() {
+        return medicines;
     }
 
     public boolean isActive() {
@@ -29,7 +29,7 @@ public class Pharmacy extends AggregateRoot<PharmacyId> {
 
     public static final class Builder {
         private PharmacyId pharmacyId;
-        private List<Medicine> remedies;
+        private List<Medicine> medicines;
         private boolean active;
 
         private Builder() {
@@ -40,8 +40,8 @@ public class Pharmacy extends AggregateRoot<PharmacyId> {
             return this;
         }
 
-        public Builder remedies(List<Medicine> val) {
-            remedies = val;
+        public Builder medicines(List<Medicine> val) {
+            medicines = val;
             return this;
         }
 
