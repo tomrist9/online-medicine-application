@@ -1,8 +1,14 @@
 package com.online.medicine.application.order.service.messaging.mapper;
 
-import com.online.medicine.application.kafka.order.avro.model.*;
+import com.online.medicine.application.kafka.order.avro.model.PaymentRequestAvroModel;
+import com.online.medicine.application.kafka.order.avro.model.PaymentResponseAvroModel;
+import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalRequestAvroModel;
+import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel;
+import com.online.medicine.application.kafka.order.avro.model.PharmacyOrderStatus;
+
 import com.online.medicine.application.order.service.domain.dto.messaging.PaymentResponse;
 import com.online.medicine.application.order.service.domain.dto.messaging.PharmacyApprovalResponse;
+import com.online.medicine.application.kafka.order.avro.model.Medicine;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.event.OrderCancelledEvent;
 import com.online.medicine.domain.order.service.domain.event.OrderCreatedEvent;
@@ -50,9 +56,10 @@ public class OrderMessagingDataMapper {
                 .setOrderId(order.getId().getValue().toString())
                 .setPharmacyId(order.getPharmacyId().getValue().toString())
                 .setOrderId(order.getId().getValue().toString())
-                .setPharmacyOrderStatus(PharmacyOrderStatus.valueOf(order.getOrderStatus().name()))
-                .setRemedies(order.getItems().stream()
-                       .map(orderItem -> Remedy.newBuilder()
+                .setPharmacyOrderStatus(PharmacyOrderStatus.PAID)
+
+                .setMedicines(order.getItems().stream()
+                       .map(orderItem -> Medicine.newBuilder()
                                .setId(orderItem.getRemedy().getId().getValue().toString())
                                .setQuantity(orderItem.getQuantity())
                                .build()).collect(Collectors.toList()))
@@ -78,7 +85,7 @@ public class OrderMessagingDataMapper {
         return PharmacyApprovalResponse.builder()
                 .id(pharmacyApprovalResponseAvroModel.getId())
                 .sagaId(pharmacyApprovalResponseAvroModel.getSagaId())
-                .pharmacyId(pharmacyApprovalResponseAvroModel.getRestaurantId())
+                .pharmacyId(pharmacyApprovalResponseAvroModel.getPharmacyId())
                 .orderId(pharmacyApprovalResponseAvroModel.getOrderId())
                 .createdAt(pharmacyApprovalResponseAvroModel.getCreatedAt())
                 .orderApprovalStatus(com.online.medicine.application.order.service.domain.valueobject.OrderApprovalStatus.valueOf(

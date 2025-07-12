@@ -1,7 +1,7 @@
 package com.online.medicine.application.kafka.producer;
 
-import com.online.medicine.kafka.config.data.KafkaConfigData;
-import com.online.medicine.kafka.config.data.KafkaProducerConfigData;
+import com.online.medicine.application.kafka.config.data.KafkaConfigData;
+import com.online.medicine.application.kafka.config.data.KafkaProducerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.context.annotation.Bean;
@@ -15,15 +15,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaProducerConfig <K extends Serializable, V extends SpecificRecordBase >{
+public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecordBase> {
+
     private final KafkaConfigData kafkaConfigData;
     private final KafkaProducerConfigData kafkaProducerConfigData;
 
-    public KafkaProducerConfig(KafkaConfigData kafkaConfigData, KafkaProducerConfigData kafkaProducerConfigData) {
+    public KafkaProducerConfig(KafkaConfigData kafkaConfigData,
+                               KafkaProducerConfigData kafkaProducerConfigData) {
         this.kafkaConfigData = kafkaConfigData;
-
         this.kafkaProducerConfigData = kafkaProducerConfigData;
     }
+
     @Bean
     public Map<String, Object> producerConfig() {
         Map<String, Object> props = new HashMap<>();
@@ -51,5 +53,3 @@ public class KafkaProducerConfig <K extends Serializable, V extends SpecificReco
         return new KafkaTemplate<>(producerFactory());
     }
 }
-
-

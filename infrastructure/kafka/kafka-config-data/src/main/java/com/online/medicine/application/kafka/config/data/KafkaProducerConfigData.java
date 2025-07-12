@@ -1,4 +1,4 @@
-package com.online.medicine.kafka.config.data;
+package com.online.medicine.application.kafka.config.data;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

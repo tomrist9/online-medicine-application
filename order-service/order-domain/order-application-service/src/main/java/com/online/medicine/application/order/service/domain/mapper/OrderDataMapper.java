@@ -7,12 +7,8 @@ import com.online.medicine.application.order.service.domain.dto.create.OrderAddr
 
 import com.online.medicine.application.order.service.domain.dto.track.TrackOrderResponse;
 import com.online.medicine.domain.order.service.domain.entity.*;
-import com.online.medicine.domain.order.service.domain.event.OrderCancelledEvent;
-import com.online.medicine.domain.order.service.domain.event.OrderCreatedEvent;
-import com.online.medicine.domain.order.service.domain.event.OrderPaidEvent;
 
 import com.online.medicine.domain.order.service.domain.valueobject.StreetAddress;
-import com.online.medicine.domain.order.service.domain.valueobject.TrackingId;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -26,7 +22,7 @@ public class OrderDataMapper {
         return Pharmacy.builder()
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
                 .remedies(createOrderCommand.getItems().stream().map(orderItem ->
-                                new Remedy(new RemedyId(orderItem.getRemedyId())))
+                                new Medicine(new MedicineId(orderItem.getRemedyId())))
                         .collect(Collectors.toList()))
                 .build();
     }
@@ -112,7 +108,7 @@ public class OrderDataMapper {
         return orderItems.stream()
                 .map(orderItem ->
                         OrderItem.builder()
-                                .remedy(new Remedy(new RemedyId(orderItem.getRemedyId())))
+                                .remedy(new Medicine(new MedicineId(orderItem.getRemedyId())))
                                 .price(new Money(orderItem.getPrice()))
                                 .quantity(orderItem.getQuantity())
                                 .subTotal(new Money(orderItem.getSubTotal()))

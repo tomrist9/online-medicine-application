@@ -5,32 +5,34 @@
  */
 package com.online.medicine.application.kafka.order.avro.model;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class Remedy extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6511580554663840009L;
+public class Medicine extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 1643152397418879640L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Product\",\"namespace\":\"com.food.ordering.system.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"quantity\",\"type\":\"int\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Medicine\",\"namespace\":\"com.online.medicine.application.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"logicalType\":\"uuid\"},{\"name\":\"quantity\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<Remedy> ENCODER =
-      new BinaryMessageEncoder<Remedy>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<Medicine> ENCODER =
+      new BinaryMessageEncoder<Medicine>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<Remedy> DECODER =
-      new BinaryMessageDecoder<Remedy>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<Medicine> DECODER =
+      new BinaryMessageDecoder<Medicine>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<Remedy> getEncoder() {
+  public static BinaryMessageEncoder<Medicine> getEncoder() {
     return ENCODER;
   }
 
@@ -38,7 +40,7 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<Remedy> getDecoder() {
+  public static BinaryMessageDecoder<Medicine> getDecoder() {
     return DECODER;
   }
 
@@ -47,12 +49,12 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<Remedy> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<Remedy>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<Medicine> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<Medicine>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this Product to a ByteBuffer.
+   * Serializes this Medicine to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -61,12 +63,12 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   /**
-   * Deserializes a Product from a ByteBuffer.
+   * Deserializes a Medicine from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a Product instance decoded from the given buffer
+   * @return a Medicine instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static Remedy fromByteBuffer(
+  public static Medicine fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -79,14 +81,14 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public Remedy() {}
+  public Medicine() {}
 
   /**
    * All-args constructor.
    * @param id The new value for id
    * @param quantity The new value for quantity
    */
-  public Remedy(java.lang.String id, java.lang.Integer quantity) {
+  public Medicine(java.lang.String id, java.lang.Integer quantity) {
     this.id = id;
     this.quantity = quantity;
   }
@@ -147,45 +149,45 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   /**
-   * Creates a new Product RecordBuilder.
-   * @return A new Product RecordBuilder
+   * Creates a new Medicine RecordBuilder.
+   * @return A new Medicine RecordBuilder
    */
-  public static Remedy.Builder newBuilder() {
-    return new Remedy.Builder();
+  public static com.online.medicine.application.kafka.order.avro.model.Medicine.Builder newBuilder() {
+    return new com.online.medicine.application.kafka.order.avro.model.Medicine.Builder();
   }
 
   /**
-   * Creates a new Product RecordBuilder by copying an existing Builder.
+   * Creates a new Medicine RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new Product RecordBuilder
+   * @return A new Medicine RecordBuilder
    */
-  public static Remedy.Builder newBuilder(Remedy.Builder other) {
+  public static com.online.medicine.application.kafka.order.avro.model.Medicine.Builder newBuilder(com.online.medicine.application.kafka.order.avro.model.Medicine.Builder other) {
     if (other == null) {
-      return new Remedy.Builder();
+      return new com.online.medicine.application.kafka.order.avro.model.Medicine.Builder();
     } else {
-      return new Remedy.Builder(other);
+      return new com.online.medicine.application.kafka.order.avro.model.Medicine.Builder(other);
     }
   }
 
   /**
-   * Creates a new Product RecordBuilder by copying an existing Product instance.
+   * Creates a new Medicine RecordBuilder by copying an existing Medicine instance.
    * @param other The existing instance to copy.
-   * @return A new Product RecordBuilder
+   * @return A new Medicine RecordBuilder
    */
-  public static Remedy.Builder newBuilder(Remedy other) {
+  public static com.online.medicine.application.kafka.order.avro.model.Medicine.Builder newBuilder(com.online.medicine.application.kafka.order.avro.model.Medicine other) {
     if (other == null) {
-      return new Remedy.Builder();
+      return new com.online.medicine.application.kafka.order.avro.model.Medicine.Builder();
     } else {
-      return new Remedy.Builder(other);
+      return new com.online.medicine.application.kafka.order.avro.model.Medicine.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for Product instances.
+   * RecordBuilder for Medicine instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Remedy>
-    implements org.apache.avro.data.RecordBuilder<Remedy> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Medicine>
+    implements org.apache.avro.data.RecordBuilder<Medicine> {
 
     private java.lang.String id;
     private int quantity;
@@ -199,7 +201,7 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(Remedy.Builder other) {
+    private Builder(com.online.medicine.application.kafka.order.avro.model.Medicine.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -212,10 +214,10 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
     }
 
     /**
-     * Creates a Builder by copying an existing Product instance
+     * Creates a Builder by copying an existing Medicine instance
      * @param other The existing instance to copy.
      */
-    private Builder(Remedy other) {
+    private Builder(com.online.medicine.application.kafka.order.avro.model.Medicine other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.id)) {
         this.id = data().deepCopy(fields()[0].schema(), other.id);
@@ -241,7 +243,7 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public Remedy.Builder setId(java.lang.String value) {
+    public com.online.medicine.application.kafka.order.avro.model.Medicine.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -261,7 +263,7 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
       * Clears the value of the 'id' field.
       * @return This builder.
       */
-    public Remedy.Builder clearId() {
+    public com.online.medicine.application.kafka.order.avro.model.Medicine.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -281,7 +283,7 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'quantity'.
       * @return This builder.
       */
-    public Remedy.Builder setQuantity(int value) {
+    public com.online.medicine.application.kafka.order.avro.model.Medicine.Builder setQuantity(int value) {
       validate(fields()[1], value);
       this.quantity = value;
       fieldSetFlags()[1] = true;
@@ -301,16 +303,16 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
       * Clears the value of the 'quantity' field.
       * @return This builder.
       */
-    public Remedy.Builder clearQuantity() {
+    public com.online.medicine.application.kafka.order.avro.model.Medicine.Builder clearQuantity() {
       fieldSetFlags()[1] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Remedy build() {
+    public Medicine build() {
       try {
-        Remedy record = new Remedy();
+        Medicine record = new Medicine();
         record.id = fieldSetFlags()[0] ? this.id : (java.lang.String) defaultValue(fields()[0]);
         record.quantity = fieldSetFlags()[1] ? this.quantity : (java.lang.Integer) defaultValue(fields()[1]);
         return record;
@@ -323,8 +325,8 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<Remedy>
-    WRITER$ = (org.apache.avro.io.DatumWriter<Remedy>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<Medicine>
+    WRITER$ = (org.apache.avro.io.DatumWriter<Medicine>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -332,8 +334,8 @@ public class Remedy extends org.apache.avro.specific.SpecificRecordBase implemen
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<Remedy>
-    READER$ = (org.apache.avro.io.DatumReader<Remedy>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<Medicine>
+    READER$ = (org.apache.avro.io.DatumReader<Medicine>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {

@@ -47,6 +47,13 @@
             <version>${project.version}</version>
 
         </dependency>
+
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-config-data</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

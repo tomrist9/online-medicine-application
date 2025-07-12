@@ -1,13 +1,12 @@
 package com.online.medicine.application.order.service.dataaccess.pharmacy.mapper;
 
 import com.online.medicine.application.order.service.dataaccess.pharmacy.entity.PharmacyEntity;
-import com.online.medicine.application.order.service.dataaccess.pharmacy.entity.PharmacyEntityId;
 import com.online.medicine.application.order.service.dataaccess.pharmacy.exception.PharmacyDataAccessException;
 import com.online.medicine.application.order.service.domain.valueobject.Money;
 import com.online.medicine.application.order.service.domain.valueobject.PharmacyId;
-import com.online.medicine.application.order.service.domain.valueobject.RemedyId;
+import com.online.medicine.application.order.service.domain.valueobject.MedicineId;
 import com.online.medicine.domain.order.service.domain.entity.Pharmacy;
-import com.online.medicine.domain.order.service.domain.entity.Remedy;
+import com.online.medicine.domain.order.service.domain.entity.Medicine;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,8 +26,8 @@ public class PharmacyDataAccessMapper {
                 pharmacyEntities.stream().findFirst().orElseThrow(() ->
                         new PharmacyDataAccessException("Restaurant could not be found!"));
 
-        List<Remedy> pharmacyRemedies = pharmacyEntities.stream().map(entity ->
-                new Remedy(new RemedyId(entity.getRemedyId()), entity.getRemedyName(),
+        List<Medicine> pharmacyRemedies = pharmacyEntities.stream().map(entity ->
+                new Medicine(new MedicineId(entity.getRemedyId()), entity.getRemedyName(),
                         new Money(entity.getRemedyPrice()))).toList();
 
         return Pharmacy.builder()

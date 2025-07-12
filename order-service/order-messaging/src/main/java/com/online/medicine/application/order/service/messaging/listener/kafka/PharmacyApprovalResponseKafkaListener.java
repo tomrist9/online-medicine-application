@@ -1,11 +1,11 @@
 package com.online.medicine.application.order.service.messaging.listener.kafka;
 
+import com.online.medicine.application.kafka.consumer.KafkaConsumer;
 import com.online.medicine.application.kafka.order.avro.model.OrderApprovalStatus;
-import com.online.medicine.application.kafka.order.avro.model.PaymentStatus;
 import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel;
 import com.online.medicine.application.order.service.domain.ports.input.message.listener.pharmacyapproval.PharmacyApprovalResponseMessageListener;
 import com.online.medicine.application.order.service.messaging.mapper.OrderMessagingDataMapper;
-import com.online.medicine.kafka.consumer.KafkaConsumer;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -49,11 +49,10 @@ public class PharmacyApprovalResponseKafkaListener implements KafkaConsumer<Phar
                         .approvalResponseAvroModelToApprovalResponse(pharmacyApprovalResponseAvroModel));
 
             }else if(OrderApprovalStatus.REJECTED==pharmacyApprovalResponseAvroModel.getOrderApprovalStatus()){
-                log.info("Processing unsuccessful payment for order id: {}",
+                log.info("Processing unsuccessful payment for order id: {}, failure messages: {}",
                         pharmacyApprovalResponseAvroModel.getOrderId(),
-                        String.join(FAILURE_MESSAGE_DELIMITER, PharmacyApprovalResponseAvroModel.getFailureMessages()));
-                pharmacyResponseMessageListener.orderRejected(orderMessagingDataMapper
-                       .approvalResponseAvroModelToApprovalResponse(pharmacyApprovalResponseAvroModel));
+                        String.join(FAILURE_MESSAGE_DELIMITER, pharmacyApprovalResponseAvroModel.getFailureMessages()));
+
             }
         });
     }

@@ -1,7 +1,7 @@
 package com.online.medicine.domain.order.service.domain;
 
 import com.online.medicine.domain.order.service.domain.entity.Pharmacy;
-import com.online.medicine.domain.order.service.domain.entity.Remedy;
+import com.online.medicine.domain.order.service.domain.entity.Medicine;
 import com.online.medicine.domain.order.service.domain.event.OrderCancelledEvent;
 import com.online.medicine.domain.order.service.domain.event.OrderCreatedEvent;
 import com.online.medicine.domain.order.service.domain.event.OrderPaidEvent;
@@ -27,9 +27,9 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
     private void setOrderMedicineInformation(Order order, Pharmacy pharmacy) {
         order.getItems().forEach(orderItem -> pharmacy.getRemedies().forEach(pharmacyRemedy->{
-            Remedy currentRemedy=orderItem.getRemedy();
-            if (currentRemedy.equals(pharmacyRemedy)) {
-                currentRemedy.updateWithConfirmedNameAndPrice(pharmacyRemedy.getName(),
+            Medicine currentMedicine =orderItem.getRemedy();
+            if (currentMedicine.equals(pharmacyRemedy)) {
+                currentMedicine.updateWithConfirmedNameAndPrice(pharmacyRemedy.getName(),
                         pharmacyRemedy.getPrice());
             }
         }));

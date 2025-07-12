@@ -6,7 +6,7 @@ import com.online.medicine.application.order.service.dataaccess.order.entity.Ord
 import com.online.medicine.application.order.service.domain.valueobject.*;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.entity.OrderItem;
-import com.online.medicine.domain.order.service.domain.entity.Remedy;
+import com.online.medicine.domain.order.service.domain.entity.Medicine;
 import com.online.medicine.domain.order.service.domain.valueobject.OrderItemId;
 import com.online.medicine.domain.order.service.domain.valueobject.StreetAddress;
 import com.online.medicine.domain.order.service.domain.valueobject.TrackingId;
@@ -57,7 +57,7 @@ public class OrderDataAccessMapper {
         return items.stream()
                 .map(orderItemEntity -> OrderItem.builder()
                         .orderItemId(new OrderItemId(orderItemEntity.getId()))
-                        .remedy(new Remedy(new RemedyId(orderItemEntity.getRemedyId())))
+                        .remedy(new Medicine(new MedicineId(orderItemEntity.getRemedyId())))
                         .price(new Money(orderItemEntity.getPrice()))
                         .quantity(orderItemEntity.getQuantity())
                         .subTotal(new Money(orderItemEntity.getSubTotal()))

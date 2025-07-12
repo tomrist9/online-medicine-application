@@ -13,7 +13,7 @@ import com.online.medicine.application.order.service.domain.valueobject.*;
 import com.online.medicine.domain.order.service.domain.entity.Customer;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.entity.Pharmacy;
-import com.online.medicine.domain.order.service.domain.entity.Remedy;
+import com.online.medicine.domain.order.service.domain.entity.Medicine;
 import com.online.medicine.domain.order.service.domain.exception.OrderDomainException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -130,9 +130,9 @@ public class OrderApplicationServiceTest {
         customer.setId(new CustomerId(CUSTOMER_ID));
         Pharmacy pharmacyResponse=Pharmacy.builder()
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
-                        .remedies(List.of(new Remedy(new RemedyId(REMEDY_ID), "remedy-1",
+                        .remedies(List.of(new Medicine(new MedicineId(REMEDY_ID), "remedy-1",
                                 new Money(new BigDecimal("50.00"))),
-                                new Remedy(new RemedyId(REMEDY_ID), "product-2", new Money(new BigDecimal("50.00")))))
+                                new Medicine(new MedicineId(REMEDY_ID), "product-2", new Money(new BigDecimal("50.00")))))
                 .active(true)
 
                 .build();
@@ -170,9 +170,9 @@ public class OrderApplicationServiceTest {
     public void testCreateOrderWithPassivePharmacy() {
         Pharmacy pharmacyResponse=Pharmacy.builder()
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
-                .remedies(List.of(new Remedy(new RemedyId(REMEDY_ID), "remedy-1",
+                .remedies(List.of(new Medicine(new MedicineId(REMEDY_ID), "remedy-1",
                                 new Money(new BigDecimal("50.00"))),
-                        new Remedy(new RemedyId(REMEDY_ID), "product-2", new Money(new BigDecimal("50.00")))))
+                        new Medicine(new MedicineId(REMEDY_ID), "product-2", new Money(new BigDecimal("50.00")))))
                 .active(false)
 
                 .build();

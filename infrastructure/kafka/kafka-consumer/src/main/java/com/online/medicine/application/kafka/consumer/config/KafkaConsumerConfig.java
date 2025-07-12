@@ -1,7 +1,9 @@
-package com.online.medicine.kafka.consumer.config;
+package com.online.medicine.application.kafka.consumer.config;
 
-import com.online.medicine.kafka.config.data.KafkaConfigData;
-import com.online.medicine.kafka.config.data.KafkaConsumerConfigData;
+
+
+import com.online.medicine.application.kafka.config.data.KafkaConfigData;
+import com.online.medicine.application.kafka.config.data.KafkaConsumerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.context.annotation.Bean;
@@ -53,10 +55,9 @@ public class KafkaConsumerConfig<K extends Serializable, V extends SpecificRecor
     }
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<K, V>> kafkaListenerContainerFactory(
-            ConsumerFactory<K, V> consumerFactory) { // ✅ Injected properly
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<K, V>> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<K, V> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory); // ✅ No manual method call
+        factory.setConsumerFactory(consumerFactory());
         factory.setBatchListener(kafkaConsumerConfigData.getBatchListener());
         factory.setConcurrency(kafkaConsumerConfigData.getConcurrencyLevel());
         factory.setAutoStartup(kafkaConsumerConfigData.getAutoStartup());

@@ -5,20 +5,19 @@
  */
 package com.online.medicine.application.kafka.order.avro.model;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
+import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
 import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
-import java.time.Instant;
-import java.time.OffsetDateTime;
-
 @org.apache.avro.specific.AvroGenerated
 public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3431989201238018220L;
+  private static final long serialVersionUID = 3447427696154811824L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RestaurantApprovalResponseAvroModel\",\"namespace\":\"com.food.ordering.system.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"restaurantId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"orderId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"orderApprovalStatus\",\"type\":{\"type\":\"enum\",\"name\":\"OrderApprovalStatus\",\"symbols\":[\"APPROVED\",\"REJECTED\"]}},{\"name\":\"failureMessages\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"PharmacyApprovalResponseAvroModel\",\"namespace\":\"com.online.medicine.application.kafka.order.avro.model\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"sagaId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"pharmacyId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"orderId\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"createdAt\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"orderApprovalStatus\",\"type\":{\"type\":\"enum\",\"name\":\"OrderApprovalStatus\",\"symbols\":[\"APPROVED\",\"REJECTED\"]}},{\"name\":\"failureMessages\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -27,10 +26,10 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   }
 
   private static final BinaryMessageEncoder<PharmacyApprovalResponseAvroModel> ENCODER =
-          new BinaryMessageEncoder<PharmacyApprovalResponseAvroModel>(MODEL$, SCHEMA$);
+      new BinaryMessageEncoder<PharmacyApprovalResponseAvroModel>(MODEL$, SCHEMA$);
 
   private static final BinaryMessageDecoder<PharmacyApprovalResponseAvroModel> DECODER =
-          new BinaryMessageDecoder<PharmacyApprovalResponseAvroModel>(MODEL$, SCHEMA$);
+      new BinaryMessageDecoder<PharmacyApprovalResponseAvroModel>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
@@ -73,7 +72,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
   public static PharmacyApprovalResponseAvroModel fromByteBuffer(
-          java.nio.ByteBuffer b) throws java.io.IOException {
+      java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
 
@@ -83,7 +82,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   private java.lang.String orderId;
   private java.time.Instant createdAt;
   private com.online.medicine.application.kafka.order.avro.model.OrderApprovalStatus orderApprovalStatus;
-  private static java.util.List<java.lang.String> failureMessages;
+  private java.util.List<java.lang.String> failureMessages;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -96,7 +95,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
    * All-args constructor.
    * @param id The new value for id
    * @param sagaId The new value for sagaId
-   * @param pharmacyId The new value for restaurantId
+   * @param pharmacyId The new value for pharmacyId
    * @param orderId The new value for orderId
    * @param createdAt The new value for createdAt
    * @param orderApprovalStatus The new value for orderApprovalStatus
@@ -105,7 +104,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   public PharmacyApprovalResponseAvroModel(java.lang.String id, java.lang.String sagaId, java.lang.String pharmacyId, java.lang.String orderId, java.time.Instant createdAt, com.online.medicine.application.kafka.order.avro.model.OrderApprovalStatus orderApprovalStatus, java.util.List<java.lang.String> failureMessages) {
     this.id = id;
     this.sagaId = sagaId;
-    this.pharmacyId=pharmacyId;
+    this.pharmacyId = pharmacyId;
     this.orderId = orderId;
     this.createdAt = createdAt.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
     this.orderApprovalStatus = orderApprovalStatus;
@@ -117,28 +116,28 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-      case 0: return id;
-      case 1: return sagaId;
-      case 2: return pharmacyId;
-      case 3: return orderId;
-      case 4: return createdAt;
-      case 5: return orderApprovalStatus;
-      case 6: return failureMessages;
-      default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    case 0: return id;
+    case 1: return sagaId;
+    case 2: return pharmacyId;
+    case 3: return orderId;
+    case 4: return createdAt;
+    case 5: return orderApprovalStatus;
+    case 6: return failureMessages;
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
   private static final org.apache.avro.Conversion<?>[] conversions =
-          new org.apache.avro.Conversion<?>[] {
-                  null,
-                  null,
-                  null,
-                  null,
-                  new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
-                  null,
-                  null,
-                  null
-          };
+      new org.apache.avro.Conversion<?>[] {
+      null,
+      null,
+      null,
+      null,
+      new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
+      null,
+      null,
+      null
+  };
 
   @Override
   public org.apache.avro.Conversion<?> getConversion(int field) {
@@ -149,14 +148,14 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-      case 0: id = value$ != null ? value$.toString() : null; break;
-      case 1: sagaId = value$ != null ? value$.toString() : null; break;
-      case 2: pharmacyId = value$ != null ? value$.toString() : null; break;
-      case 3: orderId = value$ != null ? value$.toString() : null; break;
-      case 4: createdAt = (java.time.Instant)value$; break;
-      case 5: orderApprovalStatus = (com.online.medicine.application.kafka.order.avro.model.OrderApprovalStatus)value$; break;
-      case 6: failureMessages = (java.util.List<java.lang.String>)value$; break;
-      default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    case 0: id = value$ != null ? value$.toString() : null; break;
+    case 1: sagaId = value$ != null ? value$.toString() : null; break;
+    case 2: pharmacyId = value$ != null ? value$.toString() : null; break;
+    case 3: orderId = value$ != null ? value$.toString() : null; break;
+    case 4: createdAt = (java.time.Instant)value$; break;
+    case 5: orderApprovalStatus = (com.online.medicine.application.kafka.order.avro.model.OrderApprovalStatus)value$; break;
+    case 6: failureMessages = (java.util.List<java.lang.String>)value$; break;
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -195,16 +194,16 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   }
 
   /**
-   * Gets the value of the 'restaurantId' field.
-   * @return The value of the 'restaurantId' field.
+   * Gets the value of the 'pharmacyId' field.
+   * @return The value of the 'pharmacyId' field.
    */
-  public java.lang.String getRestaurantId() {
+  public java.lang.String getPharmacyId() {
     return pharmacyId;
   }
 
 
   /**
-   * Sets the value of the 'restaurantId' field.
+   * Sets the value of the 'pharmacyId' field.
    * @param value the value to set.
    */
   public void setPharmacyId(java.lang.String value) {
@@ -230,10 +229,9 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
 
   /**
    * Gets the value of the 'createdAt' field.
-   *
    * @return The value of the 'createdAt' field.
    */
-  public Instant getCreatedAt() {
+  public java.time.Instant getCreatedAt() {
     return createdAt;
   }
 
@@ -267,7 +265,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
    * Gets the value of the 'failureMessages' field.
    * @return The value of the 'failureMessages' field.
    */
-  public static java.util.List<java.lang.String> getFailureMessages() {
+  public java.util.List<java.lang.String> getFailureMessages() {
     return failureMessages;
   }
 
@@ -281,8 +279,8 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   }
 
   /**
-   * Creates a new RestaurantApprovalResponseAvroModel RecordBuilder.
-   * @return A new RestaurantApprovalResponseAvroModel RecordBuilder
+   * Creates a new PharmacyApprovalResponseAvroModel RecordBuilder.
+   * @return A new PharmacyApprovalResponseAvroModel RecordBuilder
    */
   public static com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder newBuilder() {
     return new com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder();
@@ -302,7 +300,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   }
 
   /**
-   * Creates a new PharmacyApprovalResponseAvroModel RecordBuilder by copying an existing RestaurantApprovalResponseAvroModel instance.
+   * Creates a new PharmacyApprovalResponseAvroModel RecordBuilder by copying an existing PharmacyApprovalResponseAvroModel instance.
    * @param other The existing instance to copy.
    * @return A new PharmacyApprovalResponseAvroModel RecordBuilder
    */
@@ -315,11 +313,11 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
   }
 
   /**
-   * RecordBuilder for RestaurantApprovalResponseAvroModel instances.
+   * RecordBuilder for PharmacyApprovalResponseAvroModel instances.
    */
   @org.apache.avro.specific.AvroGenerated
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<PharmacyApprovalResponseAvroModel>
-          implements org.apache.avro.data.RecordBuilder<PharmacyApprovalResponseAvroModel> {
+    implements org.apache.avro.data.RecordBuilder<PharmacyApprovalResponseAvroModel> {
 
     private java.lang.String id;
     private java.lang.String sagaId;
@@ -371,7 +369,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Creates a Builder by copying an existing RestaurantApprovalResponseAvroModel instance
+     * Creates a Builder by copying an existing PharmacyApprovalResponseAvroModel instance
      * @param other The existing instance to copy.
      */
     private Builder(com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel other) {
@@ -385,7 +383,7 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
         fieldSetFlags()[1] = true;
       }
       if (isValidValue(fields()[2], other.pharmacyId)) {
-        this.pharmacyId= data().deepCopy(fields()[2].schema(), other.pharmacyId);
+        this.pharmacyId = data().deepCopy(fields()[2].schema(), other.pharmacyId);
         fieldSetFlags()[2] = true;
       }
       if (isValidValue(fields()[3], other.orderId)) {
@@ -407,19 +405,19 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Gets the value of the 'id' field.
-     * @return The value.
-     */
+      * Gets the value of the 'id' field.
+      * @return The value.
+      */
     public java.lang.String getId() {
       return id;
     }
 
 
     /**
-     * Sets the value of the 'id' field.
-     * @param value The value of 'id'.
-     * @return This builder.
-     */
+      * Sets the value of the 'id' field.
+      * @param value The value of 'id'.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setId(java.lang.String value) {
       validate(fields()[0], value);
       this.id = value;
@@ -428,18 +426,18 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Checks whether the 'id' field has been set.
-     * @return True if the 'id' field has been set, false otherwise.
-     */
+      * Checks whether the 'id' field has been set.
+      * @return True if the 'id' field has been set, false otherwise.
+      */
     public boolean hasId() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-     * Clears the value of the 'id' field.
-     * @return This builder.
-     */
+      * Clears the value of the 'id' field.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearId() {
       id = null;
       fieldSetFlags()[0] = false;
@@ -447,19 +445,19 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Gets the value of the 'sagaId' field.
-     * @return The value.
-     */
+      * Gets the value of the 'sagaId' field.
+      * @return The value.
+      */
     public java.lang.String getSagaId() {
       return sagaId;
     }
 
 
     /**
-     * Sets the value of the 'sagaId' field.
-     * @param value The value of 'sagaId'.
-     * @return This builder.
-     */
+      * Sets the value of the 'sagaId' field.
+      * @param value The value of 'sagaId'.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setSagaId(java.lang.String value) {
       validate(fields()[1], value);
       this.sagaId = value;
@@ -468,18 +466,18 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Checks whether the 'sagaId' field has been set.
-     * @return True if the 'sagaId' field has been set, false otherwise.
-     */
+      * Checks whether the 'sagaId' field has been set.
+      * @return True if the 'sagaId' field has been set, false otherwise.
+      */
     public boolean hasSagaId() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-     * Clears the value of the 'sagaId' field.
-     * @return This builder.
-     */
+      * Clears the value of the 'sagaId' field.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearSagaId() {
       sagaId = null;
       fieldSetFlags()[1] = false;
@@ -487,20 +485,20 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Gets the value of the 'restaurantId' field.
-     * @return The value.
-     */
+      * Gets the value of the 'pharmacyId' field.
+      * @return The value.
+      */
     public java.lang.String getPharmacyId() {
       return pharmacyId;
     }
 
 
     /**
-     * Sets the value of the 'pharmacytId' field.
-     * @param value The value of 'pharmacyId'.
-     * @return This builder.
-     */
-    public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setRestaurantId(java.lang.String value) {
+      * Sets the value of the 'pharmacyId' field.
+      * @param value The value of 'pharmacyId'.
+      * @return This builder.
+      */
+    public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setPharmacyId(java.lang.String value) {
       validate(fields()[2], value);
       this.pharmacyId = value;
       fieldSetFlags()[2] = true;
@@ -508,38 +506,38 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Checks whether the 'pharmacyId' field has been set.
-     * @return True if the 'pharmacyId' field has been set, false otherwise.
-     */
+      * Checks whether the 'pharmacyId' field has been set.
+      * @return True if the 'pharmacyId' field has been set, false otherwise.
+      */
     public boolean hasPharmacyId() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-     * Clears the value of the 'pharmacyId' field.
-     * @return This builder.
-     */
-    public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearRestaurantId() {
+      * Clears the value of the 'pharmacyId' field.
+      * @return This builder.
+      */
+    public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearPharmacyId() {
       pharmacyId = null;
       fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'orderId' field.
-     * @return The value.
-     */
+      * Gets the value of the 'orderId' field.
+      * @return The value.
+      */
     public java.lang.String getOrderId() {
       return orderId;
     }
 
 
     /**
-     * Sets the value of the 'orderId' field.
-     * @param value The value of 'orderId'.
-     * @return This builder.
-     */
+      * Sets the value of the 'orderId' field.
+      * @param value The value of 'orderId'.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setOrderId(java.lang.String value) {
       validate(fields()[3], value);
       this.orderId = value;
@@ -548,18 +546,18 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Checks whether the 'orderId' field has been set.
-     * @return True if the 'orderId' field has been set, false otherwise.
-     */
+      * Checks whether the 'orderId' field has been set.
+      * @return True if the 'orderId' field has been set, false otherwise.
+      */
     public boolean hasOrderId() {
       return fieldSetFlags()[3];
     }
 
 
     /**
-     * Clears the value of the 'orderId' field.
-     * @return This builder.
-     */
+      * Clears the value of the 'orderId' field.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearOrderId() {
       orderId = null;
       fieldSetFlags()[3] = false;
@@ -567,19 +565,19 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Gets the value of the 'createdAt' field.
-     * @return The value.
-     */
+      * Gets the value of the 'createdAt' field.
+      * @return The value.
+      */
     public java.time.Instant getCreatedAt() {
       return createdAt;
     }
 
 
     /**
-     * Sets the value of the 'createdAt' field.
-     * @param value The value of 'createdAt'.
-     * @return This builder.
-     */
+      * Sets the value of the 'createdAt' field.
+      * @param value The value of 'createdAt'.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setCreatedAt(java.time.Instant value) {
       validate(fields()[4], value);
       this.createdAt = value.truncatedTo(java.time.temporal.ChronoUnit.MILLIS);
@@ -588,37 +586,37 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Checks whether the 'createdAt' field has been set.
-     * @return True if the 'createdAt' field has been set, false otherwise.
-     */
+      * Checks whether the 'createdAt' field has been set.
+      * @return True if the 'createdAt' field has been set, false otherwise.
+      */
     public boolean hasCreatedAt() {
       return fieldSetFlags()[4];
     }
 
 
     /**
-     * Clears the value of the 'createdAt' field.
-     * @return This builder.
-     */
+      * Clears the value of the 'createdAt' field.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearCreatedAt() {
       fieldSetFlags()[4] = false;
       return this;
     }
 
     /**
-     * Gets the value of the 'orderApprovalStatus' field.
-     * @return The value.
-     */
+      * Gets the value of the 'orderApprovalStatus' field.
+      * @return The value.
+      */
     public com.online.medicine.application.kafka.order.avro.model.OrderApprovalStatus getOrderApprovalStatus() {
       return orderApprovalStatus;
     }
 
 
     /**
-     * Sets the value of the 'orderApprovalStatus' field.
-     * @param value The value of 'orderApprovalStatus'.
-     * @return This builder.
-     */
+      * Sets the value of the 'orderApprovalStatus' field.
+      * @param value The value of 'orderApprovalStatus'.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setOrderApprovalStatus(com.online.medicine.application.kafka.order.avro.model.OrderApprovalStatus value) {
       validate(fields()[5], value);
       this.orderApprovalStatus = value;
@@ -627,18 +625,18 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Checks whether the 'orderApprovalStatus' field has been set.
-     * @return True if the 'orderApprovalStatus' field has been set, false otherwise.
-     */
+      * Checks whether the 'orderApprovalStatus' field has been set.
+      * @return True if the 'orderApprovalStatus' field has been set, false otherwise.
+      */
     public boolean hasOrderApprovalStatus() {
       return fieldSetFlags()[5];
     }
 
 
     /**
-     * Clears the value of the 'orderApprovalStatus' field.
-     * @return This builder.
-     */
+      * Clears the value of the 'orderApprovalStatus' field.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearOrderApprovalStatus() {
       orderApprovalStatus = null;
       fieldSetFlags()[5] = false;
@@ -646,19 +644,19 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Gets the value of the 'failureMessages' field.
-     * @return The value.
-     */
+      * Gets the value of the 'failureMessages' field.
+      * @return The value.
+      */
     public java.util.List<java.lang.String> getFailureMessages() {
       return failureMessages;
     }
 
 
     /**
-     * Sets the value of the 'failureMessages' field.
-     * @param value The value of 'failureMessages'.
-     * @return This builder.
-     */
+      * Sets the value of the 'failureMessages' field.
+      * @param value The value of 'failureMessages'.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder setFailureMessages(java.util.List<java.lang.String> value) {
       validate(fields()[6], value);
       this.failureMessages = value;
@@ -667,18 +665,18 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
     }
 
     /**
-     * Checks whether the 'failureMessages' field has been set.
-     * @return True if the 'failureMessages' field has been set, false otherwise.
-     */
+      * Checks whether the 'failureMessages' field has been set.
+      * @return True if the 'failureMessages' field has been set, false otherwise.
+      */
     public boolean hasFailureMessages() {
       return fieldSetFlags()[6];
     }
 
 
     /**
-     * Clears the value of the 'failureMessages' field.
-     * @return This builder.
-     */
+      * Clears the value of the 'failureMessages' field.
+      * @return This builder.
+      */
     public com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel.Builder clearFailureMessages() {
       failureMessages = null;
       fieldSetFlags()[6] = false;
@@ -708,21 +706,30 @@ public class PharmacyApprovalResponseAvroModel extends org.apache.avro.specific.
 
   @SuppressWarnings("unchecked")
   private static final org.apache.avro.io.DatumWriter<PharmacyApprovalResponseAvroModel>
-          WRITER$ = (org.apache.avro.io.DatumWriter<PharmacyApprovalResponseAvroModel>)MODEL$.createDatumWriter(SCHEMA$);
+    WRITER$ = (org.apache.avro.io.DatumWriter<PharmacyApprovalResponseAvroModel>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
-          throws java.io.IOException {
+    throws java.io.IOException {
     WRITER$.write(this, SpecificData.getEncoder(out));
   }
 
   @SuppressWarnings("unchecked")
   private static final org.apache.avro.io.DatumReader<PharmacyApprovalResponseAvroModel>
-          READER$ = (org.apache.avro.io.DatumReader<PharmacyApprovalResponseAvroModel>)MODEL$.createDatumReader(SCHEMA$);
+    READER$ = (org.apache.avro.io.DatumReader<PharmacyApprovalResponseAvroModel>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
-          throws java.io.IOException {
+    throws java.io.IOException {
     READER$.read(this, SpecificData.getDecoder(in));
   }
 
 }
+
+
+
+
+
+
+
+
+
 

@@ -5,9 +5,9 @@
  */
 package com.online.medicine.application.kafka.order.avro.model;
 @org.apache.avro.specific.AvroGenerated
-public enum RestaurantOrderStatus implements org.apache.avro.generic.GenericEnumSymbol<RestaurantOrderStatus> {
+public enum PharmacyOrderStatus implements org.apache.avro.generic.GenericEnumSymbol<PharmacyOrderStatus> {
   PAID  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"RestaurantOrderStatus\",\"namespace\":\"com.food.ordering.system.kafka.order.avro.model\",\"symbols\":[\"PAID\"]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"PharmacyOrderStatus\",\"namespace\":\"com.online.medicine.application.kafka.order.avro.model\",\"symbols\":[\"PAID\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
 }

@@ -1,7 +1,7 @@
 {
-    "namespace": "com.food.ordering.system.kafka.order.avro.model",
+    "namespace": "com.online.medicine.application.kafka.order.avro.model",
     "type": "record",
-    "name": "RestaurantApprovalResponseAvroModel",
+    "name": "PharmacyApprovalResponseAvroModel",
     "fields": [
         {
             "name": "id",
@@ -18,7 +18,7 @@
             }
         },
         {
-            "name": "restaurantId",
+            "name": "pharmacyId",
             "type": {
                 "type": "string",
                 "logicalType": "uuid"

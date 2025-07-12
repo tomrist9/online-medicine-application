@@ -7,7 +7,7 @@ import com.online.medicine.domain.order.service.domain.valueobject.OrderItemId;
 
 public class OrderItem extends BaseEntity<OrderItemId> {
     private OrderId orderId;
-    private final Remedy remedy;
+    private final Medicine medicine;
     private final int quantity;
     private final Money price;
     private final Money subTotal;
@@ -19,13 +19,13 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 
     boolean isPriceValid() {
         return price.isGreaterThanZero() &&
-                price.equals(remedy.getPrice()) &&
+                price.equals(medicine.getPrice()) &&
                 price.multiply(quantity).equals(subTotal);
     }
 
     private OrderItem(Builder builder) {
         super.setId(builder.orderItemId);
-        remedy = builder.remedy;
+        medicine = builder.medicine;
         quantity = builder.quantity;
         price = builder.price;
         subTotal = builder.subTotal;
@@ -40,8 +40,8 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         return orderId;
     }
 
-    public Remedy getRemedy() {
-        return remedy;
+    public Medicine getRemedy() {
+        return medicine;
     }
 
     public int getQuantity() {
@@ -58,7 +58,7 @@ public class OrderItem extends BaseEntity<OrderItemId> {
 
     public static final class Builder {
         private OrderItemId orderItemId;
-        private Remedy remedy;
+        private Medicine medicine;
         private int quantity;
         private Money price;
         private Money subTotal;
@@ -71,8 +71,8 @@ public class OrderItem extends BaseEntity<OrderItemId> {
             return this;
         }
 
-        public Builder remedy(Remedy val) {
-            remedy = val;
+        public Builder remedy(Medicine val) {
+            medicine = val;
             return this;
         }
 

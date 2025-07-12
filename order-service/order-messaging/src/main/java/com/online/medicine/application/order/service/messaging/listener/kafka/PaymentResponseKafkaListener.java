@@ -1,10 +1,11 @@
 package com.online.medicine.application.order.service.messaging.listener.kafka;
 
+import com.online.medicine.application.kafka.consumer.KafkaConsumer;
 import com.online.medicine.application.kafka.order.avro.model.PaymentResponseAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.PaymentStatus;
 import com.online.medicine.application.order.service.domain.ports.input.message.listener.payment.PaymentResponseMessageListener;
 import com.online.medicine.application.order.service.messaging.mapper.OrderMessagingDataMapper;
-import com.online.medicine.kafka.consumer.KafkaConsumer;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
