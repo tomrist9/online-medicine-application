@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>payment-domain-core</module>
-        <module>payment-domain-service</module>
+        <module>payment-application-service</module>
     </modules>
 
 
