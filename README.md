@@ -106,6 +106,6 @@ Planned improvements:
 
 👤 Author
 Tomris Teymurlu
-📬 LinkedIn | ✉️ your.email@example.com
+📬 LinkedIn | ✉️tomristt9@gmail.com
 
 ⭐ If you find this project helpful, feel free to give it a star and share feedback. Contributions are welcome!
