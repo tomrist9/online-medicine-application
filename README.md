@@ -56,15 +56,13 @@ online-medicine-application/
 ├── docker-compose.yml
 ├── k8s/                   # Kubernetes manifests
 └── README.md
-🧪 How to Run
-Clone the Repository
+## 🧪 How to Run
 
-bash
-Copy
-Edit
-git clone https://github.com/your-username/online-medicine-application.git
+### Clone the Repository
+
+```bash
+git clone https://github.com/tomrist9/online-medicine-application.git
 cd online-medicine-application
-Start Dependencies (Kafka, PostgreSQL, Zookeeper)
 
 bash
 Copy
@@ -81,15 +79,6 @@ Test Kafka Events
 Kafka UI is available at:
 📍 http://localhost:8081
 
-☁️ Cloud Deployment
-Project is ready for deployment on Kubernetes with manifests provided in the k8s/ directory. GKE integration and Helm support coming soon.
-
-📖 Based On
-This project is a practical implementation inspired by the Udemy course:
-
-Microservices: Clean Architecture, DDD, SAGA, Outbox & Kafka
-by Ali Gelenler
-View Course
 
 🛠️ Still in Progress
 Planned improvements:
@@ -104,8 +93,8 @@ Planned improvements:
 
 ✅ Observability stack (Prometheus, Grafana, Tempo)
 
-👤 Author
-Tomris Teymurlu
-📬 LinkedIn | ✉️tomristt9@gmail.com
 
-⭐ If you find this project helpful, feel free to give it a star and share feedback. Contributions are welcome!
+Tomris Teymurlu
+ ✉️tomristt9@gmail.com
+
+⭐ If you find this project helpful, please give it a star and share feedback. Contributions are welcome!
