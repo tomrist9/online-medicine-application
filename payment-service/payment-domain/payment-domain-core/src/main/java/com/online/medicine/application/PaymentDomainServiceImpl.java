@@ -14,8 +14,7 @@ import com.online.medicine.application.valueobject.TransactionType;
 
 import com.online.medicine.application.order.service.DomainConstants;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -23,9 +22,8 @@ import java.util.List;
 import java.util.UUID;
 
 
-
+@Slf4j
 public class PaymentDomainServiceImpl implements PaymentDomainService {
-    private static final Logger log = LoggerFactory.getLogger(PaymentDomainServiceImpl.class);
 
     @Override
     public PaymentEvent validateAndInitiatePayment(Payment payment,
@@ -94,6 +92,7 @@ public class PaymentDomainServiceImpl implements PaymentDomainService {
                 .build());
     }
 
+
     private void validateCreditHistory(CreditEntry creditEntry,
                                        List<CreditHistory> creditHistories,
                                        List<String> failureMessages) {
@@ -117,7 +116,7 @@ public class PaymentDomainServiceImpl implements PaymentDomainService {
 
     private Money getTotalHistoryAmount(List<CreditHistory> creditHistories, TransactionType transactionType) {
         return creditHistories.stream()
-                .filter(creditHistory -> transactionType == creditHistory.getTransactionType())
+                .filter(creditHistory -> transactionType ==creditHistory.getTransactionType())
                 .map(CreditHistory::getAmount)
                 .reduce(Money.ZERO, Money::add);
     }

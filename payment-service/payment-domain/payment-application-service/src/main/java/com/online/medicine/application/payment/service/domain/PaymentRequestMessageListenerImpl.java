@@ -18,11 +18,12 @@ public class PaymentRequestMessageListenerImpl implements PaymentRequestMessageL
 
     @Override
     public void completePayment(PaymentRequest paymentRequest) {
-      paymentRequestHelper.persistPayment(paymentRequest);
+        paymentRequestHelper.persistPayment(paymentRequest);
     }
 
     @Override
     public void cancelPayment(PaymentRequest paymentRequest) {
-    paymentRequestHelper.persistCancelPayment(paymentRequest);
+        paymentRequestHelper.persistCancelPayment(paymentRequest);
     }
+
 }
