@@ -19,6 +19,9 @@
         <module>customer-service</module>
         <module>payment-service/payment-domain</module>
         <module>web-ui</module>
+        <module>pharmacy-service</module>
+        <module>pharmacy-service/pharmacy-domain</module>
+        <module>pharmacy-service/pharmacy-messaging</module>
     </modules>
     <properties>
      <maven.compiler.source>17</maven.compiler.source>
@@ -76,6 +79,32 @@
     <dependency>
         <groupId>com.online.medicine.application</groupId>
         <artifactId>payment-container</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.online.medicine.application</groupId>
+        <artifactId>payment-messaging</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.online.medicine.application</groupId>
+        <artifactId>pharmacy-domain-core</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.online.medicine.application</groupId>
+        <artifactId>pharmacy-application-service</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.online.medicine.application</groupId>
+        <artifactId>pharmacy-dataaccess</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.online.medicine.application</groupId>
+        <artifactId>pharmacy-messaging</artifactId>
         <version>${project.version}</version>
     </dependency>
     <dependency>
