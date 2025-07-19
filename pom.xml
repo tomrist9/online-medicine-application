@@ -18,6 +18,7 @@
         <module>infrastructure</module>
         <module>customer-service</module>
         <module>payment-service/payment-domain</module>
+        <module>web-ui</module>
     </modules>
     <properties>
      <maven.compiler.source>17</maven.compiler.source>
