@@ -4,10 +4,12 @@ import com.online.medicine.application.order.service.domain.entity.BaseEntity;
 import com.online.medicine.application.order.service.domain.valueobject.Money;
 import com.online.medicine.application.order.service.domain.valueobject.OrderId;
 import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
+import lombok.Builder;
 
 
 import java.util.List;
 
+@Builder
 public class OrderDetail extends BaseEntity<OrderId> {
 
     private OrderStatus orderStatus;
