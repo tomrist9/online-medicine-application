@@ -13,18 +13,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
-//@EnableJpaRepositories(basePackages = { "com.food.ordering.system.order.service.dataaccess", "com.food.ordering.system.dataaccess" })
+//@EnableJpaRepositories(basePackages = {  })
 @EnableConfigurationProperties({
         KafkaConfigData.class,
         KafkaConsumerConfigData.class,
-        KafkaProducerConfigData.class // ✅ This was missing
+        KafkaProducerConfigData.class
 })
 @SpringBootApplication(scanBasePackages = "com.online.medicine.application")
 @EntityScan(basePackages = {
         "com.online.medicine.application.order.service.dataaccess",
         "com.online.medicine.application.dataaccess"
 })
-@EnableJpaRepositories("com.online.medicine.application.order.service.dataaccess")
+@EnableJpaRepositories({"com.online.medicine.application.order.service.dataaccess", "com.online.medicine.application.dataaccess"})
 public class OrderServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderServiceApplication.class, args);
