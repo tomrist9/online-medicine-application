@@ -43,9 +43,9 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
     @Override
     public OrderPaidEvent payOrder(Order order) {
-        order.pay();
-        log.info("Order with id: {} is paid", order.getId().getValue());
-        return new OrderPaidEvent(order, OffsetDateTime.now());
+        orderPaidPharmacyRequestMessagePublisher.pay();
+        log.info("Order with id: {} is paid", orderPaidPharmacyRequestMessagePublisher.getId().getValue());
+        return new OrderPaidEvent(orderPaidPharmacyRequestMessagePublisher, OffsetDateTime.now());
     }
 
     @Override

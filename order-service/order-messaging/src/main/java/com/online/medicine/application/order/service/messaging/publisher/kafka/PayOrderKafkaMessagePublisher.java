@@ -2,7 +2,7 @@ package com.online.medicine.application.order.service.messaging.publisher.kafka;
 
 import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalRequestAvroModel;
 import com.online.medicine.application.order.service.domain.config.OrderServiceConfigData;
-import com.online.medicine.application.order.service.domain.ports.output.message.publisher.pharmacyapproval.OrderPaidRestaurantRequestMessagePublisher;
+import com.online.medicine.application.order.service.domain.ports.output.message.publisher.pharmacyapproval.OrderPaidPharmacyRequestMessagePublisher;
 import com.online.medicine.application.order.service.messaging.mapper.OrderMessagingDataMapper;
 import com.online.medicine.domain.order.service.domain.event.OrderPaidEvent;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequestMessagePublisher {
+public class PayOrderKafkaMessagePublisher implements OrderPaidPharmacyRequestMessagePublisher {
 
    private final OrderMessagingDataMapper orderMessagingDataMapper;
    private final OrderServiceConfigData orderServiceConfigData;

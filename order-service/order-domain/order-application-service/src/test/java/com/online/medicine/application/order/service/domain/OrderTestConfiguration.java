@@ -2,7 +2,7 @@ package com.online.medicine.application.order.service.domain;
 
 import com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment.OrderCancelledPaymentRequestMessagePublisher;
 import com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment.OrderCreatedPaymentRequestMessagePublisher;
-import com.online.medicine.application.order.service.domain.ports.output.message.publisher.pharmacyapproval.OrderPaidRestaurantRequestMessagePublisher;
+import com.online.medicine.application.order.service.domain.ports.output.message.publisher.pharmacyapproval.OrderPaidPharmacyRequestMessagePublisher;
 import com.online.medicine.application.order.service.domain.ports.output.repository.CustomerRepository;
 import com.online.medicine.application.order.service.domain.ports.output.repository.OrderRepository;
 import com.online.medicine.application.order.service.domain.ports.output.repository.PharmacyRepository;
@@ -26,9 +26,9 @@ public class OrderTestConfiguration {
         return Mockito.mock(OrderCancelledPaymentRequestMessagePublisher.class);
     }
     @Bean
-    public OrderPaidRestaurantRequestMessagePublisher orderPaidRestaurantRequestMessagePublisher(){
+    public OrderPaidPharmacyRequestMessagePublisher orderPaidRestaurantRequestMessagePublisher(){
 
-        return Mockito.mock(OrderPaidRestaurantRequestMessagePublisher.class);
+        return Mockito.mock(OrderPaidPharmacyRequestMessagePublisher.class);
     }
     @Bean
     public OrderRepository orderRepository(){
