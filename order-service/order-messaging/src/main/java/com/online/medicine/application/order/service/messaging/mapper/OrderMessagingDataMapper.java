@@ -60,7 +60,7 @@ public class OrderMessagingDataMapper {
 
                 .setMedicines(order.getItems().stream()
                        .map(orderItem -> Medicine.newBuilder()
-                               .setId(orderItem.getRemedy().getId().getValue().toString())
+                               .setId(orderItem.getMedicine().getId().getValue().toString())
                                .setQuantity(orderItem.getQuantity())
                                .build()).collect(Collectors.toList()))
 

@@ -40,7 +40,7 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         return orderId;
     }
 
-    public Medicine getRemedy() {
+    public Medicine getMedicine() {
         return medicine;
     }
 
