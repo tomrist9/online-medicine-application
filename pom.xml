@@ -113,6 +113,16 @@
         <version>${project.version}</version>
     </dependency>
     <dependency>
+        <groupId>com.online.medicine.application</groupId>
+        <artifactId>saga</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.online.medicine.application</groupId>
+        <artifactId>outbox</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+    <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <scope>provided</scope>
