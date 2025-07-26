@@ -22,6 +22,7 @@
         <module>pharmacy-service</module>
         <module>pharmacy-service/pharmacy-domain</module>
         <module>pharmacy-service/pharmacy-messaging</module>
+        <module>security</module>
     </modules>
     <properties>
      <maven.compiler.source>17</maven.compiler.source>
