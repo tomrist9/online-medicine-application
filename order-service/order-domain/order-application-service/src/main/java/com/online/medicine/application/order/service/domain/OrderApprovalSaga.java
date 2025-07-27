@@ -1,16 +1,25 @@
 package com.online.medicine.application.order.service.domain;
 
+import com.online.medicine.application.order.service.DomainConstants;
 import com.online.medicine.application.order.service.domain.dto.messaging.PharmacyApprovalResponse;
 import com.online.medicine.application.order.service.domain.mapper.OrderDataMapper;
+import com.online.medicine.application.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
+import com.online.medicine.application.order.service.domain.outbox.model.payment.OrderPaymentOutboxMessage;
+import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
+import com.online.medicine.application.outbox.OutboxStatus;
 import com.online.medicine.application.saga.SagaStatus;
 import com.online.medicine.application.saga.SagaStep;
 import com.online.medicine.domain.order.service.domain.OrderDomainService;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.event.OrderCancelledEvent;
+import com.online.medicine.domain.order.service.domain.exception.OrderDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -105,7 +114,7 @@ public class OrderApprovalSaga implements SagaStep<PharmacyApprovalResponse> {
                                                                                orderStatus,
                                                                        SagaStatus
                                                                                sagaStatus) {
-        orderApprovalOutboxMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
+        orderApprovalOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
         orderApprovalOutboxMessage.setOrderStatus(orderStatus);
         orderApprovalOutboxMessage.setSagaStatus(sagaStatus);
         return orderApprovalOutboxMessage;
@@ -121,7 +130,7 @@ public class OrderApprovalSaga implements SagaStep<PharmacyApprovalResponse> {
                     SagaStatus.PROCESSING.name() + " state");
         }
         OrderPaymentOutboxMessage orderPaymentOutboxMessage = orderPaymentOutboxMessageResponse.get();
-        orderPaymentOutboxMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
+        orderPaymentOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
         orderPaymentOutboxMessage.setOrderStatus(orderStatus);
         orderPaymentOutboxMessage.setSagaStatus(sagaStatus);
         return orderPaymentOutboxMessage;
