@@ -2,6 +2,8 @@ package com.online.medicine.application.order.service.domain;
 
 import com.online.medicine.application.order.service.domain.ports.output.repository.OrderRepository;
 import com.online.medicine.application.order.service.domain.valueobject.OrderId;
+import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
+import com.online.medicine.application.saga.SagaStatus;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.exception.OrderNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -35,18 +37,18 @@ public class OrderSagaHelper {
         orderRepository.save(order);
     }
 
-//    SagaStatus orderStatusToSagaStatus(OrderStatus orderStatus) {
-//        switch (orderStatus) {
-//            case PAID:
-//                return SagaStatus.PROCESSING;
-//            case APPROVED:
-//                return SagaStatus.SUCCEEDED;
-//            case CANCELLING:
-//                return SagaStatus.COMPENSATING;
-//            case CANCELLED:
-//                return SagaStatus.COMPENSATED;
-//            default:
-//                return SagaStatus.STARTED;
-//        }
-//    }
+    SagaStatus orderStatusToSagaStatus(OrderStatus orderStatus) {
+        switch (orderStatus) {
+            case PAID:
+                return SagaStatus.PROCESSING;
+            case APPROVED:
+                return SagaStatus.SUCCEEDED;
+            case CANCELLING:
+                return SagaStatus.COMPENSATING;
+            case CANCELLED:
+                return SagaStatus.COMPENSATED;
+            default:
+                return SagaStatus.STARTED;
+        }
+    }
 }
