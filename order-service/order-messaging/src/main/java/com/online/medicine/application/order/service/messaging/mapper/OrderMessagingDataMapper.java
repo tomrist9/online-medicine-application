@@ -1,84 +1,43 @@
 package com.online.medicine.application.order.service.messaging.mapper;
 
+import com.online.medicine.application.kafka.order.avro.model.Medicine;
 import com.online.medicine.application.kafka.order.avro.model.PaymentRequestAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.PaymentResponseAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalRequestAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel;
-import com.online.medicine.application.kafka.order.avro.model.PharmacyOrderStatus;
 
+import com.online.medicine.application.kafka.order.avro.model.PharmacyOrderStatus;
 import com.online.medicine.application.order.service.domain.dto.messaging.PaymentResponse;
 import com.online.medicine.application.order.service.domain.dto.messaging.PharmacyApprovalResponse;
-import com.online.medicine.application.kafka.order.avro.model.Medicine;
-import com.online.medicine.domain.order.service.domain.entity.Order;
-import com.online.medicine.domain.order.service.domain.event.OrderCancelledEvent;
-import com.online.medicine.domain.order.service.domain.event.OrderCreatedEvent;
-import com.online.medicine.domain.order.service.domain.event.OrderPaidEvent;
+import com.online.medicine.application.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
+import com.online.medicine.application.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
+import com.online.medicine.application.order.service.domain.valueobject.OrderApprovalStatus;
+import com.online.medicine.application.order.service.domain.valueobject.PaymentOrderStatus;
+import com.online.medicine.application.order.service.domain.valueobject.PaymentStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static com.online.medicine.application.kafka.order.avro.model.PaymentOrderStatus.PENDING;
-
 @Component
 public class OrderMessagingDataMapper {
-    public PaymentRequestAvroModel orderCreatedEventToPaymentRequestAvroModel(OrderCreatedEvent orderCreatedEvent){
-        Order order=orderCreatedEvent.getOrder();
-        return PaymentRequestAvroModel.newBuilder()
-                .setId(UUID.randomUUID().toString())
-                .setSagaId("")
-                .setCustomerId(order.getCustomerId().getValue().toString())
-                .setOrderId(order.getId().getValue().toString())
-                .setPrice(order.getPrice().getAmount())
-                .setCreatedAt(orderCreatedEvent.getCreatedAt().toInstant())
-                .setPaymentOrderStatus(PENDING)
-                .build();
 
-    }
-    public PaymentRequestAvroModel orderCancelledEventToPaymentRequestAvroModel(OrderCancelledEvent orderCancelledEvent){
-        Order order=orderCancelledEvent.getOrder();
-        return PaymentRequestAvroModel.newBuilder()
-                .setId(UUID.randomUUID().toString())
-                .setSagaId("")
-                .setCustomerId(order.getCustomerId().getValue().toString())
-                .setOrderId(order.getId().getValue().toString())
-                .setPrice(order.getPrice().getAmount())
-                .setCreatedAt(orderCancelledEvent.getCreatedAt().toInstant())
-                .setPaymentOrderStatus(PENDING)
-                .build();
-
-    }
-    public PharmacyApprovalRequestAvroModel orderPaidEventToPharmacyApprovalRequestAvroModel(OrderPaidEvent orderPaidEvent) {
-        Order order = orderPaidEvent.getOrder();
-        return PharmacyApprovalRequestAvroModel.newBuilder()
-               .setId(UUID.randomUUID().toString())
-               .setSagaId("")
-                .setOrderId(order.getId().getValue().toString())
-                .setPharmacyId(order.getPharmacyId().getValue().toString())
-                .setOrderId(order.getId().getValue().toString())
-                .setPharmacyOrderStatus(PharmacyOrderStatus.PAID)
-
-                .setMedicines(order.getItems().stream()
-                       .map(orderItem -> Medicine.newBuilder()
-                               .setId(orderItem.getMedicine().getId().getValue().toString())
-                               .setQuantity(orderItem.getQuantity())
-                               .build()).collect(Collectors.toList()))
-
-               .setPrice(order.getPrice().getAmount())
-               .setCreatedAt(orderPaidEvent.getCreatedAt().toInstant())
-                .setPharmacyOrderStatus(PharmacyOrderStatus.PAID)
-               .build();
-    }
-    public PaymentResponse paymentResponseAvroModelToPaymentResponse(PaymentResponseAvroModel paymentResponseAvroModel){
+    public PaymentResponse paymentResponseAvroModelToPaymentResponse(PaymentResponseAvroModel
+                                                                             paymentResponseAvroModel) {
         return PaymentResponse.builder()
-               .paymentId(paymentResponseAvroModel.getPaymentId())
-               .orderId(paymentResponseAvroModel.getOrderId())
-               .customerId(paymentResponseAvroModel.getCustomerId())
-               .price(paymentResponseAvroModel.getPrice())
-               .paymentStatus(com.online.medicine.application.order.service.domain.valueobject.PaymentStatus.valueOf(paymentResponseAvroModel.getPaymentStatus().name()))
-               .failureMessages(paymentResponseAvroModel.getFailureMessages())
-               .build();
+                .id(paymentResponseAvroModel.getId())
+                .sagaId(paymentResponseAvroModel.getSagaId())
+                .paymentId(paymentResponseAvroModel.getPaymentId())
+                .customerId(paymentResponseAvroModel.getCustomerId())
+                .orderId(paymentResponseAvroModel.getOrderId())
+                .price(paymentResponseAvroModel.getPrice())
+                .createdAt(paymentResponseAvroModel.getCreatedAt())
+                .paymentStatus(PaymentStatus.valueOf(
+                        paymentResponseAvroModel.getPaymentStatus().name()))
+                .failureMessages(paymentResponseAvroModel.getFailureMessages())
+                .build();
     }
+
     public PharmacyApprovalResponse
     approvalResponseAvroModelToApprovalResponse(PharmacyApprovalResponseAvroModel
                                                         pharmacyApprovalResponseAvroModel) {
@@ -88,11 +47,51 @@ public class OrderMessagingDataMapper {
                 .pharmacyId(pharmacyApprovalResponseAvroModel.getPharmacyId())
                 .orderId(pharmacyApprovalResponseAvroModel.getOrderId())
                 .createdAt(pharmacyApprovalResponseAvroModel.getCreatedAt())
-                .orderApprovalStatus(com.online.medicine.application.order.service.domain.valueobject.OrderApprovalStatus.valueOf(
+                .orderApprovalStatus(OrderApprovalStatus.valueOf(
                         pharmacyApprovalResponseAvroModel.getOrderApprovalStatus().name()))
                 .failureMessages(pharmacyApprovalResponseAvroModel.getFailureMessages())
                 .build();
     }
 
+    public PaymentRequestAvroModel orderPaymentEventToPaymentRequestAvroModel(String sagaId, OrderPaymentEventPayload
+            orderPaymentEventPayload) {
+        return PaymentRequestAvroModel.newBuilder()
+                .setId(UUID.randomUUID().toString())
+                .setSagaId(sagaId)
+                .setCustomerId(orderPaymentEventPayload.getCustomerId())
+                .setOrderId(orderPaymentEventPayload.getOrderId())
+                .setPrice(orderPaymentEventPayload.getPrice())
+                .setCreatedAt(orderPaymentEventPayload.getCreatedAt().toInstant())
+                .setPaymentOrderStatus(com.online.medicine.application.kafka.order.avro.model.PaymentOrderStatus.valueOf(orderPaymentEventPayload.getPaymentOrderStatus()))
+                .build();
+    }
 
+    public PharmacyApprovalRequestAvroModel
+    orderApprovalEventToPharmacyApprovalRequestAvroModel(String sagaId, OrderApprovalEventPayload
+            orderApprovalEventPayload) {
+        return PharmacyApprovalRequestAvroModel.newBuilder()
+                .setId(UUID.randomUUID().toString())
+                .setSagaId(sagaId)
+                .setOrderId(orderApprovalEventPayload.getOrderId())
+                .setPharmacyId(orderApprovalEventPayload.getPharmacyId())
+                .setPharmacyOrderStatus(PharmacyOrderStatus
+                        .valueOf(orderApprovalEventPayload.getPharmacyOrderStatus()))
+                .setMedicines(orderApprovalEventPayload.getMedicines().stream().map(orderApprovalEventProduct ->
+                        Medicine.newBuilder()
+                                .setId(orderApprovalEventProduct.getId())
+                                .setQuantity(orderApprovalEventProduct.getQuantity())
+                                .build()).collect(Collectors.toList()))
+                .setPrice(orderApprovalEventPayload.getPrice())
+                .setCreatedAt(orderApprovalEventPayload.getCreatedAt().toInstant())
+                .build();
+    }
+
+//    public CustomerModel customerAvroModeltoCustomerModel(CustomerAvroModel customerAvroModel) {
+//        return CustomerModel.builder()
+//                .id(customerAvroModel.getId())
+//                .username(customerAvroModel.getUsername())
+//                .firstName(customerAvroModel.getFirstName())
+//                .lastName(customerAvroModel.getLastName())
+//                .build();
+//    }
 }

@@ -1,5 +1,6 @@
 package com.online.medicine.application.mapper;
 
+import com.online.medicine.application.event.PaymentCompletedEvent;
 import com.online.medicine.application.kafka.order.avro.model.PaymentRequestAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.PaymentResponseAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.PaymentStatus;
@@ -24,20 +25,21 @@ public class PaymentMessagingDataMapper {
                 .paymentOrderStatus(PaymentOrderStatus.valueOf(paymentRequestAvroModel.getPaymentOrderStatus().name()))
                 .build();
     }
-}
 
-//    public PaymentResponseAvroModel orderEventPayloadToPaymentResponseAvroModel(
-//                                                                                OrderEventPayload orderEventPayload) {
-//        return PaymentResponseAvroModel.newBuilder()
-//                .setId(UUID.randomUUID().toString())
-//
-//                .setPaymentId(orderEventPayload.getPaymentId())
-//                .setCustomerId(orderEventPayload.getCustomerId())
-//                .setOrderId(orderEventPayload.getOrderId())
-//                .setPrice(orderEventPayload.getPrice())
-//                .setCreatedAt(orderEventPayload.getCreatedAt().toInstant())//??
-//                .setPaymentStatus(PaymentStatus.valueOf(orderEventPayload.getPaymentStatus()))
-//                .setFailureMessages(orderEventPayload.getFailureMessages())
-//                .build();
-//    }
-//}
+    public PaymentResponseAvroModel orderEventPayloadToPaymentResponseAvroModel(String sagaId,
+                                                                                OrderEventPayload orderEventPayload) {
+        return PaymentResponseAvroModel.newBuilder()
+                .setId(UUID.randomUUID().toString())
+                .setSagaId(sagaId)
+                .setPaymentId(orderEventPayload.getPaymentId())
+                .setCustomerId(orderEventPayload.getCustomerId())
+                .setOrderId(orderEventPayload.getOrderId())
+                .setPrice(orderEventPayload.getPrice())
+                .setCreatedAt(orderEventPayload.getCreatedAt().toInstant())
+                .setPaymentStatus(PaymentStatus.valueOf(orderEventPayload.getPaymentStatus()))
+                .setFailureMessages(orderEventPayload.getFailureMessages())
+                .build();
+    }
+
+
+}

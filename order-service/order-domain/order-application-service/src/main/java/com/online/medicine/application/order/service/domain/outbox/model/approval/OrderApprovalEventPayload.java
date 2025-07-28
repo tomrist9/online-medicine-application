@@ -27,7 +27,7 @@ public class OrderApprovalEventPayload {
 
 
     @JsonProperty
-    private OffsetDateTime createdDate;
+    private OffsetDateTime createdAt;
 
 
     @JsonProperty
