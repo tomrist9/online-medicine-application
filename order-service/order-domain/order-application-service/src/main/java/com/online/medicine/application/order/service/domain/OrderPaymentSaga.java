@@ -7,7 +7,6 @@ import com.online.medicine.application.order.service.domain.outbox.model.approva
 import com.online.medicine.application.order.service.domain.outbox.model.payment.OrderPaymentOutboxMessage;
 import com.online.medicine.application.order.service.domain.outbox.scheduler.approval.ApprovalOutboxHelper;
 import com.online.medicine.application.order.service.domain.outbox.scheduler.payment.PaymentOutboxHelper;
-import com.online.medicine.application.order.service.domain.ports.output.message.publisher.pharmacyapproval.OrderPaidPharmacyRequestMessagePublisher;
 import com.online.medicine.application.order.service.domain.ports.output.repository.OrderRepository;
 import com.online.medicine.application.order.service.domain.valueobject.OrderId;
 import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
@@ -148,9 +147,9 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
 
     private SagaStatus[] getCurrentSagaStatus(PaymentStatus paymentStatus) {
         return switch (paymentStatus) {
-            case COMPLETED -> new SagaStatus[] { SagaStatus.STARTED };
-            case CANCELLED -> new SagaStatus[] { SagaStatus.PROCESSING };
-            case FAILED -> new SagaStatus[] { SagaStatus.STARTED, SagaStatus.PROCESSING };
+            case COMPLETED -> new SagaStatus[]{SagaStatus.STARTED};
+            case CANCELLED -> new SagaStatus[]{SagaStatus.PROCESSING};
+            case FAILED -> new SagaStatus[]{SagaStatus.STARTED, SagaStatus.PROCESSING};
         };
     }
 
@@ -179,3 +178,5 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
         orderApprovalOutboxMessage.setSagaStatus(sagaStatus);
         return orderApprovalOutboxMessage;
     }
+
+}

@@ -5,6 +5,8 @@ import com.online.medicine.application.order.service.domain.dto.messaging.Pharma
 import com.online.medicine.application.order.service.domain.mapper.OrderDataMapper;
 import com.online.medicine.application.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
 import com.online.medicine.application.order.service.domain.outbox.model.payment.OrderPaymentOutboxMessage;
+import com.online.medicine.application.order.service.domain.outbox.scheduler.approval.ApprovalOutboxHelper;
+import com.online.medicine.application.order.service.domain.outbox.scheduler.payment.PaymentOutboxHelper;
 import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
 import com.online.medicine.application.outbox.OutboxStatus;
 import com.online.medicine.application.saga.SagaStatus;
@@ -30,12 +32,20 @@ public class OrderApprovalSaga implements SagaStep<PharmacyApprovalResponse> {
     private final OrderDomainService orderDomainService;
     private final OrderSagaHelper orderSagaHelper;
     private final OrderDataMapper orderDataMapper;
+    private final PaymentOutboxHelper paymentOutboxHelper;
+    private final ApprovalOutboxHelper approvalOutboxHelper;
+
 
     public OrderApprovalSaga(OrderDomainService orderDomainService,
-                             OrderSagaHelper orderSagaHelper, OrderDataMapper orderDataMapper) {
+                             OrderSagaHelper orderSagaHelper,
+                             OrderDataMapper orderDataMapper,
+                             PaymentOutboxHelper paymentOutboxHelper,
+                             ApprovalOutboxHelper approvalOutboxHelper) {
         this.orderDomainService = orderDomainService;
         this.orderSagaHelper = orderSagaHelper;
         this.orderDataMapper = orderDataMapper;
+        this.paymentOutboxHelper = paymentOutboxHelper;
+        this.approvalOutboxHelper = approvalOutboxHelper;
     }
 
     @Override
