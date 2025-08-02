@@ -1,35 +1,31 @@
 package com.online.medicine.application.order.service.domain;
 
-import com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment.OrderCancelledPaymentRequestMessagePublisher;
-import com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment.OrderCreatedPaymentRequestMessagePublisher;
-import com.online.medicine.application.order.service.domain.ports.output.message.publisher.pharmacyapproval.OrderPaidPharmacyRequestMessagePublisher;
+
+import com.online.medicine.application.order.service.domain.ports.output.message.publisher.payment.PaymentRequestMessagePublisher;
+import com.online.medicine.application.order.service.domain.ports.output.message.publisher.pharmacyapproval.PharmacyApprovalRequestMessagePublisher;
+import com.online.medicine.application.order.service.domain.ports.output.repository.ApprovalOutboxRepository;
 import com.online.medicine.application.order.service.domain.ports.output.repository.CustomerRepository;
 import com.online.medicine.application.order.service.domain.ports.output.repository.OrderRepository;
+import com.online.medicine.application.order.service.domain.ports.output.repository.PaymentOutboxRepository;
 import com.online.medicine.application.order.service.domain.ports.output.repository.PharmacyRepository;
 import com.online.medicine.domain.order.service.domain.OrderDomainService;
 import com.online.medicine.domain.order.service.domain.OrderDomainServiceImpl;
-
 import org.mockito.Mockito;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication(scanBasePackages = "com.online.medicine.application")
-
 public class OrderTestConfiguration {
 
     @Bean
-    public OrderCreatedPaymentRequestMessagePublisher orderCreatedPaymentRequestMessagePublisher(){
-        return Mockito.mock(OrderCreatedPaymentRequestMessagePublisher.class);
+    public PaymentRequestMessagePublisher paymentRequestMessagePublisher() {
+        return Mockito.mock(PaymentRequestMessagePublisher.class);
     }
     @Bean
-    public OrderCancelledPaymentRequestMessagePublisher orderCancelledPaymentRequestMessagePublisher(){
-        return Mockito.mock(OrderCancelledPaymentRequestMessagePublisher.class);
+    public PharmacyApprovalRequestMessagePublisher pharmacyApprovalRequestMessagePublisher() {
+        return Mockito.mock(PharmacyApprovalRequestMessagePublisher.class);
     }
-    @Bean
-    public OrderPaidPharmacyRequestMessagePublisher orderPaidRestaurantRequestMessagePublisher(){
 
-        return Mockito.mock(OrderPaidPharmacyRequestMessagePublisher.class);
-    }
     @Bean
     public OrderRepository orderRepository(){
         return Mockito.mock(OrderRepository.class);
@@ -40,7 +36,17 @@ public class OrderTestConfiguration {
         return Mockito.mock(CustomerRepository.class);
     }
     @Bean
-    public PharmacyRepository pharmacyRepository(){
+    public PaymentOutboxRepository paymentOutboxRepository() {
+        return Mockito.mock(PaymentOutboxRepository.class);
+    }
+
+    @Bean
+    public ApprovalOutboxRepository approvalOutboxRepository() {
+        return Mockito.mock(ApprovalOutboxRepository.class);
+    }
+
+    @Bean
+    public PharmacyRepository pharmacyRepository() {
         return Mockito.mock(PharmacyRepository.class);
     }
     @Bean
