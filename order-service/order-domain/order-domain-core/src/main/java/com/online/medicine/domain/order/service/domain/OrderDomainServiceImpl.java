@@ -11,26 +11,26 @@ import com.online.medicine.domain.order.service.domain.exception.OrderDomainExce
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
+import java.time.ZoneId;
 import java.util.List;
 @Slf4j
 public class OrderDomainServiceImpl implements OrderDomainService {
 
     @Override
     public OrderCreatedEvent validateAndInitiateOrder(Order order, Pharmacy pharmacy) {
-        validateRestaurant(pharmacy);
+        validatePharmacy(pharmacy);
         setOrderProductInformation(order, pharmacy);
         order.validateOrder();
         order.initializeOrder();
         log.info("Order with id: {} is initiated", order.getId().getValue());
-        return new OrderCreatedEvent(order, OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+        return new OrderCreatedEvent(order, OffsetDateTime.now(ZoneId.of(DomainConstants.UTC)));
     }
 
     @Override
     public OrderPaidEvent payOrder(Order order) {
         order.pay();
         log.info("Order with id: {} is paid", order.getId().getValue());
-        return new OrderPaidEvent(order, OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+        return new OrderPaidEvent(order, OffsetDateTime.now(ZoneId.of(DomainConstants.UTC)));
     }
 
     @Override
@@ -43,7 +43,7 @@ public class OrderDomainServiceImpl implements OrderDomainService {
     public OrderCancelledEvent cancelOrderPayment(Order order, List<String> failureMessages) {
         order.initCancel(failureMessages);
         log.info("Order payment is cancelling for order id: {}", order.getId().getValue());
-        return new OrderCancelledEvent(order, OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+        return new OrderCancelledEvent(order, OffsetDateTime.now(ZoneId.of(DomainConstants.UTC)));
     }
 
     @Override
@@ -52,10 +52,9 @@ public class OrderDomainServiceImpl implements OrderDomainService {
         log.info("Order with id: {} is cancelled", order.getId().getValue());
     }
 
-    private void validateRestaurant(Pharmacy pharmacy) {
+    private void validatePharmacy(Pharmacy pharmacy) {
         if (!pharmacy.isActive()) {
-            throw new OrderDomainException("Restaurant with id " + pharmacy.getId().getValue() +
-                    " is currently not active!");
+            throw new OrderDomainException("Pharmacy is not active!");
         }
     }
 

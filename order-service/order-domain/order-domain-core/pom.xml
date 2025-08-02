@@ -39,10 +39,7 @@
             <groupId>com.online.medicine.application</groupId>
             <artifactId>common-domain</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.online.medicine.application</groupId>
-            <artifactId>order-application-service</artifactId>
-        </dependency>
+
         <!--        <dependency>-->
 <!--            <groupId>com.online.medicine.application</groupId>-->
 <!--            <artifactId>order-application-service</artifactId>-->

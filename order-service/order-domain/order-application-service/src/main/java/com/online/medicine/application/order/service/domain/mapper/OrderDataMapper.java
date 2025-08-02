@@ -28,7 +28,7 @@ public class OrderDataMapper {
         return Pharmacy.builder()
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
                 .medicines(createOrderCommand.getItems().stream().map(orderItem ->
-                                new Medicine(new MedicineId(orderItem.getRemedyId())))
+                                new Medicine(new MedicineId(orderItem.getMedicineId())))
                         .collect(Collectors.toList()))
                 .build();
     }
@@ -114,7 +114,7 @@ public class OrderDataMapper {
         return orderItems.stream()
                 .map(orderItem ->
                         OrderItem.builder()
-                                .remedy(new Medicine(new MedicineId(orderItem.getRemedyId())))
+                                .remedy(new Medicine(new MedicineId(orderItem.getMedicineId())))
                                 .price(new Money(orderItem.getPrice()))
                                 .quantity(orderItem.getQuantity())
                                 .subTotal(new Money(orderItem.getSubTotal()))

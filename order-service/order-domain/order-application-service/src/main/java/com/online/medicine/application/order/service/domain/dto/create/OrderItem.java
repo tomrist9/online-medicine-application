@@ -13,7 +13,7 @@ import java.util.UUID;
 @Getter
 public class OrderItem {
     @NotNull
-    private final UUID remedyId;
+    private final UUID medicineId;
     @NotNull
     private final Integer quantity;
     @NotNull
