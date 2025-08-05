@@ -16,5 +16,31 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>pharmacy-domain-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>pharmacy-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>common-dataaccess</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -1,0 +1,16 @@
+com\online\medicine\application\kafka\order\avro\model\PharmacyApprovalRequestAvroModel$Builder.class
+com\online\medicine\application\kafka\order\avro\model\PharmacyApprovalResponseAvroModel$Builder.class
+com\online\medicine\application\kafka\order\avro\model\Medicine.class
+com\online\medicine\application\kafka\order\avro\model\PharmacyApprovalRequestAvroModel.class
+com\online\medicine\application\kafka\order\avro\model\PaymentResponseAvroModel.class
+com\online\medicine\application\kafka\order\avro\model\Medicine$Builder.class
+com\online\medicine\application\kafka\order\avro\model\PaymentRequestAvroModel$Builder.class
+com\online\medicine\application\kafka\order\avro\model\OrderApprovalStatus.class
+com\online\medicine\application\kafka\order\avro\model\CustomerAvroModel.class
+com\online\medicine\application\kafka\order\avro\model\PaymentOrderStatus.class
+com\online\medicine\application\kafka\order\avro\model\PharmacyOrderStatus.class
+com\online\medicine\application\kafka\order\avro\model\PaymentResponseAvroModel$Builder.class
+com\online\medicine\application\kafka\order\avro\model\PaymentStatus.class
+com\online\medicine\application\kafka\order\avro\model\CustomerAvroModel$Builder.class
+com\online\medicine\application\kafka\order\avro\model\PaymentRequestAvroModel.class
+com\online\medicine\application\kafka\order\avro\model\PharmacyApprovalResponseAvroModel.class

@@ -1,0 +1,3 @@
+com\online\medicine\application\kafka\config\data\KafkaConsumerConfigData.class
+com\online\medicine\application\kafka\config\data\KafkaProducerConfigData.class
+com\online\medicine\application\kafka\config\data\KafkaConfigData.class

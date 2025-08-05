@@ -1,0 +1,15 @@
+com\online\medicine\application\order\service\domain\valueobject\Money.class
+com\online\medicine\application\order\service\domain\events\publisher\DomainEventPublisher.class
+com\online\medicine\application\order\service\domain\exception\DomainException.class
+com\online\medicine\application\order\service\domain\entity\AggregateRoot.class
+com\online\medicine\application\order\service\domain\entity\BaseEntity.class
+com\online\medicine\application\order\service\domain\events\DomainEvents.class
+com\online\medicine\application\order\service\domain\valueobject\OrderApprovalStatus.class
+com\online\medicine\application\order\service\domain\valueobject\PaymentStatus.class
+com\online\medicine\application\order\service\domain\valueobject\OrderId.class
+com\online\medicine\application\order\service\domain\valueobject\BaseId.class
+com\online\medicine\application\order\service\domain\valueobject\CustomerId.class
+com\online\medicine\application\order\service\domain\valueobject\MedicineId.class
+com\online\medicine\application\order\service\domain\valueobject\OrderStatus.class
+com\online\medicine\application\order\service\domain\valueobject\PharmacyId.class
+com\online\medicine\application\order\service\domain\Main.class

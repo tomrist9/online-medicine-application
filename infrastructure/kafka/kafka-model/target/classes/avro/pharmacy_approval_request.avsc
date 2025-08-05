@@ -1,0 +1,73 @@
+{
+    "namespace": "com.online.medicine.application.kafka.order.avro.model",
+    "type": "record",
+    "name": "PharmacyApprovalRequestAvroModel",
+    "fields": [
+        {
+            "name": "id",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "sagaId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "pharmacyId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "orderId",
+            "type": {
+                "type": "string",
+                "logicalType": "uuid"
+            }
+        },
+        {
+            "name": "pharmacyOrderStatus",
+            "type": {
+                  "type": "enum",
+                  "name": "PharmacyOrderStatus",
+                  "symbols": ["PAID"]
+            }
+        },
+        {
+            "name": "medicines",
+            "type": {
+                "type": "array",
+                "items":{
+                  "name":"Medicine",
+                  "type":"record",
+                  "fields":[
+                    {"name":"id", "type": "string", "logicalType": "uuid"},
+                    {"name":"quantity", "type": "int"}
+                   ]
+               }
+            }
+        },
+        {
+            "name": "price",
+            "type": {
+                "type": "bytes",
+                "logicalType": "decimal",
+                "precision": 10,
+                "scale": 2
+            }
+        },
+        {
+            "name": "createdAt",
+            "type": {
+                "type": "long",
+                "logicalType": "timestamp-millis"
+            }
+        }
+    ]
+}

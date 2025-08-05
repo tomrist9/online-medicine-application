@@ -1,7 +1,8 @@
 package com.online.medicine.application.order.service.dataaccess.pharmacy.mapper;
 
-import com.online.medicine.application.order.service.dataaccess.pharmacy.entity.PharmacyEntity;
-import com.online.medicine.application.order.service.dataaccess.pharmacy.exception.PharmacyDataAccessException;
+
+import com.online.medicine.application.dataaccess.pharmacy.entity.PharmacyEntity;
+import com.online.medicine.application.dataaccess.pharmacy.exception.PharmacyDataAccessException;
 import com.online.medicine.application.order.service.domain.valueobject.Money;
 import com.online.medicine.application.order.service.domain.valueobject.PharmacyId;
 import com.online.medicine.application.order.service.domain.valueobject.MedicineId;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class PharmacyDataAccessMapper {
-    public List<UUID> pharmacyToPharmacyRemedies(Pharmacy pharmacy) {
+    public List<UUID> pharmacyToPharmacyMedicines(Pharmacy pharmacy) {
         return pharmacy.getMedicines().stream()
                 .map(remedy -> remedy.getId().getValue())
                 .collect(Collectors.toList());
@@ -26,13 +27,13 @@ public class PharmacyDataAccessMapper {
                 pharmacyEntities.stream().findFirst().orElseThrow(() ->
                         new PharmacyDataAccessException("Restaurant could not be found!"));
 
-        List<Medicine> pharmacyRemedies = pharmacyEntities.stream().map(entity ->
-                new Medicine(new MedicineId(entity.getRemedyId()), entity.getRemedyName(),
-                        new Money(entity.getRemedyPrice()))).toList();
+        List<Medicine> pharmacyMedicines = pharmacyEntities.stream().map(entity ->
+                new Medicine(new MedicineId(entity.getMedicineId()), entity.getMedicineName(),
+                        new Money(entity.getMedicinePrice()))).toList();
 
         return Pharmacy.builder()
                 .pharmacyId(new PharmacyId(pharmacyEntity.getPharmacyId()))
-                .medicines(pharmacyRemedies)
+                .medicines(pharmacyMedicines)
                 .active(pharmacyEntity.getPharmacyActive())
                 .build();
     }
