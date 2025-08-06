@@ -21,23 +21,31 @@ import static com.online.medicine.domain.order.service.domain.entity.Order.FAILU
 
 @Component
 public class OrderDataAccessMapper {
-    public OrderEntity orderToOrderEntity(Order order){
-        OrderEntity orderEntity=OrderEntity.builder()
+    public OrderEntity orderToOrderEntity(Order order) {
+        OrderAddressEntity addressEntity = deliveryAddressToAddressEntity(order.getDeliveryAddress());
+
+        OrderEntity orderEntity = OrderEntity.builder()
                 .id(order.getId().getValue())
                 .customerId(order.getCustomerId().getValue())
                 .pharmacyId(order.getPharmacyId().getValue())
                 .trackingId(order.getTrackingId().getValue())
-                .address(deliveryAddressToAddressEntity(order.getDeliveryAddress()))
+                .address(addressEntity)
                 .price(order.getPrice().getAmount())
                 .items(orderItemsToOrderItemEntities(order.getItems()))
-                .status(order.getOrderStatus())
-                .failureMessages(order.getFailureMessages()!=null ?
-                String.join(FAILURE_MESSAGE_DELIMITER, order.getFailureMessages()):"")
+                .orderStatus(order.getOrderStatus())
+                .failureMessages(order.getFailureMessages() != null
+                        ? String.join(FAILURE_MESSAGE_DELIMITER, order.getFailureMessages())
+                        : "")
                 .build();
-        orderEntity.getAddress().setOrder(orderEntity);
+
+        if (addressEntity != null) {
+            addressEntity.setOrder(orderEntity);
+        }
         orderEntity.getItems().forEach(orderItemEntity -> orderItemEntity.setOrder(orderEntity));
-     return orderEntity;
+
+        return orderEntity;
     }
+
     public Order orderEntityToOrder(OrderEntity orderEntity){
         return Order.builder()
                .orderId(new OrderId(orderEntity.getId()))
@@ -47,7 +55,7 @@ public class OrderDataAccessMapper {
                         .price(new Money(orderEntity.getPrice()))
                         .items(orderItemEntitiesToOrderItems(orderEntity.getItems()))
                         .trackingId(new TrackingId(orderEntity.getTrackingId()))
-                        .orderStatus(orderEntity.getStatus())
+                        .orderStatus(orderEntity.getOrderStatus())
                         .failureMessages(orderEntity.getFailureMessages().isEmpty() ? new ArrayList<>() :
                                 new ArrayList<>(Arrays.asList(orderEntity.getFailureMessages()
                                         .split(FAILURE_MESSAGE_DELIMITER))))
@@ -57,7 +65,7 @@ public class OrderDataAccessMapper {
         return items.stream()
                 .map(orderItemEntity -> OrderItem.builder()
                         .orderItemId(new OrderItemId(orderItemEntity.getId()))
-                        .remedy(new Medicine(new MedicineId(orderItemEntity.getRemedyId())))
+                        .remedy(new Medicine(new MedicineId(orderItemEntity.getMedicineId())))
                         .price(new Money(orderItemEntity.getPrice()))
                         .quantity(orderItemEntity.getQuantity())
                         .subTotal(new Money(orderItemEntity.getSubTotal()))
@@ -78,7 +86,7 @@ public class OrderDataAccessMapper {
         return items.stream()
                 .map(orderItem -> OrderItemEntity.builder()
                         .id(orderItem.getId().getValue())
-                        .remedyId(orderItem.getMedicine().getId().getValue())
+                        .medicineId(orderItem.getMedicine().getId().getValue())
                         .price(orderItem.getPrice().getAmount())
                         .quantity(orderItem.getQuantity())
                         .subTotal(orderItem.getSubTotal().getAmount())
@@ -87,11 +95,15 @@ public class OrderDataAccessMapper {
     }
 
     private OrderAddressEntity deliveryAddressToAddressEntity(StreetAddress deliveryAddress) {
+        if (deliveryAddress == null) {
+            return null;
+        }
         return OrderAddressEntity.builder()
-               .id(deliveryAddress.getId())
-               .street(deliveryAddress.getStreet())
-               .postalCode(deliveryAddress.getPostalCode())
-               .city(deliveryAddress.getCity())
-               .build();
+                .id(deliveryAddress.getId())
+                .street(deliveryAddress.getStreet())
+                .postalCode(deliveryAddress.getPostalCode())
+                .city(deliveryAddress.getCity())
+                .build();
     }
+
 }

@@ -20,10 +20,10 @@ public class OrderItemEntity {
     private Long id;
     @Id
     @ManyToOne
-    @JoinColumn(name = "order_id")  // ensure correct foreign key column name
+    @JoinColumn(name = "order_id")
     private OrderEntity order;
 
-    private UUID remedyId;
+    private UUID medicineId;
     private Integer quantity;
     private BigDecimal price;
     private BigDecimal subTotal;

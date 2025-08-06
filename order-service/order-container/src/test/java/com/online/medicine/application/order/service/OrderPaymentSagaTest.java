@@ -11,6 +11,7 @@ import com.online.medicine.application.saga.SagaStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.test.context.jdbc.Sql;
@@ -33,6 +34,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @Sql(value = {"classpath:sql/OrderPaymentSagaTestSetUp.sql"})
 @Sql(value = {"classpath:sql/OrderPaymentSagaTestCleanUp.sql"}, executionPhase =
         Sql.ExecutionPhase.AFTER_TEST_METHOD)
+@ImportAutoConfiguration(exclude = {
+        org.springframework.boot.autoconfigure.kafka.KafkaAutoConfiguration.class
+})
 public class OrderPaymentSagaTest {
 
     @Autowired

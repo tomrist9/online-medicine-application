@@ -24,7 +24,8 @@ public class OrderEntity {
     private UUID trackingId;
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    private OrderStatus orderStatus;
+
     private String failureMessages;
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)

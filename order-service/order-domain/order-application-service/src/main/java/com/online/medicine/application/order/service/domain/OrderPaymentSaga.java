@@ -1,6 +1,5 @@
 package com.online.medicine.application.order.service.domain;
 
-import com.online.medicine.application.order.service.DomainConstants;
 import com.online.medicine.application.order.service.domain.dto.messaging.PaymentResponse;
 import com.online.medicine.application.order.service.domain.mapper.OrderDataMapper;
 import com.online.medicine.application.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
@@ -88,7 +87,6 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
     @Override
     @Transactional
     public void rollback(PaymentResponse paymentResponse) {
-
         Optional<OrderPaymentOutboxMessage> orderPaymentOutboxMessageResponse =
                 paymentOutboxHelper.getPaymentOutboxMessageBySagaIdAndSagaStatus(
                         UUID.fromString(paymentResponse.getSagaId()),
@@ -117,21 +115,17 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
     }
 
     private Order findOrder(String orderId) {
-        Optional<Order> orderResponse = orderRepository.findById(new OrderId(UUID.fromString(orderId)));
-        if (orderResponse.isEmpty()) {
-            log.error("Order with id: {} could not be found!", orderId);
-            throw new OrderNotFoundException("Order with id " + orderId + " could not be found!");
-        }
-        return orderResponse.get();
+        return orderRepository.findById(new OrderId(UUID.fromString(orderId)))
+                .orElseThrow(() -> {
+                    log.error("Order with id: {} could not be found!", orderId);
+                    return new OrderNotFoundException("Order with id " + orderId + " could not be found!");
+                });
     }
 
-    private OrderPaymentOutboxMessage getUpdatedPaymentOutboxMessage(OrderPaymentOutboxMessage
-                                                                             orderPaymentOutboxMessage,
-                                                                     OrderStatus
-                                                                             orderStatus,
-                                                                     SagaStatus
-                                                                             sagaStatus) {
-        orderPaymentOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+    private OrderPaymentOutboxMessage getUpdatedPaymentOutboxMessage(OrderPaymentOutboxMessage orderPaymentOutboxMessage,
+                                                                     OrderStatus orderStatus,
+                                                                     SagaStatus sagaStatus) {
+        orderPaymentOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.UTC));
         orderPaymentOutboxMessage.setOrderStatus(orderStatus);
         orderPaymentOutboxMessage.setSagaStatus(sagaStatus);
         return orderPaymentOutboxMessage;
@@ -168,15 +162,16 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
                 approvalOutboxHelper.getApprovalOutboxMessageBySagaIdAndSagaStatus(
                         UUID.fromString(sagaId),
                         SagaStatus.COMPENSATING);
+
         if (orderApprovalOutboxMessageResponse.isEmpty()) {
-            throw new OrderDomainException("Approval outbox message could not be found in " +
-                    SagaStatus.COMPENSATING.name() + " status!");
+            throw new OrderDomainException("Approval outbox message could not be found in "
+                    + SagaStatus.COMPENSATING.name() + " status!");
         }
+
         OrderApprovalOutboxMessage orderApprovalOutboxMessage = orderApprovalOutboxMessageResponse.get();
-        orderApprovalOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+        orderApprovalOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.UTC));
         orderApprovalOutboxMessage.setOrderStatus(orderStatus);
         orderApprovalOutboxMessage.setSagaStatus(sagaStatus);
         return orderApprovalOutboxMessage;
     }
-
 }
