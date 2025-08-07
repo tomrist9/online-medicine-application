@@ -5,10 +5,13 @@ import com.online.medicine.application.entity.Payment;
 import java.time.OffsetDateTime;
 import java.util.List;
 
+import java.time.ZonedDateTime;
+import java.util.List;
+
 public class PaymentFailedEvent extends PaymentEvent {
 
     public PaymentFailedEvent(Payment payment,
-                              OffsetDateTime createdAt,
+                              ZonedDateTime createdAt,
                               List<String> failureMessages) {
         super(payment, createdAt, failureMessages);
     }

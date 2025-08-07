@@ -17,9 +17,13 @@ import lombok.extern.slf4j.Slf4j;
 
 
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
+
+import static com.online.medicine.application.order.service.DomainConstants.UTC;
 
 
 @Slf4j
@@ -40,11 +44,11 @@ public class PaymentDomainServiceImpl implements PaymentDomainService {
         if (failureMessages.isEmpty()) {
             log.info("Payment is initiated for order id: {}", payment.getOrderId().getValue());
             payment.updateStatus(PaymentStatus.COMPLETED);
-            return new PaymentCompletedEvent(payment, OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+            return new PaymentCompletedEvent(payment, ZonedDateTime.now(ZoneId.of(UTC)));
         } else {
             log.info("Payment initiation is failed for order id: {}", payment.getOrderId().getValue());
             payment.updateStatus(PaymentStatus.FAILED);
-            return new PaymentFailedEvent(payment, OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)), failureMessages);
+            return new PaymentFailedEvent(payment, ZonedDateTime.now(ZoneId.of(UTC)), failureMessages);
         }
     }
 
@@ -60,11 +64,11 @@ public class PaymentDomainServiceImpl implements PaymentDomainService {
         if (failureMessages.isEmpty()) {
             log.info("Payment is cancelled for order id: {}", payment.getOrderId().getValue());
             payment.updateStatus(PaymentStatus.CANCELLED);
-            return new PaymentCancelledEvent(payment, OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+            return new PaymentCancelledEvent(payment, ZonedDateTime.now(ZoneId.of(UTC)));
         } else {
             log.info("Payment cancellation is failed for order id: {}", payment.getOrderId().getValue());
             payment.updateStatus(PaymentStatus.FAILED);
-            return new PaymentFailedEvent(payment, OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)), failureMessages);
+            return new PaymentFailedEvent(payment, ZonedDateTime.now(ZoneId.of(UTC)), failureMessages);
         }
     }
 

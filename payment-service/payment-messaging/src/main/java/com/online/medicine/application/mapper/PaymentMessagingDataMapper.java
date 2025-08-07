@@ -7,6 +7,7 @@ import com.online.medicine.application.kafka.order.avro.model.PaymentStatus;
 import com.online.medicine.application.order.service.domain.valueobject.PaymentOrderStatus;
 
 import com.online.medicine.application.payment.service.domain.dto.PaymentRequest;
+import com.online.medicine.application.payment.service.domain.outbox.model.OrderEventPayload;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -35,11 +36,9 @@ public class PaymentMessagingDataMapper {
                 .setCustomerId(orderEventPayload.getCustomerId())
                 .setOrderId(orderEventPayload.getOrderId())
                 .setPrice(orderEventPayload.getPrice())
-                .setCreatedAt(orderEventPayload.getCreatedAt().toInstant())
+                .setCreatedAt(orderEventPayload.getCreatedAt().toInstant())//??
                 .setPaymentStatus(PaymentStatus.valueOf(orderEventPayload.getPaymentStatus()))
                 .setFailureMessages(orderEventPayload.getFailureMessages())
                 .build();
     }
-
-
 }
