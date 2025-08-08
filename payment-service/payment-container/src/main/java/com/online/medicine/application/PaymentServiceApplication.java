@@ -1,4 +1,4 @@
-package main.java.com.online.medicine.application;
+package com.online.medicine.application;
 
 
 import org.springframework.boot.SpringApplication;
