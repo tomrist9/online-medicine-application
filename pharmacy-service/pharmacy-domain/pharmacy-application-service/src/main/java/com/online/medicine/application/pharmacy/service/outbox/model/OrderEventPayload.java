@@ -1,11 +1,10 @@
-package com.online.medicine.application.payment.service.domain.outbox.model;
+package com.online.medicine.application.pharmacy.service.outbox.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class OrderEventPayload {
+
     @JsonProperty
     private String orderId;
 
@@ -27,4 +27,6 @@ public class OrderEventPayload {
 
     @JsonProperty
     private List<String> failureMessages;
+
+
 }

@@ -41,6 +41,18 @@
             <groupId>com.online.medicine.application</groupId>
             <artifactId>common-dataaccess</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>outbox</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>payment-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-model</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

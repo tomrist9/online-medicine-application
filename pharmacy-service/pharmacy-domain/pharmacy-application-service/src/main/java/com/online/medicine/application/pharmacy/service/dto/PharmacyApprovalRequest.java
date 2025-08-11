@@ -14,13 +14,12 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class PharmacyApprovalRequest {
-
     private String id;
+    private String sagaId;
     private String pharmacyId;
     private String orderId;
     private PharmacyOrderStatus pharmacyOrderStatus;
     private List<Medicine> medicines;
     private BigDecimal price;
     private Instant createdAt;
-
 }

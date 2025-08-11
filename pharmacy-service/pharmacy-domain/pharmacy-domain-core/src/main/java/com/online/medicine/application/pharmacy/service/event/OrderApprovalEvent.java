@@ -5,18 +5,19 @@ import com.online.medicine.application.order.service.domain.valueobject.Pharmacy
 import com.online.medicine.application.pharmacy.service.entity.OrderApproval;
 
 import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 public class OrderApprovalEvent implements DomainEvent<OrderApproval> {
     private final OrderApproval orderApproval;
     private final PharmacyId pharmacyId;
     private final List<String> failureMessages;
-    private final OffsetDateTime createdAt;
+    private final ZonedDateTime createdAt;
 
     public OrderApprovalEvent(OrderApproval orderApproval,
                               PharmacyId pharmacyId,
                               List<String> failureMessages,
-                              OffsetDateTime createdAt) {
+                              ZonedDateTime createdAt) {
         this.orderApproval = orderApproval;
         this.pharmacyId = pharmacyId;
         this.failureMessages = failureMessages;
@@ -35,7 +36,7 @@ public class OrderApprovalEvent implements DomainEvent<OrderApproval> {
         return failureMessages;
     }
 
-    public OffsetDateTime getCreatedAt() {
+    public ZonedDateTime getCreatedAt() {
         return createdAt;
     }
 }
