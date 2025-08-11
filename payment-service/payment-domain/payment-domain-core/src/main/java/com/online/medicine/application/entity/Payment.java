@@ -26,7 +26,8 @@ public class Payment extends AggregateRoot<PaymentId> {
 
     public void initializePayment() {
         setId(new PaymentId(UUID.randomUUID()));
-        createdAt = OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC));
+        createdAt = OffsetDateTime.now(ZoneId.of(DomainConstants.UTC));
+
     }
 
     public void validatePayment(List<String> failureMessages) {

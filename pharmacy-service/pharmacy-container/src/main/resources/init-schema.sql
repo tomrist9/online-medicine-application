@@ -96,16 +96,16 @@ DROP MATERIALIZED VIEW IF EXISTS pharmacy.order_pharmacy_m_view;
 CREATE MATERIALIZED VIEW pharmacy.order_pharmacy_m_view
 TABLESPACE pg_default
 AS
-SELECT r.id AS pharmacy_id,
-       r.name AS pharmacy_name,
-       r.active AS pharmacy_active,
-       p.id AS medicine_id,
-       p.name AS medicine_name,
-       p.price AS medicine_price,
-       p.available AS medicine_available
-FROM pharmacy.pharmaciess p,
+SELECT p.id AS pharmacy_id,
+       m.name AS pharmacy_name,
+       p.active AS pharmacy_active,
+       m.id AS medicine_id,
+       m.name AS medicine_name,
+       m.price AS medicine_price,
+       m.available AS medicine_available
+FROM pharmacy.pharmacies p,
      pharmacy.medicines m,
-     pharmacy.pharmacy_products pm
+     pharmacy.pharmacy_medicines pm
 WHERE p.id = pm.pharmacy_id AND m.id = pm.medicine_id
     WITH DATA;
 

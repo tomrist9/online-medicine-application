@@ -56,6 +56,7 @@ public class PaymentRequestHelper {
         this.paymentResponseMessagePublisher = paymentResponseMessagePublisher;
     }
 
+
     @Transactional
     public void persistPayment(PaymentRequest paymentRequest) {
         if (publishIfOutboxMessageProcessedForPayment(paymentRequest, PaymentStatus.COMPLETED)) {
@@ -153,4 +154,5 @@ public class PaymentRequestHelper {
         }
         return false;
     }
+
 }

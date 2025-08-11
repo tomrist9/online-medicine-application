@@ -9,7 +9,7 @@ import lombok.Builder;
 
 import java.util.List;
 
-@Builder
+
 public class OrderDetail extends BaseEntity<OrderId> {
 
     private OrderStatus orderStatus;

@@ -5,9 +5,9 @@ import com.online.medicine.application.order.service.domain.valueobject.OrderApp
 import com.online.medicine.application.order.service.domain.valueobject.OrderId;
 import com.online.medicine.application.order.service.domain.valueobject.PharmacyId;
 import com.online.medicine.application.pharmacy.service.valueobject.OrderApprovalId;
-import lombok.Builder;
 
-@Builder
+
+
 public class OrderApproval extends BaseEntity<OrderApprovalId> {
 
         private final PharmacyId pharmacyId;

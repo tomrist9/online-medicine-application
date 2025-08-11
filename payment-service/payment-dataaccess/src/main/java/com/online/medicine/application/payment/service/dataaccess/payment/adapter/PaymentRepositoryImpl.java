@@ -2,7 +2,7 @@ package com.online.medicine.application.payment.service.dataaccess.payment.adapt
 
 import com.online.medicine.application.entity.Payment;
 import com.online.medicine.application.payment.service.dataaccess.payment.mapper.PaymentDataAccessMapper;
-import com.online.medicine.application.payment.service.dataaccess.repository.PaymentJpaRepository;
+import com.online.medicine.application.payment.service.dataaccess.payment.repository.PaymentJpaRepository;
 import com.online.medicine.application.payment.service.domain.ports.output.repository.PaymentRepository;
 import org.springframework.stereotype.Component;
 
