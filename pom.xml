@@ -23,6 +23,9 @@
         <module>pharmacy-service/pharmacy-domain</module>
         <module>pharmacy-service/pharmacy-messaging</module>
         <module>security</module>
+        <module>customer-service/customer-application</module>
+        <module>customer-service/customer-container</module>
+        <module>customer-service/customer-domain</module>
     </modules>
     <properties>
      <maven.compiler.source>17</maven.compiler.source>

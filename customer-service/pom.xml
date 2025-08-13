@@ -10,6 +10,10 @@
     </parent>
 
     <artifactId>customer-service</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>customer-dataaccess</module>
+    </modules>
 
     <dependencies>
         <dependency>
