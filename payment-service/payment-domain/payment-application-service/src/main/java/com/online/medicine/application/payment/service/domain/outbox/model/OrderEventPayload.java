@@ -14,16 +14,22 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderEventPayload {
     @JsonProperty
+    private String paymentId;
+
+    @JsonProperty
+    private String customerId;
+
+    @JsonProperty
     private String orderId;
 
     @JsonProperty
-    private String pharmacyId;
+    private BigDecimal price;
 
     @JsonProperty
     private ZonedDateTime createdAt;
 
     @JsonProperty
-    private String orderApprovalStatus;
+    private String paymentStatus;
 
     @JsonProperty
     private List<String> failureMessages;

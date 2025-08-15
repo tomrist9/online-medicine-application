@@ -16,10 +16,10 @@ services:
       - "./volumes/zookeeper/data:/var/lib/zookeeper/data"
       - "./volumes/zookeeper/transactions:/var/lib/zookeeper/log"
     networks:
-      - online-medicine-application  # ✅ Explicitly match this network name
+      - online-medicine-application
 
 networks:
-  online-medicine-application:       # ✅ Explicitly define the network here
+  online-medicine-application:
     external: true
 
 

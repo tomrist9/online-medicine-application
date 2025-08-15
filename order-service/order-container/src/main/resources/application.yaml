@@ -4,6 +4,8 @@ server:
 logging:
   level:
     com.online.medicine.application: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 order-service:
   payment-request-topic-name: payment-request
@@ -23,13 +25,14 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=order&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=orders&binaryTransfer=true&reWriteBatchedInserts=true&stringtype=unspecified
     username: postgres
     password: 5554
     driver-class-name: org.postgresql.Driver
     platform: postgres
     schema: classpath:init-schema.sql
-    initialization-mode: always
+    initialization-mode: never
+
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
@@ -67,4 +70,4 @@ kafka-consumer-config:
   max-poll-records: 500
   max-partition-fetch-bytes-default: 1048576
   max-partition-fetch-bytes-boost-factor: 1
-  poll-timeout-ms: 150
+  poll-timeout-ms: 1500

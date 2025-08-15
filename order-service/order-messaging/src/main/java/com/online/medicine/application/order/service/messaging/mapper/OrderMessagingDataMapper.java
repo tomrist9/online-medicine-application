@@ -7,12 +7,11 @@ import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalRe
 import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel;
 
 import com.online.medicine.application.kafka.order.avro.model.PharmacyOrderStatus;
-import com.online.medicine.application.order.service.domain.dto.messaging.PaymentResponse;
-import com.online.medicine.application.order.service.domain.dto.messaging.PharmacyApprovalResponse;
-import com.online.medicine.application.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
-import com.online.medicine.application.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
+import com.online.medicine.application.order.service.dto.messaging.PaymentResponse;
+import com.online.medicine.application.order.service.dto.messaging.PharmacyApprovalResponse;
+import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalEventPayload;
+import com.online.medicine.application.order.service.outbox.model.payment.OrderPaymentEventPayload;
 import com.online.medicine.application.order.service.domain.valueobject.OrderApprovalStatus;
-import com.online.medicine.application.order.service.domain.valueobject.PaymentOrderStatus;
 import com.online.medicine.application.order.service.domain.valueobject.PaymentStatus;
 import org.springframework.stereotype.Component;
 

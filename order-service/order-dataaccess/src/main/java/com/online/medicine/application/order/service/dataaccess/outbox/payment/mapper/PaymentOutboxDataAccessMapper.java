@@ -2,7 +2,7 @@ package com.online.medicine.application.order.service.dataaccess.outbox.payment.
 
 
 import com.online.medicine.application.order.service.dataaccess.outbox.payment.entity.PaymentOutboxEntity;
-import com.online.medicine.application.order.service.domain.outbox.model.payment.OrderPaymentOutboxMessage;
+import com.online.medicine.application.order.service.outbox.model.payment.OrderPaymentOutboxMessage;
 import org.springframework.stereotype.Component;
 
 @Component

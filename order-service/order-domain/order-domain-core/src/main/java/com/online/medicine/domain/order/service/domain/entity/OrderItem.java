@@ -71,7 +71,7 @@ public class OrderItem extends BaseEntity<OrderItemId> {
             return this;
         }
 
-        public Builder remedy(Medicine val) {
+        public Builder medicine(Medicine val) {
             medicine = val;
             return this;
         }

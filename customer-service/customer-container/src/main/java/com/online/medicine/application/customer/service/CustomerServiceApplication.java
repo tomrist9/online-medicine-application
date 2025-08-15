@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @EnableJpaRepositories(basePackages = { "com.online.medicine.application.customer.service.dataaccess", "com.online.medicine.application.customer.service.dataaccess"})
-@EntityScan(basePackages = { "com.food.ordering.system.customer.service.dataaccess", "com.food.ordering.system.dataaccess" })
-@SpringBootApplication(scanBasePackages = "com.food.ordering.system")
+@EntityScan(basePackages = { "com.online.medicine.application.customer.service.dataaccess", "com.online.medicine.application.customer.service.dataaccess" })
+@SpringBootApplication(scanBasePackages = "com.online.medicine.application")
 public class CustomerServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(CustomerServiceApplication.class, args);

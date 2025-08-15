@@ -1,7 +1,7 @@
 package com.online.medicine.application.order.service.dataaccess.outbox.pharmacyapproval.mapper;
 
 import com.online.medicine.application.order.service.dataaccess.outbox.pharmacyapproval.entity.ApprovalOutboxEntity;
-import com.online.medicine.application.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
+import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalOutboxMessage;
 import org.springframework.stereotype.Component;
 
 @Component

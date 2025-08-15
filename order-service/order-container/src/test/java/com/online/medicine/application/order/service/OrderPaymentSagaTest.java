@@ -3,9 +3,8 @@ package com.online.medicine.application.order.service;
 
 import com.online.medicine.application.order.service.dataaccess.outbox.payment.entity.PaymentOutboxEntity;
 import com.online.medicine.application.order.service.dataaccess.outbox.payment.repository.PaymentOutboxJpaRepository;
-import com.online.medicine.application.order.service.domain.OrderPaymentSaga;
-import com.online.medicine.application.order.service.domain.OrderServiceApplication;
-import com.online.medicine.application.order.service.domain.dto.messaging.PaymentResponse;
+
+import com.online.medicine.application.order.service.dto.messaging.PaymentResponse;
 import com.online.medicine.application.order.service.domain.valueobject.PaymentStatus;
 import com.online.medicine.application.saga.SagaStatus;
 import lombok.extern.slf4j.Slf4j;

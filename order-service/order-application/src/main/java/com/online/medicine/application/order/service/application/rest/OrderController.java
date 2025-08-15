@@ -1,10 +1,10 @@
 package com.online.medicine.application.order.service.application.rest;
 
-import com.online.medicine.application.order.service.domain.OrderApplicationService;
-import com.online.medicine.application.order.service.domain.dto.create.CreateOrderCommand;
-import com.online.medicine.application.order.service.domain.dto.create.CreateOrderResponse;
-import com.online.medicine.application.order.service.domain.dto.track.TrackOrderQuery;
-import com.online.medicine.application.order.service.domain.dto.track.TrackOrderResponse;
+import com.online.medicine.application.order.service.ports.input.service.OrderApplicationService;
+import com.online.medicine.application.order.service.dto.create.CreateOrderCommand;
+import com.online.medicine.application.order.service.dto.create.CreateOrderResponse;
+import com.online.medicine.application.order.service.dto.track.TrackOrderQuery;
+import com.online.medicine.application.order.service.dto.track.TrackOrderResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,17 +21,25 @@ public class OrderController {
         this.orderApplicationService = orderApplicationService;
     }
     @PostMapping
-    public ResponseEntity<CreateOrderResponse> createOrder(@RequestBody CreateOrderCommand createOrderCommand){
-        log.info("Creating order for customer: {} atrestaurant: {}", createOrderCommand.getCustomerId(),
+    public ResponseEntity<CreateOrderResponse> createOrder(@RequestBody CreateOrderCommand createOrderCommand) {
+        log.info("Creating order for customer: {} at pharmacy: {}", createOrderCommand.getCustomerId(),
                 createOrderCommand.getPharmacyId());
         CreateOrderResponse createOrderResponse = orderApplicationService.createOrder(createOrderCommand);
         log.info("Order created with tracking id: {}", createOrderResponse.getOrderTrackingId());
         return ResponseEntity.ok(createOrderResponse);
     }
-    @GetMapping("/trackingId")
-    public ResponseEntity<TrackOrderResponse> getOrderByTrackingId(@PathVariable UUID trackingId){
-        TrackOrderResponse trackOrderResponse=orderApplicationService.trackOrder(TrackOrderQuery.builder().orderTrackingId(trackingId).build());
+
+
+
+    @GetMapping("/{trackingId}")
+    public ResponseEntity<TrackOrderResponse> getOrderByTrackingId(@PathVariable UUID trackingId) {
+        TrackOrderResponse trackOrderResponse = orderApplicationService.trackOrder(
+                TrackOrderQuery.builder()
+                        .orderTrackingId(trackingId)
+                        .build()
+        );
         log.info("Returning order status with tracking id: {}", trackOrderResponse.getOrderTrackingId());
         return ResponseEntity.ok(trackOrderResponse);
     }
+
 }

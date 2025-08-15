@@ -3,8 +3,8 @@ package com.online.medicine.application.order.service.dataaccess.outbox.payment.
 import com.online.medicine.application.order.service.dataaccess.outbox.payment.exception.PaymentOutboxNotFoundException;
 import com.online.medicine.application.order.service.dataaccess.outbox.payment.mapper.PaymentOutboxDataAccessMapper;
 import com.online.medicine.application.order.service.dataaccess.outbox.payment.repository.PaymentOutboxJpaRepository;
-import com.online.medicine.application.order.service.domain.outbox.model.payment.OrderPaymentOutboxMessage;
-import com.online.medicine.application.order.service.domain.ports.output.repository.PaymentOutboxRepository;
+import com.online.medicine.application.order.service.outbox.model.payment.OrderPaymentOutboxMessage;
+import com.online.medicine.application.order.service.ports.output.repository.PaymentOutboxRepository;
 import com.online.medicine.application.outbox.OutboxStatus;
 import com.online.medicine.application.saga.SagaStatus;
 import org.springframework.stereotype.Component;

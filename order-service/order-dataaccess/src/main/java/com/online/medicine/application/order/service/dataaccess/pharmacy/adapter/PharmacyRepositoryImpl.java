@@ -6,7 +6,7 @@ import com.online.medicine.application.dataaccess.pharmacy.entity.PharmacyEntity
 import com.online.medicine.application.dataaccess.pharmacy.repository.PharmacyJpaRepository;
 import com.online.medicine.application.order.service.dataaccess.pharmacy.mapper.PharmacyDataAccessMapper;
 
-import com.online.medicine.application.order.service.domain.ports.output.repository.PharmacyRepository;
+import com.online.medicine.application.order.service.ports.output.repository.PharmacyRepository;
 import com.online.medicine.domain.order.service.domain.entity.Pharmacy;
 import org.springframework.stereotype.Component;
 

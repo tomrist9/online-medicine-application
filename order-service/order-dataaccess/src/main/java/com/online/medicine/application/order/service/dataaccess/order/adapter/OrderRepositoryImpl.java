@@ -2,7 +2,7 @@ package com.online.medicine.application.order.service.dataaccess.order.adapter;
 
 import com.online.medicine.application.order.service.dataaccess.order.mapper.OrderDataAccessMapper;
 import com.online.medicine.application.order.service.dataaccess.order.repository.OrderJpaRepository;
-import com.online.medicine.application.order.service.domain.ports.output.repository.OrderRepository;
+import com.online.medicine.application.order.service.ports.output.repository.OrderRepository;
 import com.online.medicine.application.order.service.domain.valueobject.OrderId;
 import com.online.medicine.domain.order.service.domain.entity.Order;
 import com.online.medicine.domain.order.service.domain.valueobject.TrackingId;

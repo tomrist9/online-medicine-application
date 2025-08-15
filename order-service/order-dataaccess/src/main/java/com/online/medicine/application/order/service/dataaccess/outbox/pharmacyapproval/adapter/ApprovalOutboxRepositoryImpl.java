@@ -3,8 +3,8 @@ package com.online.medicine.application.order.service.dataaccess.outbox.pharmacy
 import com.online.medicine.application.order.service.dataaccess.outbox.pharmacyapproval.exception.ApprovalOutboxNotFoundException;
 import com.online.medicine.application.order.service.dataaccess.outbox.pharmacyapproval.mapper.ApprovalOutboxDataAccessMapper;
 import com.online.medicine.application.order.service.dataaccess.outbox.pharmacyapproval.repository.ApprovalOutboxJpaRepository;
-import com.online.medicine.application.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
-import com.online.medicine.application.order.service.domain.ports.output.repository.ApprovalOutboxRepository;
+import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalOutboxMessage;
+import com.online.medicine.application.order.service.ports.output.repository.ApprovalOutboxRepository;
 import com.online.medicine.application.outbox.OutboxStatus;
 import com.online.medicine.application.saga.SagaStatus;
 import org.springframework.stereotype.Component;
