@@ -1,5 +1,6 @@
 package com.online.medicine.application.order.service.messaging.mapper;
 
+import com.online.medicine.application.kafka.order.avro.model.CustomerAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.Medicine;
 import com.online.medicine.application.kafka.order.avro.model.PaymentRequestAvroModel;
 import com.online.medicine.application.kafka.order.avro.model.PaymentResponseAvroModel;
@@ -7,6 +8,7 @@ import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalRe
 import com.online.medicine.application.kafka.order.avro.model.PharmacyApprovalResponseAvroModel;
 
 import com.online.medicine.application.kafka.order.avro.model.PharmacyOrderStatus;
+import com.online.medicine.application.order.service.dto.messaging.CustomerModel;
 import com.online.medicine.application.order.service.dto.messaging.PaymentResponse;
 import com.online.medicine.application.order.service.dto.messaging.PharmacyApprovalResponse;
 import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalEventPayload;
@@ -85,12 +87,12 @@ public class OrderMessagingDataMapper {
                 .build();
     }
 
-//    public CustomerModel customerAvroModeltoCustomerModel(CustomerAvroModel customerAvroModel) {
-//        return CustomerModel.builder()
-//                .id(customerAvroModel.getId())
-//                .username(customerAvroModel.getUsername())
-//                .firstName(customerAvroModel.getFirstName())
-//                .lastName(customerAvroModel.getLastName())
-//                .build();
-//    }
+    public CustomerModel customerAvroModeltoCustomerModel(CustomerAvroModel customerAvroModel) {
+        return CustomerModel.builder()
+                .id(customerAvroModel.getId())
+                .username(customerAvroModel.getUsername())
+                .firstName(customerAvroModel.getFirstName())
+                .lastName(customerAvroModel.getLastName())
+                .build();
+    }
 }
