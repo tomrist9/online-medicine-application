@@ -7,6 +7,7 @@ import com.online.medicine.application.customer.service.ports.output.message.pub
 import com.online.medicine.application.kafka.order.avro.model.CustomerAvroModel;
 import com.online.medicine.application.kafka.producer.service.KafkaProducer;
 import lombok.extern.slf4j.Slf4j;
+
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
