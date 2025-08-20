@@ -21,6 +21,14 @@
         </dependency>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
+            <artifactId>order-domain-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>outbox</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
             <artifactId>kafka-model</artifactId>
         </dependency>
         <dependency>

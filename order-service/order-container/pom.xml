@@ -18,6 +18,32 @@
             <artifactId>order-domain-core</artifactId>
             <version>${project.version}</version>
 
+
+
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>saga</artifactId>
+            <version>${project.version}</version>
+
+
+
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>outbox</artifactId>
+            <version>${project.version}</version>
+
+
+
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-consumer</artifactId>
+            <version>${project.version}</version>
+
+
+
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -32,7 +58,7 @@
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>order-application-service</artifactId>
-            <version>${project.version}</version>
+
 
         </dependency>
         <dependency>
@@ -40,11 +66,13 @@
             <artifactId>order-application</artifactId>
             <version>${project.version}</version>
 
+
         </dependency>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>order-dataaccess</artifactId>
             <version>${project.version}</version>
+
 
         </dependency>
         <dependency>
@@ -57,6 +85,8 @@
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>common-dataaccess</artifactId>
+            <version>${project.version}</version>
+
         </dependency>
 
         <dependency>
@@ -65,27 +95,60 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
+
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>kafka-producer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <image>-->
+<!--                        <name>${project.groupId}/order.service:${project.version}</name>-->
+<!--                    </image>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>install</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>build-image</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.3</version>
                 <configuration>
-                    <image>
-                        <name>${project.groupId}/order.service:${project.version}</name>
-                    </image>
+                    <from>
+                        <image>eclipse-temurin:17-jre</image>
+                    </from>
+                    <to>
+                        <image>${project.groupId}/${project.artifactId}:${project.version}</image>
+                    </to>
+                    <container>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
+                    </container>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>build-image</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

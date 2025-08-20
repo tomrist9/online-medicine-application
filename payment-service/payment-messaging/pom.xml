@@ -28,6 +28,7 @@
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>payment-application-service</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.online.medicine.application</groupId>

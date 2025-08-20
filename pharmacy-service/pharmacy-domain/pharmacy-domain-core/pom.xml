@@ -11,20 +11,12 @@
 
     <artifactId>pharmacy-domain-core</artifactId>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>common-domain</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.online.medicine.application</groupId>
-            <artifactId>order-domain-core</artifactId>
-        </dependency>
+
     </dependencies>
 
 </project>
