@@ -12,23 +12,37 @@
 
     <artifactId>pharmacy-messaging</artifactId>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>kafka-consumer</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>pharmacy-application-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>pharmacy-domain-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>kafka-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>outbox</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>saga</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>

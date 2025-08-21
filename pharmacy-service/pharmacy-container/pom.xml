@@ -10,24 +10,27 @@
     </parent>
 
     <artifactId>pharmacy-container</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.online.medicine.application</groupId>
-            <artifactId>pharmacy-domain-core</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>pharmacy-application-service</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>pharmacy-dataaccess</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.online.medicine.application</groupId>
             <artifactId>pharmacy-messaging</artifactId>
+            <version>${project.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -36,26 +39,31 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.3</version>
                 <configuration>
-                    <image>
-                        <name>${project.groupId}/pharmacy.service:${project.version}</name>
-                    </image>
+                    <from>
+                        <image>eclipse-temurin:17-jre</image>
+                    </from>
+                    <to>
+                        <image>${project.groupId}/${project.artifactId}:${project.version}</image>
+                    </to>
+                    <container>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
+                    </container>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>build-image</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
