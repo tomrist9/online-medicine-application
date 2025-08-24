@@ -50,13 +50,10 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.4.3</version>
+                <version>3.4.1</version>
                 <configuration>
-                    <from>
-                        <image>eclipse-temurin:17-jre</image>
-                    </from>
                     <to>
-                        <image>${project.groupId}/${project.artifactId}:${project.version}</image>
+                        <image>tomrist9/pharmacy-service:${project.version}</image>
                     </to>
                     <container>
                         <ports>
@@ -67,4 +64,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

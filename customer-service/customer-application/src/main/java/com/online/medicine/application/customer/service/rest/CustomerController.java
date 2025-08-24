@@ -23,7 +23,7 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<CreateCustomerResponse> createCustomer(@RequestBody CreateCustomerCommand
-                                                                             createCustomerCommand) {
+                                                                         createCustomerCommand) {
         log.info("Creating customer with username: {}", createCustomerCommand.getUsername());
         CreateCustomerResponse response = customerApplicationService.createCustomer(createCustomerCommand);
         return ResponseEntity.ok(response);

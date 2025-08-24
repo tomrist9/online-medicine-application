@@ -28,4 +28,7 @@ services:
       "
     networks:
       - ${GLOBAL_NETWORK:-kafka}
-#  docker-compose -f common.yml -f kafka_cluster.yml up
+networks:
+  online-medicine-application:
+    driver: bridge
+
