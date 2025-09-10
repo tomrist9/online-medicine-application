@@ -25,7 +25,7 @@ public class PharmacyDataAccessMapper {
     public Pharmacy pharmacyEntityToPharmacy(List<PharmacyEntity> pharmacyEntities) {
         PharmacyEntity pharmacyEntity =
                 pharmacyEntities.stream().findFirst().orElseThrow(() ->
-                        new PharmacyDataAccessException("Restaurant could not be found!"));
+                        new PharmacyDataAccessException("Pharmacy could not be found!"));
 
         List<Medicine> pharmacyMedicines = pharmacyEntities.stream().map(entity ->
                 new Medicine(new MedicineId(entity.getMedicineId()), entity.getMedicineName(),

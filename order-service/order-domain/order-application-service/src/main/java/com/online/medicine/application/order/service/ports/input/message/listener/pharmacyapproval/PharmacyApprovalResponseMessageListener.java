@@ -5,7 +5,7 @@ import com.online.medicine.application.order.service.dto.messaging.PharmacyAppro
 
 public interface PharmacyApprovalResponseMessageListener {
 
-    void orderApproved(PharmacyApprovalResponse restaurantApprovalResponse);
+    void orderApproved(PharmacyApprovalResponse pharmacyApprovalResponse);
 
-    void orderRejected(PharmacyApprovalResponse restaurantApprovalResponse);
+    void orderRejected(PharmacyApprovalResponse pharmacyApprovalResponse);
 }
