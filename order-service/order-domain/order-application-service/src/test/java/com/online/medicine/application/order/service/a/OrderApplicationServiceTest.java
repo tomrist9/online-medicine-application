@@ -151,7 +151,7 @@ public class OrderApplicationServiceTest {
                 .pharmacyId(new PharmacyId(createOrderCommand.getPharmacyId()))
                 .medicines(List.of(new Medicine(new MedicineId(MEDICINE_ID), "medicine-1",
                                 new Money(new BigDecimal("50.00"))),
-                        new Medicine(new MedicineId(MEDICINE_ID), "product-2", new Money(new BigDecimal("50.00")))))
+                        new Medicine(new MedicineId(MEDICINE_ID), "medicine-2", new Money(new BigDecimal("50.00")))))
                 .active(true)
 
                 .build();
@@ -198,7 +198,7 @@ public class OrderApplicationServiceTest {
         OrderDomainException orderDomainException = assertThrows(OrderDomainException.class,
                 () -> orderApplicationService.createOrder(createOrderCommandWrongMedicinePrice));
 
-        assertEquals("Order item price: 60.00 is not valid for product " + MEDICINE_ID,
+        assertEquals("Order item price: 60.00 is not valid for medicine " + MEDICINE_ID,
                 orderDomainException.getMessage());
     }
 

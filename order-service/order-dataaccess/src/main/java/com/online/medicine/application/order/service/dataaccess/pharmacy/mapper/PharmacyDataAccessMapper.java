@@ -18,14 +18,14 @@ import java.util.stream.Collectors;
 public class PharmacyDataAccessMapper {
     public List<UUID> pharmacyToPharmacyMedicines(Pharmacy pharmacy) {
         return pharmacy.getMedicines().stream()
-                .map(remedy -> remedy.getId().getValue())
+                .map(medicine -> medicine.getId().getValue())
                 .collect(Collectors.toList());
     }
 
     public Pharmacy pharmacyEntityToPharmacy(List<PharmacyEntity> pharmacyEntities) {
         PharmacyEntity pharmacyEntity =
                 pharmacyEntities.stream().findFirst().orElseThrow(() ->
-                        new PharmacyDataAccessException("Restaurant could not be found!"));
+                        new PharmacyDataAccessException("Pharmacy could not be found!"));
 
         List<Medicine> pharmacyMedicines = pharmacyEntities.stream().map(entity ->
                 new Medicine(new MedicineId(entity.getMedicineId()), entity.getMedicineName(),

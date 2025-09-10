@@ -61,7 +61,7 @@ public class OrderApprovalEventKafkaPublisher implements PharmacyApprovalRequest
                             orderApprovalOutboxMessage,
                             outboxCallback,
                             orderApprovalEventPayload.getOrderId(),
-                            "RestaurantApprovalRequestAvroModel"));
+                            "PharmacyApprovalRequestAvroModel"));
 
             log.info("OrderApprovalEventPayload sent to kafka for order id: {} and saga id: {}",
                     pharmacyApprovalRequestAvroModel.getOrderId(), sagaId);
