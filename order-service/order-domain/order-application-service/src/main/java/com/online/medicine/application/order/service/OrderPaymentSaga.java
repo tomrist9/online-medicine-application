@@ -23,9 +23,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import static com.online.medicine.application.order.service.DomainConstants.UTC;
 
 @Slf4j
 @Component
@@ -125,7 +129,7 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
     private OrderPaymentOutboxMessage getUpdatedPaymentOutboxMessage(OrderPaymentOutboxMessage orderPaymentOutboxMessage,
                                                                      OrderStatus orderStatus,
                                                                      SagaStatus sagaStatus) {
-        orderPaymentOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.UTC));
+        orderPaymentOutboxMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
         orderPaymentOutboxMessage.setOrderStatus(orderStatus);
         orderPaymentOutboxMessage.setSagaStatus(sagaStatus);
         return orderPaymentOutboxMessage;
@@ -169,7 +173,7 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
         }
 
         OrderApprovalOutboxMessage orderApprovalOutboxMessage = orderApprovalOutboxMessageResponse.get();
-        orderApprovalOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.UTC));
+        orderApprovalOutboxMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
         orderApprovalOutboxMessage.setOrderStatus(orderStatus);
         orderApprovalOutboxMessage.setSagaStatus(sagaStatus);
         return orderApprovalOutboxMessage;

@@ -2,7 +2,7 @@ package com.online.medicine.application.order.service.outbox.scheduler.payment;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.online.medicine.application.order.service.outbox.model.payment.OrderPaymentEventPayload;
+import com.online.medicine.application.order.service.domain.events.payload.OrderPaymentEventPayload;
 import com.online.medicine.application.order.service.outbox.model.payment.OrderPaymentOutboxMessage;
 import com.online.medicine.application.order.service.ports.output.repository.PaymentOutboxRepository;
 import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;

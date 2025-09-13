@@ -1,5 +1,4 @@
-package com.online.medicine.application.order.service.outbox.model.approval;
-
+package com.online.medicine.application.order.service.domain.events.payload;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -9,11 +8,9 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class OrderApprovalEventMedicine {
-
+public class OrderApprovalEventProduct {
     @JsonProperty
     private String id;
-
     @JsonProperty
     private Integer quantity;
 }

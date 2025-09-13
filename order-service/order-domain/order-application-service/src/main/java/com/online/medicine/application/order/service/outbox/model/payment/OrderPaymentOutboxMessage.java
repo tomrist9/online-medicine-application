@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.time.OffsetDateTime;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Getter
@@ -16,8 +16,8 @@ import java.util.UUID;
 public class OrderPaymentOutboxMessage {
     private UUID id;
     private UUID sagaId;
-    private OffsetDateTime createdAt;
-    private OffsetDateTime processedAt;
+    private ZonedDateTime createdAt;
+    private ZonedDateTime processedAt;
     private String type;
     private String payload;
     private SagaStatus sagaStatus;
@@ -25,7 +25,7 @@ public class OrderPaymentOutboxMessage {
     private OutboxStatus outboxStatus;
     private int version;
 
-    public void setProcessedAt(OffsetDateTime processedAt) {
+    public void setProcessedAt(ZonedDateTime processedAt) {
         this.processedAt = processedAt;
     }
 

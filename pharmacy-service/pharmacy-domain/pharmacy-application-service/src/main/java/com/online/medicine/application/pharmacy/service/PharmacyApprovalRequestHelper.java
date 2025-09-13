@@ -10,7 +10,6 @@ import com.online.medicine.application.pharmacy.service.exception.PharmacyNotFou
 import com.online.medicine.application.pharmacy.service.mapper.PharmacyDataMapper;
 import com.online.medicine.application.pharmacy.service.outbox.model.OrderOutboxMessage;
 import com.online.medicine.application.pharmacy.service.outbox.scheduler.OrderOutboxHelper;
-import com.online.medicine.application.pharmacy.service.ports.output.message.publisher.PharmacyApprovalResponseMessagePublisher;
 import com.online.medicine.application.pharmacy.service.ports.output.repository.OrderApprovalRepository;
 import com.online.medicine.application.pharmacy.service.ports.output.repository.PharmacyRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -32,28 +31,23 @@ public class PharmacyApprovalRequestHelper {
     private final PharmacyRepository pharmacyRepository;
     private final OrderApprovalRepository orderApprovalRepository;
     private final OrderOutboxHelper orderOutboxHelper;
-    private final PharmacyApprovalResponseMessagePublisher pharmacyApprovalResponseMessagePublisher;
-
 
 
     public PharmacyApprovalRequestHelper(PharmacyDomainService pharmacyDomainService,
                                          PharmacyDataMapper pharmacyDataMapper,
                                          PharmacyRepository pharmacyRepository,
                                          OrderApprovalRepository orderApprovalRepository,
-                                         OrderOutboxHelper orderOutboxHelper,
-                                         PharmacyApprovalResponseMessagePublisher
-                                                 pharmacyApprovalResponseMessagePublisher) {
+                                         OrderOutboxHelper orderOutboxHelper) {
         this.pharmacyDomainService = pharmacyDomainService;
         this.pharmacyDataMapper = pharmacyDataMapper;
         this.pharmacyRepository = pharmacyRepository;
         this.orderApprovalRepository = orderApprovalRepository;
         this.orderOutboxHelper = orderOutboxHelper;
-        this.pharmacyApprovalResponseMessagePublisher = pharmacyApprovalResponseMessagePublisher;
     }
 
     @Transactional
     public void persistOrderApproval(PharmacyApprovalRequest pharmacyApprovalRequest) {
-        if (publishIfOutboxMessageProcessed(pharmacyApprovalRequest)) {
+        if (isOutboxMessageProcessed(pharmacyApprovalRequest)) {
             log.info("An outbox message with saga id: {} already saved to database!",
                     pharmacyApprovalRequest.getSagaId());
             return;
@@ -79,15 +73,15 @@ public class PharmacyApprovalRequestHelper {
     private Pharmacy findPharmacy(PharmacyApprovalRequest pharmacyApprovalRequest) {
         Pharmacy pharmacy = pharmacyDataMapper
                 .pharmacyApprovalRequestToPharmacy(pharmacyApprovalRequest);
-        Optional<Pharmacy>  pharmacyResult =  pharmacyRepository.findPharmacyInformation( pharmacy);
-        if ( pharmacyResult.isEmpty()) {
-            log.error("Pharmacy with id " +  pharmacy.getId().getValue() + " not found!");
-            throw new PharmacyNotFoundException("Pharmacy with id " +  pharmacy.getId().getValue() +
+        Optional<Pharmacy> pharmacyResult = pharmacyRepository.findPharmacyInformation(pharmacy);
+        if (pharmacyResult.isEmpty()) {
+            log.error("Pharmacy with id " + pharmacy.getId().getValue() + " not found!");
+            throw new PharmacyNotFoundException("Pharmacy with id " + pharmacy.getId().getValue() +
                     " not found!");
         }
 
-        Pharmacy  pharmacyEntity =  pharmacyResult.get();
-        pharmacy.setActive( pharmacyEntity.isActive());
+        Pharmacy pharmacyEntity = pharmacyResult.get();
+        pharmacy.setActive(pharmacyEntity.isActive());
         pharmacy.getOrderDetail().getMedicines().forEach(medicine ->
                 pharmacyEntity.getOrderDetail().getMedicines().forEach(m -> {
                     if (m.getId().equals(medicine.getId())) {
@@ -99,13 +93,11 @@ public class PharmacyApprovalRequestHelper {
         return pharmacy;
     }
 
-    private boolean publishIfOutboxMessageProcessed(PharmacyApprovalRequest pharmacyApprovalRequest) {
+    private boolean isOutboxMessageProcessed(PharmacyApprovalRequest pharmacyApprovalRequest) {
         Optional<OrderOutboxMessage> orderOutboxMessage =
                 orderOutboxHelper.getCompletedOrderOutboxMessageBySagaIdAndOutboxStatus(UUID
                         .fromString(pharmacyApprovalRequest.getSagaId()), OutboxStatus.COMPLETED);
         if (orderOutboxMessage.isPresent()) {
-            pharmacyApprovalResponseMessagePublisher.publish(orderOutboxMessage.get(),
-                    orderOutboxHelper::updateOutboxStatus);
             return true;
         }
         return false;

@@ -1,11 +1,10 @@
 package com.online.medicine.application.order.service.mapper;
 
 //import com.online.medicine.application.order.service.dto.create.OrderItem;
-import com.online.medicine.application.order.service.dto.create.OrderItem;
+import com.online.medicine.application.order.service.domain.events.payload.OrderApprovalEventPayload;
+import com.online.medicine.application.order.service.domain.events.payload.OrderApprovalEventProduct;
+import com.online.medicine.application.order.service.domain.events.payload.OrderPaymentEventPayload;
 import com.online.medicine.application.order.service.dto.messaging.CustomerModel;
-import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalEventMedicine;
-import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalEventPayload;
-import com.online.medicine.application.order.service.outbox.model.payment.OrderPaymentEventPayload;
 import com.online.medicine.application.order.service.domain.valueobject.*;
 import com.online.medicine.application.order.service.dto.create.CreateOrderCommand;
 import com.online.medicine.application.order.service.dto.create.CreateOrderResponse;
@@ -93,7 +92,7 @@ public class OrderDataMapper {
                 .pharmacyId(orderPaidEvent.getOrder().getPharmacyId().getValue().toString())
                 .pharmacyOrderStatus(PharmacyOrderStatus.PAID.name())
                 .medicines(orderPaidEvent.getOrder().getItems().stream().map(orderItem ->
-                        OrderApprovalEventMedicine.builder()
+                        OrderApprovalEventProduct.builder()
                                 .id(orderItem.getMedicine().getId().getValue().toString())
                                 .quantity(orderItem.getQuantity())
                                 .build()).collect(Collectors.toList()))

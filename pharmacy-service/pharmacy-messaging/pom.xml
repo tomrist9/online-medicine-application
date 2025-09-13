@@ -52,6 +52,10 @@
             <groupId>com.online.medicine.application</groupId>
             <artifactId>kafka-producer</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>common-messaging</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -6,10 +6,8 @@ logging:
     com.online.medicine.application: DEBUG
 
 pharmacy-service:
-  pharmacy-approval-request-topic-name: pharmacy-approval-request
-  pharmacy-approval-response-topic-name: pharmacy-approval-response
---   outbox-scheduler-fixed-rate: 10000
---   outbox-scheduler-initial-delay: 10000
+  pharmacy-approval-request-topic-name: debezium.order.pharmacy_approval_outbox
+  pharmacy-approval-response-topic-name: debezium.pharmacy.order_outbox
 
 spring:
   jpa:
@@ -25,9 +23,10 @@ spring:
     password: 5554
     driver-class-name: org.postgresql.Driver
     platform: postgres
-    schema: classpath:init-schema.sql
-    data: classpath:init-data.sql
-    initialization-mode: always
+  sql:
+    init:
+      mode: ALWAYS
+      schema-locations: classpath:init-schema.sql,classpath:init-data.sql
 
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
@@ -39,7 +38,7 @@ kafka-config:
 kafka-producer-config:
   key-serializer-class: org.apache.kafka.common.serialization.StringSerializer
   value-serializer-class: io.confluent.kafka.serializers.KafkaAvroSerializer
-  compression-type: none
+  compression-type: snappy
   acks: all
   batch-size: 16384
   batch-size-boost-factor: 100

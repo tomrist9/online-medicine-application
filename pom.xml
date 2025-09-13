@@ -133,6 +133,12 @@
 
             <dependency>
                 <groupId>com.online.medicine.application</groupId>
+                <artifactId>common-messaging</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.online.medicine.application</groupId>
                 <artifactId>kafka-producer</artifactId>
                 <version>${project.version}</version>
             </dependency>

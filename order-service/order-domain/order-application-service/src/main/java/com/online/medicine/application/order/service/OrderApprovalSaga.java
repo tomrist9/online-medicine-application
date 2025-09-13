@@ -18,10 +18,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import static com.online.medicine.application.order.service.DomainConstants.UTC;
 
 
 @Slf4j
@@ -123,7 +125,7 @@ public class OrderApprovalSaga implements SagaStep<PharmacyApprovalResponse> {
                                                                                orderStatus,
                                                                        SagaStatus
                                                                                sagaStatus) {
-        orderApprovalOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+        orderApprovalOutboxMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
         orderApprovalOutboxMessage.setOrderStatus(orderStatus);
         orderApprovalOutboxMessage.setSagaStatus(sagaStatus);
         return orderApprovalOutboxMessage;
@@ -139,7 +141,7 @@ public class OrderApprovalSaga implements SagaStep<PharmacyApprovalResponse> {
                     SagaStatus.PROCESSING.name() + " state");
         }
         OrderPaymentOutboxMessage orderPaymentOutboxMessage = orderPaymentOutboxMessageResponse.get();
-        orderPaymentOutboxMessage.setProcessedAt(OffsetDateTime.now(ZoneOffset.of(DomainConstants.UTC)));
+        orderPaymentOutboxMessage.setProcessedAt(ZonedDateTime.now(ZoneId.of(UTC)));
         orderPaymentOutboxMessage.setOrderStatus(orderStatus);
         orderPaymentOutboxMessage.setSagaStatus(sagaStatus);
         return orderPaymentOutboxMessage;

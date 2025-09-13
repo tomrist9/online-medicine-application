@@ -2,7 +2,7 @@ package com.online.medicine.application.order.service.outbox.scheduler.approval;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalEventPayload;
+import com.online.medicine.application.order.service.domain.events.payload.OrderApprovalEventPayload;
 import com.online.medicine.application.order.service.outbox.model.approval.OrderApprovalOutboxMessage;
 import com.online.medicine.application.order.service.ports.output.repository.ApprovalOutboxRepository;
 import com.online.medicine.application.order.service.domain.valueobject.OrderStatus;
