@@ -83,8 +83,6 @@ Kafka UI is available at:
 🛠️ Still in Progress
 Planned improvements:
 
-✅ Unit & Integration tests with JUnit and Testcontainers
-
 ✅ CI/CD setup
 
 ✅ API documentation with Swagger
