@@ -91,8 +91,3 @@ Planned improvements:
 
 ✅ Observability stack (Prometheus, Grafana, Tempo)
 
-
-Tomris Teymurlu
- ✉️tomristt9@gmail.com
-
-⭐ If you find this project helpful, please give it a star and share feedback. Contributions are welcome!
