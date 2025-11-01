@@ -88,14 +88,3 @@ Kafka UI is available at:
 📍 http://localhost:8081
 
 
-🛠️ Still in Progress
-Planned improvements:
-
-✅ CI/CD setup
-
-✅ API documentation with Swagger
-
-✅ Kubernetes Helm chart
-
-✅ Observability stack (Prometheus, Grafana, Tempo)
-
