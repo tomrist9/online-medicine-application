@@ -64,6 +64,8 @@ online-medicine-application/
 ├── docker-compose.yml
 ├── k8s/                   # Kubernetes manifests
 └── README.md
+```
+
 ## 🧪 How to Run
 
 ### Clone the Repository
