@@ -76,10 +76,12 @@ cd online-medicine-application
 ```
 
 2️⃣ Run with Docker Compose
+```bash
 docker-compose up -d
 
-```
+
 This will start all core microservices (Order, Customer, Pharmacy, Payment) along with Kafka and PostgreSQL containers.
+```
 
 3️⃣ Run Microservices Individually
 
