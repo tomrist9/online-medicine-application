@@ -1,8 +1,8 @@
-# 💊 Online Medicine Application
+#  Online Medicine Application
 
 A **microservices-based backend system** for an online pharmacy, built with Java and Spring Boot following **Clean Architecture**, **Hexagonal Architecture**,  and **Domain-Driven Design (DDD)** principles. This project was developed as part of the Udemy course [*Microservices: Clean Architecture, DDD, SAGA, Outbox & Kafka*](https://www.udemy.com/course/microservices-clean-architecture-ddd-saga-outbox-kafka/).
 
-## 🚀 Features
+##  Features
 
 - ✅ Microservices-based backend (Order, Pharmacy, Customer, Payment)
 - ✅ Event-driven communication using **Apache Kafka**
@@ -15,7 +15,7 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 - ✅ Docker + Docker Compose for containerization
 - ✅ Kubernetes deployment support
 
-## 🧱 Microservices Included
+##  Microservices Included
 
 | Service   | Description |
 |-----------|-------------|
@@ -24,7 +24,7 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 | **Pharmacy Service** | Stores medicine and pharmacy inventory |
 | **Payment Service** | Processes payments, uses SAGA and Outbox patterns |
 
-## 📦 Tech Stack
+##  Tech Stack
 
 - **Java 17**
 - **Spring Boot 3**
@@ -83,8 +83,6 @@ Kafka UI is available at:
 🛠️ Still in Progress
 Planned improvements:
 
-✅ Unit & Integration tests with JUnit and Testcontainers
-
 ✅ CI/CD setup
 
 ✅ API documentation with Swagger
@@ -93,8 +91,3 @@ Planned improvements:
 
 ✅ Observability stack (Prometheus, Grafana, Tempo)
 
-
-Tomris Teymurlu
- ✉️tomristt9@gmail.com
-
-⭐ If you find this project helpful, please give it a star and share feedback. Contributions are welcome!
