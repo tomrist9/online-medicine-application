@@ -80,11 +80,12 @@ docker-compose up -d
 
 ```
 This will start all core microservices (Order, Customer, Pharmacy, Payment) along with Kafka and PostgreSQL containers.
-```
+
 3️⃣ Run Microservices Individually
 
 Each microservice can also be run independently from its module using your IDE or via Maven:
 
+```bash
 mvn spring-boot:run -pl order-service
 
 ```
