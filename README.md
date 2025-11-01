@@ -68,25 +68,31 @@ online-medicine-application/
 
 ## 🧪 How to Run
 
-### Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/tomrist9/online-medicine-application.git
 cd online-medicine-application
 
-```bash
-Copy
-Edit
-docker-compose up -d
-Run Microservices
-Each microservice can be run independently from its module using your IDE or via:
 
-bash
-Copy
-Edit
+2️⃣ Run with Docker Compose
+docker-compose up -d
+
+
+This will start all core microservices (Order, Customer, Pharmacy, Payment) along with Kafka and PostgreSQL containers.
+
+3️⃣ Run Microservices Individually
+
+Each microservice can also be run independently from its module using your IDE or via Gradle:
+
 ./gradlew :order-service:bootRun
-Test Kafka Events
-Kafka UI is available at:
+
+4️⃣ Test Kafka Events
+
+Once all containers are up, you can open the Kafka UI at:
 📍 http://localhost:8081
+
+
+---
 
 
