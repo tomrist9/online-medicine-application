@@ -86,6 +86,7 @@ This will start all core microservices (Order, Customer, Pharmacy, Payment) alon
 Each microservice can also be run independently from its module using your IDE or via Gradle:
 
 ./gradlew :order-service:bootRun
+
 ```
 4️⃣ Test Kafka Events
 
