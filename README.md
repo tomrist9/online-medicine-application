@@ -44,6 +44,14 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 - 📤 **Outbox Pattern**
 - ⚔️ **CQRS Pattern**
 
+## 🧩 System Architecture
+
+The following diagram illustrates how the services interact via Kafka, 
+applying SAGA, Outbox, and CQRS patterns within a Hexagonal Architecture design.
+
+![Online Medicine Application Architecture](docs/architecture/online-medicine-app-architecture.png)
+
+
 ## 📂 Project Structure
 
 ```bash
