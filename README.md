@@ -72,7 +72,7 @@ online-medicine-application/
 git clone https://github.com/tomrist9/online-medicine-application.git
 cd online-medicine-application
 
-bash
+```bash
 Copy
 Edit
 docker-compose up -d
