@@ -75,15 +75,15 @@ git clone https://github.com/tomrist9/online-medicine-application.git
 cd online-medicine-application
 ```
 
-2️⃣ Run with Docker Compose
+### 2️⃣ Run with Docker Compose
 ```bash
 docker-compose up -d
 
-
-This will start all core microservices (Order, Customer, Pharmacy, Payment) along with Kafka and PostgreSQL containers.
 ```
+This will start all core microservices (Order, Customer, Pharmacy, Payment) along with Kafka and PostgreSQL containers.
 
-3️⃣ Run Microservices Individually
+
+### 3️⃣ Run Microservices Individually
 
 Each microservice can also be run independently from its module using your IDE or via Maven:
 
@@ -91,9 +91,10 @@ Each microservice can also be run independently from its module using your IDE o
 mvn spring-boot:run -pl order-service
 
 ```
-4️⃣ Test Kafka Events
+### 4️⃣ Test Kafka Events
 
 Once all containers are up, you can open the Kafka UI at:
+```bash
 📍 http://localhost:8081
 
 
