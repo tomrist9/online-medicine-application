@@ -37,12 +37,12 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 
 ## ⚙️ Architecture Patterns
 
-- 🧼 **Clean Architecture**
-- 🛠️ **Hexagonal Architecture (Ports & Adapters)**
-- 🧠 **Domain-Driven Design (DDD)**
-- 🔁 **SAGA Pattern**
-- 📤 **Outbox Pattern**
-- ⚔️ **CQRS Pattern**
+-  **Clean Architecture**
+-  **Hexagonal Architecture (Ports & Adapters)**
+-  **Domain-Driven Design (DDD)**
+-  **SAGA Pattern**
+-  **Outbox Pattern**
+-  **CQRS Pattern**
 
 ## 🧩 System Architecture
 
