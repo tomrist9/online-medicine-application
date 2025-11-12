@@ -37,12 +37,20 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 
 ## ⚙️ Architecture Patterns
 
-- 🧼 **Clean Architecture**
-- 🛠️ **Hexagonal Architecture (Ports & Adapters)**
-- 🧠 **Domain-Driven Design (DDD)**
-- 🔁 **SAGA Pattern**
-- 📤 **Outbox Pattern**
-- ⚔️ **CQRS Pattern**
+-  **Clean Architecture**
+-  **Hexagonal Architecture (Ports & Adapters)**
+-  **Domain-Driven Design (DDD)**
+-  **SAGA Pattern**
+-  **Outbox Pattern**
+-  **CQRS Pattern**
+
+## 🧩 System Architecture
+
+The following diagram illustrates how the services interact via Kafka, 
+applying SAGA, Outbox, and CQRS patterns within a Hexagonal Architecture design.
+
+![Online Medicine Application Architecture](docs/architecture/online-medicine-app-architecture.png)
+
 
 ## 📂 Project Structure
 
@@ -56,38 +64,40 @@ online-medicine-application/
 ├── docker-compose.yml
 ├── k8s/                   # Kubernetes manifests
 └── README.md
+```
+
 ## 🧪 How to Run
 
-### Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/tomrist9/online-medicine-application.git
 cd online-medicine-application
+```
 
-bash
-Copy
-Edit
+### 2️⃣ Run with Docker Compose
+```bash
 docker-compose up -d
-Run Microservices
-Each microservice can be run independently from its module using your IDE or via:
 
-bash
-Copy
-Edit
-./gradlew :order-service:bootRun
-Test Kafka Events
-Kafka UI is available at:
+```
+This will start all core microservices (Order, Customer, Pharmacy, Payment) along with Kafka and PostgreSQL containers.
+
+
+### 3️⃣ Run Microservices Individually
+
+Each microservice can also be run independently from its module using your IDE or via Maven:
+
+```bash
+mvn spring-boot:run -pl order-service
+
+```
+### 4️⃣ Test Kafka Events
+
+Once all containers are up, you can open the Kafka UI at:
+```bash
 📍 http://localhost:8081
 
 
-🛠️ Still in Progress
-Planned improvements:
+---
 
-✅ CI/CD setup
-
-✅ API documentation with Swagger
-
-✅ Kubernetes Helm chart
-
-✅ Observability stack (Prometheus, Grafana, Tempo)
 
