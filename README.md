@@ -156,12 +156,12 @@ Once all containers are up, you can open the Kafka UI at:
 
 ---
 ```
-### 🧪 Testing
+# 🧪 Testing
 
 This project includes extensive unit, integration, and concurrency tests to ensure reliability across all microservices. The test suite validates domain logic, SAGA workflow correctness, outbox consistency, idempotency, and concurrency behavior in distributed systems.
 
 ## ✔️ Order Service Tests
-# Unit Tests
+### Unit Tests
 
 Validates total price calculations
 
@@ -175,7 +175,7 @@ Tests order initialization and domain events
 
 Ensures Outbox payload is serialized correctly
 
-# Integration Tests
+### Integration Tests
 
 Complete order creation flow using DDD
 
