@@ -160,8 +160,8 @@ Once all containers are up, you can open the Kafka UI at:
 
 This project includes extensive unit, integration, and concurrency tests to ensure reliability across all microservices. The test suite validates domain logic, SAGA workflow correctness, outbox consistency, idempotency, and concurrency behavior in distributed systems.
 
-✔️ Order Service Tests
-Unit Tests
+## ✔️ Order Service Tests
+# Unit Tests
 
 Validates total price calculations
 
@@ -175,7 +175,7 @@ Tests order initialization and domain events
 
 Ensures Outbox payload is serialized correctly
 
-Integration Tests
+# Integration Tests
 
 Complete order creation flow using DDD
 
@@ -185,7 +185,7 @@ PostgreSQL repository interactions
 
 OrderRepository, PaymentOutboxRepository, PharmacyRepository coordination
 
-✔️ Payment Service Tests
+## ✔️ Payment Service Tests
 Concurrency & Idempotency Tests
 
 The payment service includes advanced race-condition tests to guarantee correctness:
@@ -202,7 +202,7 @@ Validates optimistic locking (PostgreSQL)
 
 Ensures Outbox table remains consistent and idempotent
 
-✔️ SAGA Workflow Tests (OrderPaymentSaga)
+## ✔️ SAGA Workflow Tests (OrderPaymentSaga)
 
 The SAGA tests validate that the workflow is safe, atomic, and idempotent:
 
@@ -218,7 +218,7 @@ These tests ensure:
 ✔ SAGA executes exactly once, even under concurrency
 ✔ Duplicate events cannot break system state
 
-🧰 Tools Used
+## 🧰 Tools Used
 
 JUnit 5
 
@@ -234,7 +234,7 @@ Concurrency utilities (ThreadPool, Executors, CountDownLatch)
 
 SQL setup / cleanup scripts
 
-📈 Summary
+## 📈 Summary
 
 This application includes production-grade tests that simulate real distributed system behavior, ensuring:
 
