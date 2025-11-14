@@ -1,5 +1,4 @@
-package com.online.medicine.application.pharmacy.service.config;
-
+package com.online.medicine.application.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -13,8 +12,8 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Pharmacy Service API")
+                        .title("Payment Service API")
                         .version("1.0.0")
-                        .description("API documentation for Pharmacy microservice"));
+                        .description("API documentation for Payment microservice"));
     }
 }

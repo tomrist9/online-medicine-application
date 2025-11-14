@@ -107,6 +107,13 @@
             <artifactId>kafka-producer</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.15</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -121,7 +128,7 @@
                     </to>
                     <container>
                         <ports>
-                            <port>8080</port>
+                            <port>8181</port>
                         </ports>
                     </container>
                 </configuration>
