@@ -51,6 +51,54 @@ applying SAGA, Outbox, and CQRS patterns within a Hexagonal Architecture design.
 
 ![Online Medicine Application Architecture](docs/architecture/online-medicine-app-architecture.png)
 
+## 📘 API Documentation (Swagger UI)
+
+Every microservice in this system exposes OpenAPI 3.0-based Swagger UI documentation.
+
+Swagger is available automatically when the services run (Docker, IDE, or standalone jar).
+
+Below are the Swagger URLs and screenshots for each microservice:
+
+---
+
+### 🛒 Order Service
+📍 **URL:**  
+http://localhost:8181/swagger-ui/index.html
+
+
+**Screenshot:**  
+![Order Swagger](docs/images/order-swagger.png)
+
+---
+
+### 👤 Customer Service  
+📍 **URL:**  
+http://localhost:8184/swagger-ui/index.html
+
+
+**Screenshot:**  
+![Customer Swagger](docs/images/customer-swagger.png)
+
+---
+
+### 💊 Pharmacy Service  
+📍 **URL:**  
+http://localhost:8183/swagger-ui/index.html
+
+
+**Screenshot:**  
+![Pharmacy Swagger](docs/images/pharmacy-swagger.png)
+
+---
+
+### 💰 Payment Service  
+📍 **URL:**  
+http://localhost:8182/swagger-ui/index.html
+
+**Screenshot:**  
+![Payment Swagger](docs/images/payment-swagger.png)
+
+---
 
 ## 📂 Project Structure
 
