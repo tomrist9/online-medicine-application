@@ -175,6 +175,8 @@ Tests order initialization and domain events
 
 Ensures Outbox payload is serialized correctly
 
+![unit-tests](docs/screenshots/order_unit_tests.png)
+
 ### Integration Tests
 
 Complete order creation flow using DDD
@@ -202,6 +204,8 @@ Validates optimistic locking (PostgreSQL)
 
 Ensures Outbox table remains consistent and idempotent
 
+![payment-concurrency](docs/screenshots/payment_concurrency.png)
+
 ## ✔️ SAGA Workflow Tests (OrderPaymentSaga)
 
 The SAGA tests validate that the workflow is safe, atomic, and idempotent:
@@ -211,6 +215,8 @@ testDoublePayment()
 testDoublePaymentWithThreads()
 
 testDoublePaymentWithLatch()
+
+![saga-tests](docs/screenshots/saga_tests.png)
 
 These tests ensure:
 
