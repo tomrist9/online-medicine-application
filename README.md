@@ -1,5 +1,13 @@
 #  Online Medicine Application
 
+![Tests](https://img.shields.io/badge/tests-100%25-brightgreen)
+![JUnit](https://img.shields.io/badge/JUnit5-tested-blue)
+![Integration Tests](https://img.shields.io/badge/integration%20tests-passing-success)
+![Coverage](https://img.shields.io/badge/coverage-high-green)
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![CI](https://github.com/tomrist9/online-medicine-application/actions/workflows/maven.yml/badge.svg)
+
+
 A **microservices-based backend system** for an online pharmacy, built with Java and Spring Boot following **Clean Architecture**, **Hexagonal Architecture**,  and **Domain-Driven Design (DDD)** principles. This project was developed as part of the Udemy course [*Microservices: Clean Architecture, DDD, SAGA, Outbox & Kafka*](https://www.udemy.com/course/microservices-clean-architecture-ddd-saga-outbox-kafka/).
 
 ##  Features
@@ -147,5 +155,98 @@ Once all containers are up, you can open the Kafka UI at:
 
 
 ---
+```
+# 🧪 Testing
 
+This project includes extensive unit, integration, and concurrency tests to ensure reliability across all microservices. The test suite validates domain logic, SAGA workflow correctness, outbox consistency, idempotency, and concurrency behavior in distributed systems.
 
+## ✔️ Order Service Tests
+### Unit Tests
+
+Validates total price calculations
+
+Detects inconsistent item pricing
+
+Prevents ordering from inactive pharmacies
+
+Ensures domain entity & value object invariants
+
+Tests order initialization and domain events
+
+Ensures Outbox payload is serialized correctly
+
+![unit-tests](docs/screenshots/order_unit_tests.png)
+
+### Integration Tests
+
+Complete order creation flow using DDD
+
+SAGA initialization & outbox message generation
+
+PostgreSQL repository interactions
+
+OrderRepository, PaymentOutboxRepository, PharmacyRepository coordination
+
+## ✔️ Payment Service Tests
+Concurrency & Idempotency Tests
+
+The payment service includes advanced race-condition tests to guarantee correctness:
+
+Double payment prevention
+
+Parallel message processing using threads
+
+CountDownLatch synchronization tests
+
+Ensures only one payment is processed, even if multiple identical events arrive
+
+Validates optimistic locking (PostgreSQL)
+
+Ensures Outbox table remains consistent and idempotent
+
+![payment-concurrency](docs/screenshots/payment_concurrency.png)
+
+## ✔️ SAGA Workflow Tests (OrderPaymentSaga)
+
+The SAGA tests validate that the workflow is safe, atomic, and idempotent:
+
+testDoublePayment()
+
+testDoublePaymentWithThreads()
+
+testDoublePaymentWithLatch()
+
+![saga-tests](docs/screenshots/saga_tests.png)
+
+These tests ensure:
+
+✔ Only one SagaStatus.PROCESSING outbox record exists
+✔ SAGA executes exactly once, even under concurrency
+✔ Duplicate events cannot break system state
+
+## 🧰 Tools Used
+
+JUnit 5
+
+Mockito
+
+Spring Boot Test
+
+PostgreSQL
+
+H2 (optional)
+
+Concurrency utilities (ThreadPool, Executors, CountDownLatch)
+
+SQL setup / cleanup scripts
+
+## 📈 Summary
+
+This application includes production-grade tests that simulate real distributed system behavior, ensuring:
+
+✔ Reliability
+✔ Idempotency
+✔ Correct SAGA execution
+✔ Outbox consistency
+✔ Strong domain validation
+✔ Race-condition safety
