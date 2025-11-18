@@ -52,14 +52,14 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 -  **Outbox Pattern**
 -  **CQRS Pattern**
 
-## 🧩 System Architecture
+##  System Architecture
 
 The following diagram illustrates how the services interact via Kafka, 
 applying SAGA, Outbox, and CQRS patterns within a Hexagonal Architecture design.
 
 ![Online Medicine Application Architecture](docs/architecture/online-medicine-app-architecture.png)
 
-## 📘 API Documentation (Swagger UI)
+##  API Documentation (Swagger UI)
 
 Every microservice in this system exposes OpenAPI 3.0-based Swagger UI documentation.
 
@@ -69,7 +69,7 @@ Below are the Swagger URLs and screenshots for each microservice:
 
 ---
 
-### 🛒 Order Service
+###  Order Service
 📍 **URL:**  
 http://localhost:8181/swagger-ui/index.html
 
@@ -79,7 +79,7 @@ http://localhost:8181/swagger-ui/index.html
 
 ---
 
-### 👤 Customer Service  
+###  Customer Service  
 📍 **URL:**  
 http://localhost:8184/swagger-ui/index.html
 
@@ -99,7 +99,7 @@ http://localhost:8183/swagger-ui/index.html
 
 ---
 
-### 💰 Payment Service  
+###  Payment Service  
 📍 **URL:**  
 http://localhost:8182/swagger-ui/index.html
 
@@ -224,7 +224,7 @@ These tests ensure:
 ✔ SAGA executes exactly once, even under concurrency
 ✔ Duplicate events cannot break system state
 
-## 🧰 Tools Used
+##  Tools Used
 
 JUnit 5
 
