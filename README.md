@@ -66,7 +66,7 @@ To ensure exactly-once message delivery and avoid race conditions or distributed
 A scheduled Outbox Publisher then reads these records and pushes them to Kafka.
 
 The following diagram illustrates the Order → Payment → Pharmacy outbox event flow:
-![Outbox Pattern](docs/architecture/outbox-pattern.png)
+![Outbox Pattern](docs/architecture/outbox_pattern.png)
 
 
 ### SAGA Workflow Overview
