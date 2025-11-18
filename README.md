@@ -69,7 +69,7 @@ The following diagram illustrates the Order → Payment → Pharmacy outbox even
 ![Outbox Pattern](docs/architecture/outbox-pattern.png)
 
 
-## SAGA Workflow Overview
+### SAGA Workflow Overview
 
 The order workflow uses SAGA to manage distributed transactions across:
 
@@ -89,7 +89,7 @@ SAGA ensures that:
 
 
 
-## CQRS Usage
+### CQRS Usage
 
 Certain operations (like reading order status, pharmacy inventory checks, payment verification) use separate:
 
@@ -97,7 +97,7 @@ Command Model (domain logic + outbox writing)
 
 Query Model (read-optimized, sometimes cached)
 
-## Hexagonal Architecture (Ports & Adapters)
+### Hexagonal Architecture (Ports & Adapters)
 
 Each service has:
 
