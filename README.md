@@ -52,14 +52,74 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 -  **Outbox Pattern**
 -  **CQRS Pattern**
 
-## 🧩 System Architecture
+##  System Architecture
 
-The following diagram illustrates how the services interact via Kafka, 
-applying SAGA, Outbox, and CQRS patterns within a Hexagonal Architecture design.
+The diagram below shows the complete communication flow between all microservices using Kafka, Outbox Pattern, and SAGA orchestration:
 
 ![Online Medicine Application Architecture](docs/architecture/online-medicine-app-architecture.png)
 
-## 📘 API Documentation (Swagger UI)
+
+### Outbox Pattern Architecture
+
+To ensure exactly-once message delivery and avoid race conditions or distributed transaction issues, every service writes messages to an Outbox table inside the same ACID transaction as the domain update.
+
+A scheduled Outbox Publisher then reads these records and pushes them to Kafka.
+
+The following diagram illustrates the Order → Payment → Pharmacy outbox event flow:
+![Outbox Pattern](docs/architecture/outbox-pattern.png)
+
+
+### SAGA Workflow Overview
+
+The order workflow uses SAGA to manage distributed transactions across:
+
+Order Service
+
+Payment Service
+
+Pharmacy Service
+
+Each service publishes events via the Outbox table.
+SAGA ensures that:
+
+✔ A payment is never processed twice
+✔ A pharmacy approval cannot be duplicated
+✔ Failures trigger compensating actions
+✔ System remains eventually consistent
+
+
+
+### CQRS Usage
+
+Certain operations (like reading order status, pharmacy inventory checks, payment verification) use separate:
+
+Command Model (domain logic + outbox writing)
+
+Query Model (read-optimized, sometimes cached)
+
+### Hexagonal Architecture (Ports & Adapters)
+
+Each service has:
+
+Domain Layer (entities, aggregates, policies)
+
+Application Layer (use cases)
+
+Ports (interfaces)
+
+Adapters (Kafka message publishers, DB repositories)
+
+Configuration Layer
+
+This ensures:
+
+✔ Loose coupling
+✔ Testability
+✔ Replaceable adapters (Kafka → RabbitMQ possible)
+✔ Clean separation of domain and infrastructure
+
+
+##  API Documentation (Swagger UI)
 
 Every microservice in this system exposes OpenAPI 3.0-based Swagger UI documentation.
 
@@ -69,7 +129,7 @@ Below are the Swagger URLs and screenshots for each microservice:
 
 ---
 
-### 🛒 Order Service
+###  Order Service
 📍 **URL:**  
 http://localhost:8181/swagger-ui/index.html
 
@@ -79,7 +139,7 @@ http://localhost:8181/swagger-ui/index.html
 
 ---
 
-### 👤 Customer Service  
+###  Customer Service  
 📍 **URL:**  
 http://localhost:8184/swagger-ui/index.html
 
@@ -99,7 +159,7 @@ http://localhost:8183/swagger-ui/index.html
 
 ---
 
-### 💰 Payment Service  
+###  Payment Service  
 📍 **URL:**  
 http://localhost:8182/swagger-ui/index.html
 
@@ -224,7 +284,7 @@ These tests ensure:
 ✔ SAGA executes exactly once, even under concurrency
 ✔ Duplicate events cannot break system state
 
-## 🧰 Tools Used
+##  Tools Used
 
 JUnit 5
 
