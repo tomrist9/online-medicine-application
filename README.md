@@ -129,7 +129,7 @@ Below are the Swagger URLs and screenshots for each microservice:
 ---
 
 ###  Order Service
-📍 **URL:**  
+ **URL:**  
 http://localhost:8181/swagger-ui/index.html
 
 
@@ -139,7 +139,7 @@ http://localhost:8181/swagger-ui/index.html
 ---
 
 ###  Customer Service  
-📍 **URL:**  
+ **URL:**  
 http://localhost:8184/swagger-ui/index.html
 
 
@@ -148,8 +148,8 @@ http://localhost:8184/swagger-ui/index.html
 
 ---
 
-### 💊 Pharmacy Service  
-📍 **URL:**  
+###  Pharmacy Service  
+ **URL:**  
 http://localhost:8183/swagger-ui/index.html
 
 
