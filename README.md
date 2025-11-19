@@ -159,7 +159,7 @@ http://localhost:8183/swagger-ui/index.html
 ---
 
 ###  Payment Service  
-📍 **URL:**  
+ **URL:**  
 http://localhost:8182/swagger-ui/index.html
 
 **Screenshot:**  
