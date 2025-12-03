@@ -1,0 +1,3 @@
+com\online\medicine\application\pharmacy\service\messaging\publisher\kafka\PharmacyApprovalEventKafkaPublisher.class
+com\online\medicine\application\pharmacy\service\messaging\listener\kafka\PharmacyApprovalRequestKafkaListener.class
+com\online\medicine\application\pharmacy\service\messaging\mapper\PharmacyMessagingDataMapper.class

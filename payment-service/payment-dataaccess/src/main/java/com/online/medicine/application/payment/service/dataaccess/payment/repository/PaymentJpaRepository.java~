@@ -1,0 +1,2 @@
+package com.online.medicine.application.payment.service.dataaccess.payment.repository;public interface PaymentJpaRepository {
+}

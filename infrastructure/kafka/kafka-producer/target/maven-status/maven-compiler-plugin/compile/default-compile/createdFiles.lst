@@ -1,5 +1,0 @@
-com\online\medicine\application\kafka\producer\exception\KafkaProducerException.class
-com\online\medicine\application\kafka\producer\service\KafkaProducer.class
-com\online\medicine\application\kafka\producer\KafkaMessageHelper.class
-com\online\medicine\application\kafka\producer\KafkaProducerConfig.class
-com\online\medicine\application\kafka\producer\service\impl\KafkaProducerImpl.class
