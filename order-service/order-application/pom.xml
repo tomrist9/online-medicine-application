@@ -31,6 +31,12 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.online.medicine.application</groupId>
+            <artifactId>common-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>

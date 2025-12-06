@@ -1,4 +1,4 @@
-package com.online.medicine.application.config;
+//package com.online.medicine.application.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.convert.converter.Converter;
@@ -12,28 +12,28 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import java.util.Collection;
 
-@EnableMethodSecurity
-public abstract class SecurityConfig {
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest().authenticated()
-                )
-                .oauth2ResourceServer(oauth -> oauth
-                        .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
-                );
-
-        return http.build();
-    }
-
-    private Converter<Jwt, ? extends AbstractAuthenticationToken> jwtAuthenticationConverter() {
-        return jwt -> {
-            Collection<GrantedAuthority> authorities = new KeycloakRoleConverter().convert(jwt);
-            return new JwtAuthenticationToken(jwt, authorities);
-        };
-    }
-
-}
+//@EnableMethodSecurity
+//public abstract class SecurityConfig {
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+//        http
+//                .csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests(auth -> auth
+//                        .anyRequest().authenticated()
+//                )
+//                .oauth2ResourceServer(oauth -> oauth
+//                        .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter()))
+//                );
+//
+//        return http.build();
+//    }
+//
+//    private Converter<Jwt, ? extends AbstractAuthenticationToken> jwtAuthenticationConverter() {
+//        return jwt -> {
+//            Collection<GrantedAuthority> authorities = new KeycloakRoleConverter().convert(jwt);
+//            return new JwtAuthenticationToken(jwt, authorities);
+//        };
+//    }
+//
+//}
