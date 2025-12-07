@@ -5,6 +5,7 @@ import com.online.medicine.application.kafka.config.data.KafkaConfigData;
 import com.online.medicine.application.kafka.config.data.KafkaConsumerConfigData;
 import com.online.medicine.application.kafka.config.data.KafkaProducerConfigData;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +14,10 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import javax.annotation.PostConstruct;
 
 
 @EnableConfigurationProperties({
@@ -35,6 +39,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 @EnableJpaRepositories({"com.online.medicine.application.order.service.dataaccess", "com.online.medicine.application.dataaccess"})
 public class OrderServiceApplication {
+    @Autowired
+    Environment env;
     public static void main(String[] args) {
         SpringApplication.run(OrderServiceApplication.class, args);
     }
@@ -50,5 +56,10 @@ public class OrderServiceApplication {
         };
     }
 
+    @PostConstruct
+    public void check() {
+        System.out.println("ISSUER = " +
+                env.getProperty("spring.security.oauth2.resourceserver.jwt.issuer-uri"));
+    }
 
 }

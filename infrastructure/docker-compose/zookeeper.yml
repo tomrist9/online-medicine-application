@@ -18,8 +18,11 @@ services:
       - "./volumes/zookeeper/transactions:/var/lib/zookeeper/log"
     networks:
       - ${GLOBAL_NETWORK:-kafka}
+
+
 networks:
-  online-medicine-application:
+  kafka:
     driver: bridge
+
 
 

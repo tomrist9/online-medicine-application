@@ -7,6 +7,8 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8080/realms/online-medicine
+          jwk-set-uri: http://localhost:8080/realms/online-medicine/protocol/openid-connect/certs
+
 
 
 
@@ -31,12 +33,15 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect
 
 
+
 logging:
   level:
     com.online.medicine.application: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     root: WARN
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.web.client: DEBUG
 
 order-service:
   payment-request-topic-name: payment-request
@@ -50,7 +55,7 @@ order-service:
 kafka-config:
   bootstrap-servers: localhost:19092, localhost:29092, localhost:39092
   schema-registry-url-key: schema.registry.url
-  schema-registry-url: http://schema-registry:8081
+  schema-registry-url: http://localhost:8081
   num-of-partitions: 3
   replication-factor: 3
 
