@@ -1,15 +1,15 @@
-DROP SCHEMA IF EXISTS "orders" CASCADE;
+DROP SCHEMA IF EXISTS "order" CASCADE;
 
-CREATE SCHEMA "orders";
+CREATE SCHEMA "order";
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 DROP TYPE IF EXISTS order_status;
 CREATE TYPE order_status AS ENUM ('PENDING', 'PAID', 'APPROVED', 'CANCELLED', 'CANCELLING');
 
-DROP TABLE IF EXISTS "orders".orders CASCADE;
+DROP TABLE IF EXISTS "order".orders CASCADE;
 
-CREATE TABLE "orders".orders
+CREATE TABLE "order".orders
 (
     id uuid NOT NULL,
     customer_id uuid NOT NULL,
@@ -21,9 +21,9 @@ CREATE TABLE "orders".orders
     CONSTRAINT orders_pkey PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS "orders".order_items CASCADE;
+DROP TABLE IF EXISTS "order".order_items CASCADE;
 
-CREATE TABLE "orders".order_items
+CREATE TABLE "order".order_items
 (
     id bigint NOT NULL,
     order_id uuid NOT NULL,
@@ -34,16 +34,16 @@ CREATE TABLE "orders".order_items
     CONSTRAINT order_items_pkey PRIMARY KEY (id, order_id)
 );
 
-ALTER TABLE "orders".order_items
+ALTER TABLE "order".order_items
     ADD CONSTRAINT "FK_ORDER_ID" FOREIGN KEY (order_id)
-        REFERENCES "orders".orders (id) MATCH SIMPLE
+        REFERENCES "order".orders (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE
-    NOT VALID;
+        NOT VALID;
 
-DROP TABLE IF EXISTS "orders".order_address CASCADE;
+DROP TABLE IF EXISTS "order".order_address CASCADE;
 
-CREATE TABLE "orders".order_address
+CREATE TABLE "order".order_address
 (
     id uuid NOT NULL,
     order_id uuid UNIQUE NOT NULL,
@@ -53,12 +53,12 @@ CREATE TABLE "orders".order_address
     CONSTRAINT order_address_pkey PRIMARY KEY (id, order_id)
 );
 
-ALTER TABLE "orders".order_address
+ALTER TABLE "order".order_address
     ADD CONSTRAINT "FK_ORDER_ID" FOREIGN KEY (order_id)
-        REFERENCES "orders".orders (id) MATCH SIMPLE
+        REFERENCES "order".orders (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE CASCADE
-    NOT VALID;
+        NOT VALID;
 
 DROP TYPE IF EXISTS saga_status;
 CREATE TYPE saga_status AS ENUM ('STARTED', 'FAILED', 'SUCCEEDED', 'PROCESSING', 'COMPENSATING', 'COMPENSATED');
@@ -66,9 +66,9 @@ CREATE TYPE saga_status AS ENUM ('STARTED', 'FAILED', 'SUCCEEDED', 'PROCESSING',
 DROP TYPE IF EXISTS outbox_status;
 CREATE TYPE outbox_status AS ENUM ('STARTED', 'COMPLETED', 'FAILED');
 
-DROP TABLE IF EXISTS "orders".payment_outbox CASCADE;
+DROP TABLE IF EXISTS "order".payment_outbox CASCADE;
 
-CREATE TABLE "orders".payment_outbox
+CREATE TABLE "order".payment_outbox
 (
     id uuid NOT NULL,
     saga_id uuid NOT NULL,
@@ -84,16 +84,16 @@ CREATE TABLE "orders".payment_outbox
 );
 
 CREATE INDEX "payment_outbox_saga_status"
-    ON "orders".payment_outbox
+    ON "order".payment_outbox
         (type, outbox_status, saga_status);
 
-CREATE UNIQUE INDEX "payment_outbox_saga_id"
-   ON "orders".payment_outbox
-   (type, saga_id, saga_status);
+--CREATE UNIQUE INDEX "payment_outbox_saga_id"
+--    ON "order".payment_outbox
+--    (type, saga_id, saga_status);
 
-DROP TABLE IF EXISTS "orders".pharmacy_approval_outbox CASCADE;
+DROP TABLE IF EXISTS "order".pharmacy_approval_outbox CASCADE;
 
-CREATE TABLE "orders".pharmacy_approval_outbox
+CREATE TABLE "order".pharmacy_approval_outbox
 (
     id uuid NOT NULL,
     saga_id uuid NOT NULL,
@@ -108,15 +108,17 @@ CREATE TABLE "orders".pharmacy_approval_outbox
     CONSTRAINT pharmacy_approval_outbox_pkey PRIMARY KEY (id)
 );
 
-CREATE INDEX "pharmacy_approval_outbox_saga_status"
-    ON "orders".pharmacy_approval_outbox
+CREATE INDEX pharmacy_approval_outbox_saga_status
+    ON "order".pharmacy_approval_outbox
         (type, outbox_status, saga_status);
 
+--CREATE UNIQUE INDEX "pharmacy_approval_outbox_saga_id"
+--    ON "order".pharmacy_approval_outbox
+--    (type, saga_id, saga_status);
 
+DROP TABLE IF EXISTS "order".customers CASCADE;
 
-DROP TABLE IF EXISTS "orders".customers CASCADE;
-
-CREATE TABLE "orders".customers
+CREATE TABLE "order".customers
 (
     id uuid NOT NULL,
     username character varying COLLATE pg_catalog."default" NOT NULL,
@@ -124,5 +126,3 @@ CREATE TABLE "orders".customers
     last_name character varying COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT customers_pkey PRIMARY KEY (id)
 );
-
-
