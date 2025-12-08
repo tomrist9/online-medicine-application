@@ -1,9 +1,11 @@
 package com.online.medicine.application.listener.kafka;
 
+
 import com.online.medicine.application.exception.PaymentNotFoundException;
 import com.online.medicine.application.kafka.consumer.KafkaConsumer;
 import com.online.medicine.application.kafka.order.avro.model.PaymentOrderStatus;
 import com.online.medicine.application.kafka.order.avro.model.PaymentRequestAvroModel;
+
 import com.online.medicine.application.mapper.PaymentMessagingDataMapper;
 import com.online.medicine.application.payment.service.domain.exception.PaymentApplicationServiceException;
 import com.online.medicine.application.payment.service.domain.ports.input.message.listener.PaymentRequestMessageListener;
@@ -15,6 +17,7 @@ import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
+
 
 import java.sql.SQLException;
 import java.util.List;
@@ -60,7 +63,6 @@ public class PaymentRequestKafkaListener implements KafkaConsumer<PaymentRequest
                 SQLException sqlException = (SQLException) e.getRootCause();
                 if (sqlException != null && sqlException.getSQLState() != null &&
                         PSQLState.UNIQUE_VIOLATION.getState().equals(sqlException.getSQLState())) {
-
                     log.error("Caught unique constraint exception with sql state: {} " +
                                     "in PaymentRequestKafkaListener for order id: {}",
                             sqlException.getSQLState(), paymentRequestAvroModel.getOrderId());
@@ -69,7 +71,6 @@ public class PaymentRequestKafkaListener implements KafkaConsumer<PaymentRequest
                             " PaymentRequestKafkaListener: " + e.getMessage(), e);
                 }
             } catch (PaymentNotFoundException e) {
-
                 log.error("No payment found for order id: {}", paymentRequestAvroModel.getOrderId());
             }
         });

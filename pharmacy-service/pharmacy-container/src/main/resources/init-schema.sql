@@ -51,18 +51,18 @@ CREATE TABLE pharmacy.pharmacy_medicines
 );
 
 ALTER TABLE pharmacy.pharmacy_medicines
-    ADD CONSTRAINT FK_PHARMACY_ID FOREIGN KEY (pharmacy_id)
+    ADD CONSTRAINT "FK_PHARMACY_ID" FOREIGN KEY (pharmacy_id)
         REFERENCES pharmacy.pharmacies (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE RESTRICT
-    NOT VALID;
+        NOT VALID;
 
 ALTER TABLE pharmacy.pharmacy_medicines
-    ADD CONSTRAINT "FK_MEDICINE_ID" FOREIGN KEY (medicine_id)
+    ADD CONSTRAINT FK_MEDICINE_ID FOREIGN KEY (medicine_id)
         REFERENCES pharmacy.medicines (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE RESTRICT
-    NOT VALID;
+        NOT VALID;
 
 DROP TYPE IF EXISTS outbox_status;
 CREATE TYPE outbox_status AS ENUM ('STARTED', 'COMPLETED', 'FAILED');
@@ -83,21 +83,21 @@ CREATE TABLE pharmacy.order_outbox
     CONSTRAINT order_outbox_pkey PRIMARY KEY (id)
 );
 
-CREATE INDEX pharmacy_order_outbox_saga_status
-    ON "pharmacy".order_outbox
+CREATE INDEX "pharmacy_order_outbox_saga_status"
+    ON pharmacy.order_outbox
         (type, approval_status);
 
 CREATE UNIQUE INDEX pharmacy_order_outbox_saga_id
-    ON "pharmacy".order_outbox
+    ON pharmacy.order_outbox
         (type, saga_id, approval_status, outbox_status);
 
 DROP MATERIALIZED VIEW IF EXISTS pharmacy.order_pharmacy_m_view;
 
 CREATE MATERIALIZED VIEW pharmacy.order_pharmacy_m_view
-TABLESPACE pg_default
+    TABLESPACE pg_default
 AS
 SELECT p.id AS pharmacy_id,
-       m.name AS pharmacy_name,
+       p.name AS pharmacy_name,
        p.active AS pharmacy_active,
        m.id AS medicine_id,
        m.name AS medicine_name,
@@ -107,24 +107,24 @@ FROM pharmacy.pharmacies p,
      pharmacy.medicines m,
      pharmacy.pharmacy_medicines pm
 WHERE p.id = pm.pharmacy_id AND m.id = pm.medicine_id
-    WITH DATA;
+WITH DATA;
 
 refresh materialized VIEW pharmacy.order_pharmacy_m_view;
 
 DROP function IF EXISTS pharmacy.refresh_order_pharmacy_m_view;
 
 CREATE OR replace function pharmacy.refresh_order_pharmacy_m_view()
-returns trigger
+    returns trigger
 AS '
-BEGIN
-    refresh materialized VIEW pharmacy.order_pharmacy_m_view;
-    return null;
-END;
+    BEGIN
+        refresh materialized VIEW pharmacy.order_pharmacy_m_view;
+        return null;
+    END;
 '  LANGUAGE plpgsql;
 
 DROP trigger IF EXISTS refresh_order_pharmacy_m_view ON pharmacy.pharmacy_medicines;
 
 CREATE trigger refresh_order_pharmacy_m_view
     after INSERT OR UPDATE OR DELETE OR truncate
-                    ON pharmacy.pharmacy_medicines FOR each statement
-                        EXECUTE PROCEDURE pharmacy.refresh_order_pharmacy_m_view();
+    ON pharmacy.pharmacy_medicines FOR each statement
+EXECUTE PROCEDURE pharmacy.refresh_order_pharmacy_m_view();

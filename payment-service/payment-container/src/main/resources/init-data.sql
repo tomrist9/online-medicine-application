@@ -1,5 +1,5 @@
 INSERT INTO payment.credit_entry(id, customer_id, total_credit_amount)
-VALUES ('d215b5f8-0249-4dc5-89a3-51fd148cfb21', 'd215b5f8-0249-4dc5-89a3-51fd148cfb41', 500.00);
+VALUES ('d215b5f8-0249-4dc5-89a3-51fd148cfb21', '3d9b4f26-2c7d-4a83-b8c9-3b2a1e4c99f4', 500.00);
 INSERT INTO payment.credit_history(id, customer_id, amount, type)
 VALUES ('d215b5f8-0249-4dc5-89a3-51fd148cfb23', 'd215b5f8-0249-4dc5-89a3-51fd148cfb41', 100.00, 'CREDIT');
 INSERT INTO payment.credit_history(id, customer_id, amount, type)

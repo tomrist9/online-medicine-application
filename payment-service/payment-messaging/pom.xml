@@ -42,6 +42,7 @@
             <groupId>com.online.medicine.application</groupId>
             <artifactId>kafka-producer</artifactId>
         </dependency>
+
     </dependencies>
 
 
