@@ -68,6 +68,24 @@ This GIF demonstrates how Kafka topics are used between microservices:
 
 ![Kafka Topics GIF](docs/gifs/kafka.gif)
 
+## 🎬 Order Creation → Outbox → SAGA Workflow (Step-by-Step GIF)
+
+This GIF demonstrates the full lifecycle of creating an order:
+
+1. A client sends a POST request to the Order Service  
+2. Order is validated and persisted  
+3. A new Outbox record is written in the same transaction  
+4. The Outbox Publisher converts the record into a Kafka event  
+5. The Payment Service receives the event and continues the SAGA workflow  
+6. Database tables update in real time as events flow between services
+
+This animation shows both:
+✔ API interaction  
+✔ Outbox table changes  
+✔ Real-time SAGA progression  
+
+![Order SAGA GIF](docs/gifs/order-saga.gif)
+
 
 ### Outbox Pattern Architecture
 
