@@ -57,6 +57,17 @@ The diagram below shows the complete communication flow between all microservice
 
 ![Online Medicine Application Architecture](docs/architecture/online-medicine-app-architecture.png)
 
+## 🔄 Kafka Topics Overview (Event-Driven Communication)
+
+This GIF demonstrates how Kafka topics are used between microservices:
+
+- payment-request → Order → Payment  
+- payment-response → Payment → Order  
+- pharmacy-approval-request → Order → Pharmacy  
+- pharmacy-approval-response → Pharmacy → Order  
+
+![Kafka Topics GIF](docs/gifs/kafka-topics.gif)
+
 
 ### Outbox Pattern Architecture
 
