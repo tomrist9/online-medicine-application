@@ -66,7 +66,7 @@ This GIF demonstrates how Kafka topics are used between microservices:
 - pharmacy-approval-request → Order → Pharmacy  
 - pharmacy-approval-response → Pharmacy → Order  
 
-![Kafka Topics GIF](docs/gifs/kafka-topics.gif)
+![Kafka Topics GIF](docs/gifs/kafka.gif)
 
 
 ### Outbox Pattern Architecture
