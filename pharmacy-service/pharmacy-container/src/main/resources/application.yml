@@ -8,8 +8,8 @@ logging:
 pharmacy-service:
   pharmacy-approval-request-topic-name: pharmacy-approval-request
   pharmacy-approval-response-topic-name: pharmacy-approval-response
---   outbox-scheduler-fixed-rate: 10000
---   outbox-scheduler-initial-delay: 10000
+  outbox-scheduler-fixed-rate: 10000
+  outbox-scheduler-initial-delay: 10000
 
 spring:
   jpa:

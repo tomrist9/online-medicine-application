@@ -75,7 +75,7 @@ kafka-consumer-config:
   value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
   payment-consumer-group-id: payment-topic-consumer
   pharmacy-approval-consumer-group-id: pharmacy-approval-topic-consumer
-  customer-consumer-group-id: customer-topic-consumer
+  customer-group-id: customer-topic-consumer
   auto-offset-reset: earliest
   specific-avro-reader-key: specific.avro.reader
   specific-avro-reader: true

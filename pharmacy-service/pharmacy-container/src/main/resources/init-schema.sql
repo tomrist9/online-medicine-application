@@ -83,7 +83,7 @@ CREATE TABLE pharmacy.order_outbox
     CONSTRAINT order_outbox_pkey PRIMARY KEY (id)
 );
 
-CREATE INDEX "pharmacy_order_outbox_saga_status"
+CREATE INDEX pharmacy_order_outbox_saga_status
     ON pharmacy.order_outbox
         (type, approval_status);
 

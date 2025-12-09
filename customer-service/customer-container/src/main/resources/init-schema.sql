@@ -44,3 +44,16 @@ CREATE trigger refresh_order_customer_m_view
     after INSERT OR UPDATE OR DELETE OR truncate
     ON customer.customers FOR each statement
 EXECUTE PROCEDURE customer.refresh_order_customer_m_view();
+
+INSERT INTO customer.customers (
+    id,
+    username,
+    first_name,
+    last_name
+) VALUES (
+             'd215b5f8-0249-4dc5-89a3-51fd148cfb41',
+             'tomrist9',
+
+             'Tomris',
+             'Teymurlu'
+         );
