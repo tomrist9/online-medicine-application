@@ -42,7 +42,7 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 - **Docker & Docker Compose**
 - **Kubernetes (Local & GKE-ready)**
 
-## ⚙️ Architecture Patterns
+##  Architecture Patterns
 
 -  **Clean Architecture**
 -  **Hexagonal Architecture (Ports & Adapters)**
