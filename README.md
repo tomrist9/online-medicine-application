@@ -11,7 +11,7 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 
 ##  Features
 
--  Microservices-based backend (Order, Pharmacy, Customer, Payment)
+- ✅ Microservices-based backend (Order, Pharmacy, Customer, Payment)
 - ✅ Event-driven communication using **Apache Kafka**
 - ✅ Domain-driven business logic using **DDD principles**
 - ✅ **Clean Architecture** and **Hexagonal Architecture** structure
