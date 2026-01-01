@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
     paths:
       - "order-service/**"
+      - "common-*/**"
       - ".github/workflows/order-service-ci-cd.yml"
 
 permissions:
@@ -16,18 +17,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Java 17
-        uses: actions/setup-java@v4
+      - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
-      - name: Build Order Service modules
-        run: mvn -f order-service/pom.xml clean install -DskipTests
+      - name: Build common modules
+        run: mvn -pl common-domain,common-dataaccess,common-security -am clean install -DskipTests
 
+      - name: Build order-service modules
+        run: mvn -f order-service/pom.xml clean install -DskipTests
 
       - name: Build & Push Order Service Image with Jib
         run: mvn -f order-service/order-container/pom.xml com.google.cloud.tools:jib-maven-plugin:3.4.1:build
