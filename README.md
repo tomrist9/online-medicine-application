@@ -42,7 +42,7 @@ A **microservices-based backend system** for an online pharmacy, built with Java
 - **Docker & Docker Compose**
 - **Kubernetes (Local & GKE-ready)**
 
-## ⚙️ Architecture Patterns
+##  Architecture Patterns
 
 -  **Clean Architecture**
 -  **Hexagonal Architecture (Ports & Adapters)**
@@ -212,14 +212,14 @@ online-medicine-application/
 
 ## 🧪 How to Run
 
-### 1️⃣ Clone the Repository
+###  Clone the Repository
 
 ```bash
 git clone https://github.com/tomrist9/online-medicine-application.git
 cd online-medicine-application
 ```
 
-### 2️⃣ Run with Docker Compose
+###  Run with Docker Compose
 ```bash
 docker-compose up -d
 
@@ -227,7 +227,7 @@ docker-compose up -d
 This will start all core microservices (Order, Customer, Pharmacy, Payment) along with Kafka and PostgreSQL containers.
 
 
-### 3️⃣ Run Microservices Individually
+###  Run Microservices Individually
 
 Each microservice can also be run independently from its module using your IDE or via Maven:
 
@@ -235,7 +235,7 @@ Each microservice can also be run independently from its module using your IDE o
 mvn spring-boot:run -pl order-service
 
 ```
-### 4️⃣ Test Kafka Events
+### Test Kafka Events
 
 Once all containers are up, you can open the Kafka UI at:
 ```bash
@@ -244,7 +244,7 @@ Once all containers are up, you can open the Kafka UI at:
 
 ---
 ```
-# 🧪 Testing
+#  Testing
 
 This project includes extensive unit, integration, and concurrency tests to ensure reliability across all microservices. The test suite validates domain logic, SAGA workflow correctness, outbox consistency, idempotency, and concurrency behavior in distributed systems.
 
