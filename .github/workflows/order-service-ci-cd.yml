@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "order-container/**"
+      - "order-service/**"
       - ".github/workflows/order-service-ci-cd.yml"
 
 permissions:
@@ -26,6 +26,6 @@ jobs:
           java-version: "17"
 
       - name: Build & Push Order Service Image with Jib
-        run: mvn -f order-container/pom.xml jib:build
+        run: mvn -f order-service/order-container/pom.xml jib:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
