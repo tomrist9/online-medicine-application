@@ -26,7 +26,6 @@ jobs:
           java-version: "17"
 
       - name: Build & Push Order Service Image with Jib
-        run: mvn -f order-service/pom.xml -pl order-container -am jib:build
+        run: mvn -f order-service/order-container/pom.xml jib:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
