@@ -9,7 +9,7 @@ on:
 
 permissions:
   contents: read
-  packages: write   # GHCR üçün vacibdir
+  packages: write
 
 jobs:
   build-and-push:
@@ -26,6 +26,7 @@ jobs:
           java-version: "17"
 
       - name: Build & Push Order Service Image with Jib
-        run: mvn -pl order-service/order-container -am jib:build
+        run: mvn -f order-service/pom.xml -pl order-container -am jib:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
