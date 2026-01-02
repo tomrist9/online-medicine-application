@@ -28,8 +28,8 @@ jobs:
       - name: Install parent pom only
         run: mvn -f pom.xml install -N
 
-      - name: Build saga & outbox
-        run: mvn -pl saga,outbox -am clean install -DskipTests
+      - name: Build infrastructure modules (saga + outbox)
+        run: mvn -f infrastructure/pom.xml clean install -DskipTests
 
       - name: Build common modules
         run: mvn -f common/pom.xml clean install -DskipTests
