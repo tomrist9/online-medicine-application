@@ -25,13 +25,13 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Build order-service with deps
-        run: mvn -pl order-service -am package -DskipTests
+      - name: Install order-service dependencies
+        run: mvn -pl order-service -am install -DskipTests
 
       - name: Build & Push Order Service Image
         run: |
           mvn -pl order-service/order-container \
             com.google.cloud.tools:jib-maven-plugin:3.4.1:build \
-            -Dimage=ghcr.io/YOUR_GITHUB_USERNAME/order-service:1.0-SNAPSHOT
+            -Dimage=ghcr.io/tomrist9/order-service:1.0-SNAPSHOT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
