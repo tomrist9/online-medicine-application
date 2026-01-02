@@ -2,36 +2,23 @@ name: Order Service CI/CD
 
 on:
   push:
-    branches: [ "main" ]
-    paths:
-      - "order-service/**"
-      - "common/**"
-      - "infrastructure/**"
-      - ".github/workflows/order-service-ci-cd.yml"
-
-permissions:
-  contents: read
-  packages: write
+    branches:
+      - main
 
 jobs:
-  build-and-push:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-java@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          distribution: temurin
-          java-version: "17"
+          java-version: '17'
+          distribution: 'temurin'
 
-      - name: Install order-service dependencies
-        run: mvn -pl order-service -am install -DskipTests
-
-      - name: Build & Push Order Service Image
-        run: |
-          mvn -pl order-service/order-container \
-            com.google.cloud.tools:jib-maven-plugin:3.4.1:build \
-            -Dimage=ghcr.io/tomrist9/order-service:1.0-SNAPSHOT
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Order Service with Maven
+        working-directory: .
+        run: mvn -pl order-service -am clean install -DskipTests
