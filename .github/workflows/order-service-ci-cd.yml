@@ -25,7 +25,7 @@ jobs:
           java-version: "17"
 
       - name: Build common modules
-        run: mvn -pl common-domain,common-dataaccess,common-security -am clean install -DskipTests
+        run: mvn -f common/pom.xml clean install -DskipTests
 
       - name: Build order-service modules
         run: mvn -f order-service/pom.xml clean install -DskipTests
@@ -34,3 +34,4 @@ jobs:
         run: mvn -f order-service/order-container/pom.xml com.google.cloud.tools:jib-maven-plugin:3.4.1:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
