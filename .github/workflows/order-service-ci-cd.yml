@@ -24,14 +24,18 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Build common modules
-        run: mvn -f common/pom.xml clean install -DskipTests
 
-      - name: Build order-service modules
+      - name: Install parent pom
+        run: mvn -f pom.xml clean install -DskipTests
+
+
+      - name: Build order-service
         run: mvn -f order-service/pom.xml clean install -DskipTests
 
-      - name: Build & Push Order Service Image with Jib
+
+      - name: Build & Push Order Service Image
         run: mvn -f order-service/order-container/pom.xml com.google.cloud.tools:jib-maven-plugin:3.4.1:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
