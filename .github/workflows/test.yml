@@ -1,7 +1,0 @@
-name: Test Project
-on:
- push:
-  branches:
-   - 'main'
-   
-   
