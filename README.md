@@ -146,7 +146,6 @@ This ensures:
 ✔ Replaceable adapters (Kafka → RabbitMQ possible)
 ✔ Clean separation of domain and infrastructure
 
-
 ##  API Documentation (Swagger UI)
 
 Every microservice in this system exposes OpenAPI 3.0-based Swagger UI documentation.
