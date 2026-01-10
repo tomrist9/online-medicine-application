@@ -68,7 +68,7 @@ This GIF demonstrates how Kafka topics are used between microservices:
 
 ![Kafka Topics GIF](docs/gifs/kafka.gif)
 
-## 🎬 Order Creation → Outbox → SAGA Workflow (Step-by-Step GIF)
+##  Order Creation → Outbox → SAGA Workflow (Step-by-Step GIF)
 
 This GIF demonstrates the full lifecycle of creating an order:
 
