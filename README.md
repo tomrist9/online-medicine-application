@@ -200,6 +200,8 @@ http://localhost:8182/swagger-ui/index.html
 ```bash
 online-medicine-application/
 ├── customer-service/
+├── infrastructure
+├── docs
 ├── pharmacy-service/
 ├── order-service/
 ├── payment-service/
