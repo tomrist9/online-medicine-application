@@ -329,7 +329,9 @@ Concurrency utilities (ThreadPool, Executors, CountDownLatch)
 
 SQL setup / cleanup scripts
 
-```
+--- 
+
+
 ### Links to check:
 https://github.com/tomrist9/online-medicine-application-infra
 
