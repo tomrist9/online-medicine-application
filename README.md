@@ -329,6 +329,10 @@ Concurrency utilities (ThreadPool, Executors, CountDownLatch)
 
 SQL setup / cleanup scripts
 
+```
+### Links to check:
+https://github.com/tomrist9/online-medicine-application-infra
+
 ## 📈 Summary
 
 This application includes production-grade tests that simulate real distributed system behavior, ensuring:
