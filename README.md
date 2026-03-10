@@ -7,7 +7,8 @@
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 
 
-A **microservices-based backend system** for an online pharmacy, built with Java and Spring Boot following **Clean Architecture**, **Hexagonal Architecture**,  and **Domain-Driven Design (DDD)** principles. 
+A **distributed microservices backend** for an online pharmacy, built with Java and Spring Boot following **Clean Architecture**, **Hexagonal Architecture**,  and **Domain-Driven Design (DDD)** principles. 
+The system demonstrates event-driven architecture using Kafka, SAGA-based distributed transactions, and Outbox pattern messaging reliability implemented with Java 17 and Spring Boot.
 
 ##  Features
 
