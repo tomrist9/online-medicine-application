@@ -1,5 +1,4 @@
 #  Online Medicine Application
-
 ![Tests](https://img.shields.io/badge/tests-100%25-brightgreen)
 ![JUnit](https://img.shields.io/badge/JUnit5-tested-blue)
 ![Integration Tests](https://img.shields.io/badge/integration%20tests-passing-success)
