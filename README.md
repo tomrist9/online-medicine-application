@@ -80,6 +80,7 @@ This GIF demonstrates the full lifecycle of creating an order:
 6. Database tables update in real time as events flow between services
 
 This animation shows both:
+
 ✔ API interaction  
 ✔ Outbox table changes  
 ✔ Real-time SAGA progression  
