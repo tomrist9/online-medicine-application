@@ -33,7 +33,7 @@ The system demonstrates event-driven architecture using Kafka, SAGA-based distri
 
 ##  Tech Stack
 
-- **Java 17/21**
+- **Java 21**
 - **Spring Boot 3**
 - **Spring Data JPA**
 - **Spring Kafka**
