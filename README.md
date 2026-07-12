@@ -97,7 +97,6 @@ A scheduled Outbox Publisher then reads these records and pushes them to Kafka.
 The following diagram illustrates the Order → Payment → Pharmacy outbox event flow:
 ![Outbox Pattern](docs/architecture/outbox_pattern.png)
 
-
 ### SAGA Workflow Overview
 
 The order workflow uses SAGA to manage distributed transactions across:
